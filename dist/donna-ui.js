@@ -1176,8 +1176,33 @@ var Modal = function (_Component) {
   return Modal;
 }(React.Component);
 
-var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px; }\n\nh1.Header {\n  font-size: 30px; }\n\nh2.Header {\n  font-size: 24px; }\n\nh3.Header {\n  font-size: 18px; }\n";
+var css$6 = ".Avatar {\n  width: 40px;\n  height: 40px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 100px;\n    border: 1px solid red;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
 styleInject(css$6);
+
+var Avatar = function (_Component) {
+  inherits(Avatar, _Component);
+
+  function Avatar() {
+    classCallCheck(this, Avatar);
+    return possibleConstructorReturn(this, (Avatar.__proto__ || Object.getPrototypeOf(Avatar)).apply(this, arguments));
+  }
+
+  createClass(Avatar, [{
+    key: "render",
+    value: function render() {
+      var url = this.props.url;
+      return React__default.createElement(
+        "div",
+        { className: "Avatar" },
+        React__default.createElement("div", { style: { backgroundImage: "url(" + url + ")" }, className: "Avatar__image" })
+      );
+    }
+  }]);
+  return Avatar;
+}(React.Component);
+
+var css$7 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px; }\n\nh1.Header {\n  font-size: 30px; }\n\nh2.Header {\n  font-size: 24px; }\n\nh3.Header {\n  font-size: 18px; }\n";
+styleInject(css$7);
 
 var Header = function (_Component) {
   inherits(Header, _Component);
@@ -1220,8 +1245,8 @@ Header.defaultProps = {
   level: 1
 };
 
-var css$7 = "html {\n  font-size: 14px;\n  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }\n";
-styleInject(css$7);
+var css$8 = "html {\n  font-size: 14px;\n  font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\",\r \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n";
+styleInject(css$8);
 
 var index = {
   Button: Button,
@@ -1229,7 +1254,8 @@ var index = {
   ButtonGroup: ButtonGroup,
   Icon: Icon,
   Header: Header,
-  Modal: Modal
+  Modal: Modal,
+  Avatar: Avatar
 };
 
 return index;

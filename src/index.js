@@ -3,6 +3,7 @@ import Text from "./components/Text/Text.jsx";
 import ButtonGroup from "./components/button-group/ButtonGroup.jsx";
 import Icon from "./components/icon/Icon.jsx";
 import Modal from "./components/modal/Modal.jsx";
+import Avatar from "./components/avatar/Avatar.jsx";
 
 import Header from "./components/typography/header/Header.jsx";
 
@@ -14,5 +15,6 @@ export default {
   ButtonGroup,
   Icon,
   Header,
-  Modal
+  Modal,
+  Avatar
 };
