@@ -1,30 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { storiesOf } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 
-import { Button, Icon, Text } from '../dist/donna-ui';
-// import '../dist/promo-ui.css';
+import { Button } from "../dist/donna-ui";
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
+const buttons = ['pink', 'white', 'transparent', 'blue', 'link'];
+
+storiesOf("Button", module)
+  .add("default", () => (
+    <section className="dark">
+      {buttons.map((b) => <Button onClick={action('clicked')} type={b}>Button</Button>)}
+    </section>
   ))
-  .add('with icon', () => (
-    <Button onClick={action('clicked')}>
-      <Icon/>
-      <Text>Hello</Text>
-    </Button>
+  .add("disabled", () => (
+    <section className="dark">
+      {buttons.map((b) => <Button disabled type={b}>Button</Button>)}
+    </section>
   ))
-  .add('with icon white', () => (
-    <Button type='white' onClick={action('clicked')}>
-      <Icon/>
-      <Text>Hello</Text>
-    </Button>
-  ));
-

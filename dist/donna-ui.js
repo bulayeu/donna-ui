@@ -924,7 +924,7 @@ var Text = function (_Component) {
     key: "render",
     value: function render() {
       return React__default.createElement(
-        "span",
+        "p",
         { className: "Text " + this.props.level + " " + this.props.type },
         this.props.children
       );

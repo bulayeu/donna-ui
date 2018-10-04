@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { storiesOf } from "@storybook/react";
 
-import { Welcome } from '@storybook/react/demo';
+import './util.scss';
 
-storiesOf('Global')
+const colors = ['white', 'gray', 'blue', 'dark-blue', 'pink'];
 
-storiesOf('Introduction', module)
-  .add('to Storybook', () => (<Welcome showApp={linkTo('Button')} />));
+storiesOf("Introduction", module)
+  .add("default", () => <section>Description</section>)
+  .add("colors", () => (<section>
+    {colors.map((c) => {
+      return <div key={c} className={`Color brand-${c}`} />
+    })}
+  </section>));

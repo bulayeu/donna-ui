@@ -1,0 +1,38 @@
+@import "../src/components/vars.scss";
+
+.Color {
+    border-radius : $BASE;
+  margin: 5px;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0px 0px 2px 0px $BRAND_COLOR_DARK_BLUE;
+  float: left;
+  position: relative;
+
+  &.brand-white {
+    background-color: $BRAND_COLOR_WHITE;    
+  }
+
+  &.brand-blue {
+    background-color: $BRAND_COLOR_BLUE;
+  }
+
+  &.brand-pink {
+    background-color: $BRAND_COLOR_PINK;
+  }
+
+  &.brand-dark-blue {
+    background-color: $BRAND_COLOR_DARK_BLUE;
+  }
+
+  &.brand-gray {
+    background-color: $BRAND_COLOR_GRAY;
+  }
+}
+
+section {
+    padding: $BASE*4;
+    &.dark {
+        background-color: $BRAND_COLOR_DARK_BLUE;
+    }
+}
