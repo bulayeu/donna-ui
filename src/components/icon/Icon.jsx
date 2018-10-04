@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./icon.scss";
 
+import PropTypes from "prop-types";
+
 import facebook from "../../assets/social/facebook.png";
 import twitter from "../../assets/social/twitter.png";
 import instagram from "../../assets/social/instagram.png";
@@ -18,9 +20,24 @@ const icons = {
 export default class Icon extends Component {
   render() {
     return (
-      <span className="Icon">
+      <span className={`Icon icon-${this.props.icon}`}>
         <img src={icons[this.props.icon]} />
       </span>
     );
   }
 }
+
+Icon.defaultProps = {
+  icon: "default"
+};
+
+Icon.propTypes = {
+  icon: PropTypes.oneOf([
+    "facebook",
+    "twitter",
+    "instagram",
+    "youtube",
+    "linkedin",
+    "default"
+  ])
+};

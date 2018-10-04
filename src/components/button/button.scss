@@ -1,13 +1,5 @@
 @import "../vars.scss";
 
-$light: #fff;
-$blue: #32bafa;
-$darkblue: #232f3a;
-$gray: #b9c0c4;
-$pink: #ed486f;
-
-$base: 8px;
-
 .Button {
   box-sizing: border-box;
   display: inline-block;
@@ -18,46 +10,45 @@ $base: 8px;
   border-style: solid;
   font-size: 14px;
   cursor: pointer;
-  margin: $base;
+  margin: $BASE;
   width: auto;
-  transition: all 0.2s;
   &.type-white {
-    color: $darkblue;
+    color: $BRAND_COLOR_DARK_BLUE;
     border-color: $BRAND_COLOR_WHITE;
     background-color: $BRAND_COLOR_WHITE;
   }
   &.type-blue {
-    color: $light;
-    border-color: $blue;
-    background-color: $blue;
+    color: $BRAND_COLOR_WHITE;
+    border-color: $BRAND_COLOR_BLUE;
+    background-color: $BRAND_COLOR_BLUE;
   }
   &.type-transparent {
-    color: $light;
-    border-color: $light;
+    color: $BRAND_COLOR_WHITE;
+    border-color: $BRAND_COLOR_WHITE;
     background-color: transparent;
   }
   &.type-link {
-    color: $gray;
+    color: $BRAND_COLOR_GRAY;
     border-color: transparent;
     background-color: transparent;
   }
   &.type-pink {
-    color: $light;
-    border-color: $pink;
-    background-color: $pink;
+    color: $BRAND_COLOR_WHITE;
+    border-color: $BRAND_COLOR_PINK;
+    background-color: $BRAND_COLOR_PINK;
   }
   &.size-md {
-    height: $base * 5;
-    padding-left: $base * 3;
-    padding-right: $base * 3;
-    line-height: 14px;
-    font-size: 14px;
-    padding-top: ($base * 5-16px)/2;
-    padding-bottom: ($base * 5-16px)/2;
+    padding-left: $BASE * 3;
+    padding-right: $BASE * 3;
+    padding-top: ($BASE * 5-16px)/2;
+    padding-bottom: ($BASE * 5-16px)/2;
   }
   &[disabled] {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
+  }
+  &[href] {
+    text-decoration: none;
   }
 }

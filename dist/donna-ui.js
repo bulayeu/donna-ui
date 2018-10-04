@@ -112,7 +112,7 @@ var ReactPropTypesSecret_1 = ReactPropTypesSecret;
 
 var printWarning = function() {};
 
-{
+if (process.env.NODE_ENV !== 'production') {
   var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
   var loggedTypeFailures = {};
 
@@ -142,7 +142,7 @@ var printWarning = function() {};
  * @private
  */
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  {
+  if (process.env.NODE_ENV !== 'production') {
     for (var typeSpecName in typeSpecs) {
       if (typeSpecs.hasOwnProperty(typeSpecName)) {
         var error;
@@ -195,7 +195,7 @@ var checkPropTypes_1 = checkPropTypes;
 
 var printWarning$1 = function() {};
 
-{
+if (process.env.NODE_ENV !== 'production') {
   printWarning$1 = function(text) {
     var message = 'Warning: ' + text;
     if (typeof console !== 'undefined') {
@@ -345,7 +345,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
   PropTypeError.prototype = Error.prototype;
 
   function createChainableTypeChecker(validate) {
-    {
+    if (process.env.NODE_ENV !== 'production') {
       var manualPropTypeCallCache = {};
       var manualPropTypeWarningCount = 0;
     }
@@ -363,7 +363,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
           );
           err.name = 'Invariant Violation';
           throw err;
-        } else if ("development" !== 'production' && typeof console !== 'undefined') {
+        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
           // Old behavior for people using React.PropTypes
           var cacheKey = componentName + ':' + propName;
           if (
@@ -470,7 +470,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
 
   function createEnumTypeChecker(expectedValues) {
     if (!Array.isArray(expectedValues)) {
-      printWarning$1('Invalid argument supplied to oneOf, expected an instance of array.');
+      process.env.NODE_ENV !== 'production' ? printWarning$1('Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
       return emptyFunctionThatReturnsNull;
     }
 
@@ -513,7 +513,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
 
   function createUnionTypeChecker(arrayOfTypeCheckers) {
     if (!Array.isArray(arrayOfTypeCheckers)) {
-      printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.');
+      process.env.NODE_ENV !== 'production' ? printWarning$1('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
       return emptyFunctionThatReturnsNull;
     }
 
@@ -735,6 +735,53 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
+function emptyFunction() {}
+
+var factoryWithThrowingShims = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret_1) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  }  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  }  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim
+  };
+
+  ReactPropTypes.checkPropTypes = emptyFunction;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
 var propTypes = createCommonjsModule(function (module) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -743,7 +790,7 @@ var propTypes = createCommonjsModule(function (module) {
  * LICENSE file in the root directory of this source tree.
  */
 
-{
+if (process.env.NODE_ENV !== 'production') {
   var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
     Symbol.for &&
     Symbol.for('react.element')) ||
@@ -759,6 +806,10 @@ var propTypes = createCommonjsModule(function (module) {
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
   module.exports = factoryWithTypeCheckers(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = factoryWithThrowingShims();
 }
 });
 
@@ -789,7 +840,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 8px;\n  width: auto;\n  transition: all 0.2s; }\n  .Button.type-white {\n    color: #232f3a;\n    border-color: #fff;\n    background-color: #fff; }\n  .Button.type-blue {\n    color: #fff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.type-transparent {\n    color: #fff;\n    border-color: #fff;\n    background-color: transparent; }\n  .Button.type-link {\n    color: #b9c0c4;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.type-pink {\n    color: #fff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.size-md {\n    height: 40px;\n    padding-left: 24px;\n    padding-right: 24px;\n    line-height: 14px;\n    font-size: 14px;\n    padding-top: 12px;\n    padding-bottom: 12px; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n";
+var css = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto; }\n  .Button.type-white {\n    color: #232f3a;\n    border-color: #fff;\n    background-color: #fff; }\n  .Button.type-blue {\n    color: #fff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.type-transparent {\n    color: #fff;\n    border-color: #fff;\n    background-color: transparent; }\n  .Button.type-link {\n    color: #b9c0c4;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.type-pink {\n    color: #fff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.size-md {\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-top: 4.5px;\n    padding-bottom: 4.5px; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href] {\n    text-decoration: none; }\n";
 styleInject(css);
 
 var classCallCheck = function (instance, Constructor) {
@@ -854,8 +905,8 @@ var Button = function (_Component) {
       return "Button type-" + this.props.type + " size-" + this.props.size;
     }
   }, {
-    key: "renderReference",
-    value: function renderReference() {
+    key: "asReference",
+    value: function asReference() {
       return React__default.createElement(
         "a",
         {
@@ -863,12 +914,16 @@ var Button = function (_Component) {
           disabled: this.props.disabled,
           className: this.calculcateClasses()
         },
-        this.props.children
+        React__default.createElement(
+          "span",
+          { className: "Label" },
+          this.props.children
+        )
       );
     }
   }, {
-    key: "renderButton",
-    value: function renderButton() {
+    key: "asButton",
+    value: function asButton() {
       return React__default.createElement(
         "button",
         {
@@ -882,7 +937,7 @@ var Button = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return this.props.href ? this.renderReference() : this.renderButton();
+      return this.props.href ? this.asReference() : this.asButton();
     }
   }]);
   return Button;
@@ -991,7 +1046,7 @@ var Icon = function (_Component) {
     value: function render() {
       return React__default.createElement(
         "span",
-        { className: "Icon" },
+        { className: "Icon icon-" + this.props.icon },
         React__default.createElement("img", { src: icons[this.props.icon] })
       );
     }
@@ -999,14 +1054,182 @@ var Icon = function (_Component) {
   return Icon;
 }(React.Component);
 
-var css$4 = "html {\n  font-size: 14px; }\n";
+
+Icon.defaultProps = {
+  icon: "default"
+};
+
+Icon.propTypes = {
+  icon: propTypes.oneOf(["facebook", "twitter", "instagram", "youtube", "linkedin", "default"])
+};
+
+var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    max-width: 300px;\n    position: relative;\n    padding: 40px;\n    border-radius: 10px;\n    background-color: #fff; }\n    .Modal > .Modal__window > .Button {\n      position: absolute;\n      right: 10px;\n      top: 10px; }\n";
 styleInject(css$4);
 
+var css$5 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto; }\n  .Button.type-white {\n    color: #232f3a;\n    border-color: #fff;\n    background-color: #fff; }\n  .Button.type-blue {\n    color: #fff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.type-transparent {\n    color: #fff;\n    border-color: #fff;\n    background-color: transparent; }\n  .Button.type-link {\n    color: #b9c0c4;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.type-pink {\n    color: #fff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.size-md {\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-top: 4.5px;\n    padding-bottom: 4.5px; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href] {\n    text-decoration: none; }\n";
+styleInject(css$5);
+
+var Button$1 = function (_Component) {
+  inherits(Button, _Component);
+
+  function Button() {
+    classCallCheck(this, Button);
+    return possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+  }
+
+  createClass(Button, [{
+    key: "calculcateClasses",
+    value: function calculcateClasses() {
+      return "Button type-" + this.props.type + " size-" + this.props.size;
+    }
+  }, {
+    key: "asReference",
+    value: function asReference() {
+      return React__default.createElement(
+        "a",
+        {
+          href: this.props.href,
+          disabled: this.props.disabled,
+          className: this.calculcateClasses()
+        },
+        React__default.createElement(
+          "span",
+          { className: "Label" },
+          this.props.children
+        )
+      );
+    }
+  }, {
+    key: "asButton",
+    value: function asButton() {
+      return React__default.createElement(
+        "button",
+        {
+          onClick: this.props.onClick,
+          disabled: this.props.disabled,
+          className: this.calculcateClasses()
+        },
+        this.props.children
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return this.props.href ? this.asReference() : this.asButton();
+    }
+  }]);
+  return Button;
+}(React.Component);
+
+
+var TYPE_WHITE$1 = "white";
+var TYPE_BLUE$1 = "blue";
+var TYPE_TRANSPARENT$1 = "transparent";
+var TYPE_LINK$1 = "link";
+var TYPE_RED$1 = "pink";
+var SIZE_MD$1 = "md";
+
+Button$1.propTypes = {
+  type: propTypes.oneOf([TYPE_WHITE$1, TYPE_BLUE$1, TYPE_TRANSPARENT$1, TYPE_LINK$1, TYPE_RED$1]),
+  href: propTypes.string,
+  onClick: propTypes.func,
+  disabled: propTypes.bool
+};
+
+Button$1.defaultProps = {
+  type: TYPE_BLUE$1,
+  size: SIZE_MD$1,
+  disabled: false
+};
+
+var Modal = function (_Component) {
+  inherits(Modal, _Component);
+
+  function Modal() {
+    classCallCheck(this, Modal);
+    return possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).apply(this, arguments));
+  }
+
+  createClass(Modal, [{
+    key: "render",
+    value: function render() {
+      return React__default.createElement(
+        "div",
+        { className: "Modal level-" + 1 },
+        React__default.createElement(
+          "div",
+          { className: "Modal__window" },
+          React__default.createElement(
+            Button$1,
+            null,
+            "Close"
+          ),
+          React__default.createElement(
+            "div",
+            { className: "Modal__content" },
+            this.props.children
+          )
+        )
+      );
+    }
+  }]);
+  return Modal;
+}(React.Component);
+
+var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px; }\n\nh1.Header {\n  font-size: 30px; }\n\nh2.Header {\n  font-size: 24px; }\n\nh3.Header {\n  font-size: 18px; }\n";
+styleInject(css$6);
+
+var Header = function (_Component) {
+  inherits(Header, _Component);
+
+  function Header() {
+    classCallCheck(this, Header);
+    return possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+  }
+
+  createClass(Header, [{
+    key: "render",
+    value: function render() {
+      switch (this.props.level) {
+        case 1:
+          return React__default.createElement(
+            "h1",
+            { className: "Header" },
+            this.props.children
+          );
+        case 2:
+          return React__default.createElement(
+            "h2",
+            { className: "Header" },
+            this.props.children
+          );
+        case 3:
+          return React__default.createElement(
+            "h3",
+            { className: "Header" },
+            this.props.children
+          );
+      }
+    }
+  }]);
+  return Header;
+}(React.Component);
+
+
+Header.defaultProps = {
+  level: 1
+};
+
+var css$7 = "html {\n  font-size: 14px;\n  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }\n";
+styleInject(css$7);
+
 var index = {
-    Button: Button,
-    Text: Text,
-    ButtonGroup: ButtonGroup,
-    Icon: Icon
+  Button: Button,
+  Text: Text,
+  ButtonGroup: ButtonGroup,
+  Icon: Icon,
+  Header: Header,
+  Modal: Modal
 };
 
 return index;

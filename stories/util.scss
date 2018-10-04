@@ -1,7 +1,7 @@
 @import "../src/components/vars.scss";
 
-.Color {
-    border-radius : $BASE;
+.color {
+  border-radius: $BASE;
   margin: 5px;
   width: 60px;
   height: 60px;
@@ -10,7 +10,7 @@
   position: relative;
 
   &.brand-white {
-    background-color: $BRAND_COLOR_WHITE;    
+    background-color: $BRAND_COLOR_WHITE;
   }
 
   &.brand-blue {
@@ -31,8 +31,17 @@
 }
 
 section {
-    padding: $BASE*4;
-    &.dark {
-        background-color: $BRAND_COLOR_DARK_BLUE;
-    }
+  padding: $BASE * 4;
+  &.dark {
+    background-color: $BRAND_COLOR_DARK_BLUE;
+  }
+}
+
+
+h1 {
+    font-size: 2rem !important;
+}
+
+h2 {
+    font-size: 1.5rem !important;
 }

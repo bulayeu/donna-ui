@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Icon } from "../dist/donna-ui";
 
-const icons = ["facebook", "instagram", "youtube"];
+const icons = ["facebook", "instagram", "youtube", "linkedin", "twitter"];
 
 storiesOf("Icons", module).add("social", () => (
   <div>

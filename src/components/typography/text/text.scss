@@ -1,0 +1,14 @@
+$size_xxl: 60px;
+$size_xl: 46px;
+$size_l: 25px;
+$size_m: 22px;
+$size_sm: 18px;
+$size_xs: 13px;
+
+$size_spacing_lg: 1px;
+$size_spacing_sm: 0.2px;
+
+.Text {
+    font-size: $size_sm;
+    line-height: $size_m;
+}

@@ -35,10 +35,37 @@
             background-color: #eee
         }
     </style>
-    
+    <script>
+    document.title = '💋 Donna UI';
+    (function replaceLinkToGithub() {
+        const a = document.querySelector('a[href="https://github.com/storybooks/storybook"]');
+        console.log(a);
+        console.log('attempt');
+        if (a) {
+            a.href = 'https://github.com/bulayeu/donna-ui';
+            return;
+        } else {
+            setTimeout(() => { replaceLinkToGithub() }, 1000);
+        }
+    })()
+    // replaceLinkToGithub();
+</script>
+
+<style>
+    h3 {
+        font-size: 0 !important;
+    }
+
+    h3:after {
+        content: '💋 Donna UI';
+        font-size: 12px !important;
+        text-decoration: none;
+        letter-spacing: 0.2px;
+    }
+</style>
 
 </head>
 <body style="margin: 0;">
     <div id="root"></div>
-<script type="text/javascript" src="static/manager.cbfbb816fb255edffc42.bundle.js"></script></body>
+<script type="text/javascript" src="static/manager.9af1a4d5e6b125348090.bundle.js"></script></body>
 </html>

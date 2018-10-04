@@ -7,19 +7,19 @@ export default class Button extends Component {
     return `Button type-${this.props.type} size-${this.props.size}`;
   }
 
-  renderReference() {
+  asReference() {
     return (
       <a
         href={this.props.href}
         disabled={this.props.disabled}
         className={this.calculcateClasses()}
       >
-        {this.props.children}
+        <span className="Label">{this.props.children}</span>
       </a>
     );
   }
 
-  renderButton() {
+  asButton() {
     return (
       <button
         onClick={this.props.onClick}
@@ -32,7 +32,7 @@ export default class Button extends Component {
   }
 
   render() {
-    return this.props.href ? this.renderReference() : this.renderButton();
+    return this.props.href ? this.asReference() : this.asButton();
   }
 }
 
