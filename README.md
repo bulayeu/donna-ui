@@ -1,35 +1,23 @@
 # donna-ui
 
-[documentation and usage](https://bulayeu.github.io/donna-ui/)
+[documentation and usage] (https://bulayeu.github.io/donna-ui/)
 
 Init
+```npm install``` Or ```yarn```
 
-```npm install``` 
-
-Or
-
-```yarn```
-
-Run watchers
-
-```npm run dev```
+And start development ```npm run dev``` or ```yarn dev```
 
 Create docs and library build
-
-```npm run build```
+```npm run build``` or ```yarn build```
 
 Build lib only
-
-```npm run dist-lib```
+```npm run dist-lib``` or ```yarn disb-lib```
 
 Build docs only
-
-```npm run dist-docs```
+```npm run dist-docs``` or ```yarn dist-docs```
 
 Watch lib only
-
-```npm run watch-lib```
+```npm run watch-lib``` or ```yarn watch-lib```
 
 Watch docs only
-
-```npm run watch-docs```
+```npm run watch-docs``` or ```yarn watch-docs```
