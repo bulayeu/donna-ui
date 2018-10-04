@@ -1,6 +1,6 @@
 # donna-ui
 
-[documentation and usage] (https://bulayeu.github.io/donna-ui/)
+Documentation and usage (https://bulayeu.github.io/donna-ui/)
 
 Init
 ```npm install``` Or ```yarn```
