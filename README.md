@@ -1,6 +1,6 @@
 # donna-ui
 
-[Storybook](https://bulayeu.github.io/donna-ui/)
+[documentation and usage](https://bulayeu.github.io/donna-ui/)
 
 Init
 
