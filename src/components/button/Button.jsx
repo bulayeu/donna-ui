@@ -4,7 +4,7 @@ import "./button.scss";
 
 export default class Button extends Component {
   calculcateClasses() {
-    return `Button type-${this.props.type} size-${this.props.size}`;
+    return `Button Button--${this.props.type}`;
   }
 
   asReference() {
@@ -42,10 +42,6 @@ const TYPE_TRANSPARENT = "transparent";
 const TYPE_LINK = "link";
 const TYPE_RED = "pink";
 
-const SIZE_LG = "lg";
-const SIZE_MD = "md";
-const SIZE_SM = "sm";
-
 Button.propTypes = {
   type: PropTypes.oneOf([
     TYPE_WHITE,
@@ -61,6 +57,5 @@ Button.propTypes = {
 
 Button.defaultProps = {
   type: TYPE_BLUE,
-  size: SIZE_MD,
   disabled: false
 };

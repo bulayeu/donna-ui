@@ -1,47 +1,101 @@
 @import "../src/components/vars.scss";
 
+$BORDER: 1px solid $BRAND_COLOR_BLUE;
+
+.grid-item {
+  width: 200px;
+  height: 200px;
+  border: $BORDER;
+}
+
 .color {
-  border-radius: $BASE;
   margin: 5px;
-  width: 60px;
-  height: 60px;
-  box-shadow: 0px 0px 2px 0px $BRAND_COLOR_DARK_BLUE;
+  width: 200px;
+  height: 30px;
+  border: $BORDER;
   float: left;
   position: relative;
+  top: 35px;
+
+  &:after {
+    position: absolute;
+    bottom: -35px;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    border: $BORDER;
+  }
+
+  &:before {
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    border: $BORDER;
+  }
 
   &.brand-white {
     background-color: $BRAND_COLOR_WHITE;
+    &:after {
+      content: "#{$BRAND_COLOR_WHITE}";
+    }
+    &:before {
+      content: "#{BRAND_COLOR_WHITE}";
+    }
   }
 
   &.brand-blue {
     background-color: $BRAND_COLOR_BLUE;
+    &:after {
+      content: "#{$BRAND_COLOR_BLUE}";
+    }
+    &:before {
+      content: "#{BRAND_COLOR_BLUE}";
+    }
   }
 
   &.brand-pink {
     background-color: $BRAND_COLOR_PINK;
+    &:after {
+      content: "#{$BRAND_COLOR_PINK}";
+    }
+    &:before {
+      content: "#{BRAND_COLOR_PINK}";
+    }
   }
 
   &.brand-dark-blue {
     background-color: $BRAND_COLOR_DARK_BLUE;
+    &:after {
+      content: "#{$BRAND_COLOR_DARK_BLUE}";
+    }
+    &:before {
+      content: "#{BRAND_COLOR_DARK_BLUE}";
+    }
   }
 
   &.brand-gray {
     background-color: $BRAND_COLOR_GRAY;
+    &:after {
+      content: "#{$BRAND_COLOR_GRAY}";
+    }
+    &:before {
+      content: "#{BRAND_COLOR_GRAY}";
+    }
   }
 }
 
 section {
-  padding: $BASE * 4;
   &.dark {
     background-color: $BRAND_COLOR_DARK_BLUE;
   }
 }
 
-
 h1 {
-    font-size: 2rem !important;
+  font-size: 2rem !important;
 }
 
 h2 {
-    font-size: 1.5rem !important;
+  font-size: 1.5rem !important;
 }

@@ -1,12 +1,13 @@
 @import "../vars.scss";
 
+$AVATAR_SIZE: $BASE * 10;
+
 .Avatar {
-  width: $BASE * 8;
-  height: $BASE * 8;
+  width: $AVATAR_SIZE;
+  height: $AVATAR_SIZE;
   position: relative;
   & > .Avatar__image {
-    border-radius: 100px;
-    border: 1px solid red;
+    border-radius: $AVATAR_SIZE;
     overflow: hidden;
     position: absolute;
     left: 0px;

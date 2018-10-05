@@ -9,19 +9,22 @@ import instagram from "../../assets/social/instagram.png";
 import youtube from "../../assets/social/youtube.png";
 import linkedin from "../../assets/social/linkedin.png";
 
+import close from "../../assets/icons/close.png";
+
 const icons = {
   facebook,
   twitter,
   instagram,
   youtube,
-  linkedin
+  linkedin,
+  close
 };
 
 export default class Icon extends Component {
   render() {
     return (
       <span className={`Icon icon-${this.props.icon}`}>
-        <img src={icons[this.props.icon]} />
+        <img draggable={false} src={icons[this.props.icon]} />
       </span>
     );
   }
@@ -38,6 +41,7 @@ Icon.propTypes = {
     "instagram",
     "youtube",
     "linkedin",
+    "close",
     "default"
   ])
 };

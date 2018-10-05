@@ -12,32 +12,32 @@
   cursor: pointer;
   margin: $BASE;
   width: auto;
-  &.type-white {
+  &.Button--white {
     color: $BRAND_COLOR_DARK_BLUE;
     border-color: $BRAND_COLOR_WHITE;
     background-color: $BRAND_COLOR_WHITE;
   }
-  &.type-blue {
+  &.Button--blue {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_BLUE;
     background-color: $BRAND_COLOR_BLUE;
   }
-  &.type-transparent {
+  &.Button--transparent {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_WHITE;
     background-color: transparent;
   }
-  &.type-link {
-    color: $BRAND_COLOR_GRAY;
+  &.Button--link {
+    color: $BRAND_COLOR_WHITE;
     border-color: transparent;
     background-color: transparent;
   }
-  &.type-pink {
+  &.Button--pink {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_PINK;
     background-color: $BRAND_COLOR_PINK;
   }
-  &.size-md {
+  &.Button--md {
     padding-left: $BASE * 3;
     padding-right: $BASE * 3;
     padding-top: ($BASE * 5-16px)/2;
@@ -49,6 +49,8 @@
     pointer-events: none;
   }
   &[href] {
-    text-decoration: none;
+    &:visited, &:focus, &:active {
+      text-decoration: none;
+    }
   }
 }

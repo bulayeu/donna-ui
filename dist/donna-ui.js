@@ -1,10 +1,11 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react')) :
-	typeof define === 'function' && define.amd ? define(['react'], factory) :
-	(global['donna-ui'] = factory(global.React));
-}(this, (function (React) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('react-dom')) :
+	typeof define === 'function' && define.amd ? define(['react', 'react-dom'], factory) :
+	(global['donna-ui'] = factory(global.React,global.ReactDOM));
+}(this, (function (React,ReactDOM) { 'use strict';
 
 var React__default = 'default' in React ? React['default'] : React;
+ReactDOM = ReactDOM && ReactDOM.hasOwnProperty('default') ? ReactDOM['default'] : ReactDOM;
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -840,7 +841,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto; }\n  .Button.type-white {\n    color: #232f3a;\n    border-color: #fff;\n    background-color: #fff; }\n  .Button.type-blue {\n    color: #fff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.type-transparent {\n    color: #fff;\n    border-color: #fff;\n    background-color: transparent; }\n  .Button.type-link {\n    color: #b9c0c4;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.type-pink {\n    color: #fff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.size-md {\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-top: 4.5px;\n    padding-bottom: 4.5px; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href] {\n    text-decoration: none; }\n";
+var css = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto; }\n  .Button.Button--white {\n    color: #232f3a;\n    border-color: #ffffff;\n    background-color: #ffffff; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--transparent {\n    color: #ffffff;\n    border-color: #ffffff;\n    background-color: transparent; }\n  .Button.Button--link {\n    color: #ffffff;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.Button--md {\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-top: 4.5px;\n    padding-bottom: 4.5px; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
 styleInject(css);
 
 var classCallCheck = function (instance, Constructor) {
@@ -902,7 +903,7 @@ var Button = function (_Component) {
   createClass(Button, [{
     key: "calculcateClasses",
     value: function calculcateClasses() {
-      return "Button type-" + this.props.type + " size-" + this.props.size;
+      return "Button Button--" + this.props.type;
     }
   }, {
     key: "asReference",
@@ -949,7 +950,6 @@ var TYPE_BLUE = "blue";
 var TYPE_TRANSPARENT = "transparent";
 var TYPE_LINK = "link";
 var TYPE_RED = "pink";
-var SIZE_MD = "md";
 
 Button.propTypes = {
   type: propTypes.oneOf([TYPE_WHITE, TYPE_BLUE, TYPE_TRANSPARENT, TYPE_LINK, TYPE_RED]),
@@ -960,36 +960,11 @@ Button.propTypes = {
 
 Button.defaultProps = {
   type: TYPE_BLUE,
-  size: SIZE_MD,
   disabled: false
 };
 
-var css$1 = ".Text {\n  font-size: 18px;\n  line-height: 22px; }\n";
+var css$1 = ".ButtonGroup {\n  margin: 8px; }\n  .ButtonGroup > .Button {\n    margin: 0px;\n    border-radius: 0px; }\n  .ButtonGroup > .Button:first-child {\n    border-top-left-radius: 4px;\n    border-bottom-left-radius: 4px; }\n  .ButtonGroup > .Button:last-child {\n    border-top-right-radius: 4px;\n    border-bottom-right-radius: 4px; }\n";
 styleInject(css$1);
-
-var Text = function (_Component) {
-  inherits(Text, _Component);
-
-  function Text() {
-    classCallCheck(this, Text);
-    return possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
-  }
-
-  createClass(Text, [{
-    key: "render",
-    value: function render() {
-      return React__default.createElement(
-        "p",
-        { className: "Text " + this.props.level + " " + this.props.type },
-        this.props.children
-      );
-    }
-  }]);
-  return Text;
-}(React.Component);
-
-var css$2 = ".ButtonGroup {\n  margin: 8px; }\n  .ButtonGroup > .Button {\n    margin: 0px;\n    border-radius: 0px; }\n  .ButtonGroup > .Button:first-child {\n    border-top-left-radius: 4px;\n    border-bottom-left-radius: 4px; }\n  .ButtonGroup > .Button:last-child {\n    border-top-right-radius: 4px;\n    border-bottom-right-radius: 4px; }\n";
-styleInject(css$2);
 
 var ButtonGroup = function (_Component) {
   inherits(ButtonGroup, _Component);
@@ -1012,8 +987,8 @@ var ButtonGroup = function (_Component) {
   return ButtonGroup;
 }(React.Component);
 
-var css$3 = ".Icon {\n  display: inline-block;\n  max-width: 100%;\n  max-height: 100%;\n  height: 100%;\n  margin-right: 8px; }\n  .Icon > img {\n    width: auto;\n    height: 100%; }\n\n.Button > .Icon {\n  float: left;\n  margin-right: 12px; }\n";
-styleInject(css$3);
+var css$2 = ".Icon {\n  display: inline-block;\n  width: auto;\n  height: auto;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: none; }\n  .Icon > img {\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -o-user-select: none;\n    user-select: none;\n    width: auto;\n    height: auto;\n    float: left; }\n";
+styleInject(css$2);
 
 var facebook = "data:image/png;base64,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";
 
@@ -1025,12 +1000,15 @@ var youtube = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAA8CAYAAADVPrJ
 
 var linkedin = "data:image/png;base64,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";
 
+var close = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABHNCSVQICAgIfAhkiAAAAT5JREFUOI2l0zFLw0AUB/D/e5c0DRW1FEUKDvYTCHYSNzdXNwcNgehXEgNJ/QZ+AVexUzo6OlVQpKWxtNqkdRJCm14u583vfty99390eeWMhGDDEOLY9/0eNI/jONtE/AxCiwWz1X8f2EmaPnmed/gfcBiPW9Pvn4SJcNPcqc904SxYtcykUjEfCABc13UWC9z1PwZmc7c+UW1FHngfhhf0V1AWXgcCAGULVWEZuIKqwEVgLiqDVcC1aB4smM/SdH5bBErRZXh/r4HPYTwrAgFAyNAoinrt9lFcs63Tl9c30djamNuW+dgJw3PZPelLsz0UgikeTw2VuLEKWLXMZLNmd1U3LxfNm3IQBCdEuFaBV75fFBuVBaEyoCpMZUEVmHTAIph0QRnMAHd1QQAIgqCznApO0uRAF8yDR18T+xd2+mrGH1AqUQAAAABJRU5ErkJggg==";
+
 var icons = {
   facebook: facebook,
   twitter: twitter,
   instagram: instagram,
   youtube: youtube,
-  linkedin: linkedin
+  linkedin: linkedin,
+  close: close
 };
 
 var Icon = function (_Component) {
@@ -1047,7 +1025,7 @@ var Icon = function (_Component) {
       return React__default.createElement(
         "span",
         { className: "Icon icon-" + this.props.icon },
-        React__default.createElement("img", { src: icons[this.props.icon] })
+        React__default.createElement("img", { draggable: false, src: icons[this.props.icon] })
       );
     }
   }]);
@@ -1060,110 +1038,74 @@ Icon.defaultProps = {
 };
 
 Icon.propTypes = {
-  icon: propTypes.oneOf(["facebook", "twitter", "instagram", "youtube", "linkedin", "default"])
+  icon: propTypes.oneOf(["facebook", "twitter", "instagram", "youtube", "linkedin", "close", "default"])
 };
 
-var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    max-width: 300px;\n    position: relative;\n    padding: 40px;\n    border-radius: 10px;\n    background-color: #fff; }\n    .Modal > .Modal__window > .Button {\n      position: absolute;\n      right: 10px;\n      top: 10px; }\n";
-styleInject(css$4);
+var css$3 = ".IconButton {\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  cursor: pointer;\n  width: auto;\n  height: auto;\n  padding: 0px;\n  margin: 0px;\n  border: 0px;\n  background-color: transparent;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .IconButton.IconButton--round {\n    width: 50px;\n    height: 50px;\n    background-color: #ed486f;\n    border-radius: 50px;\n    position: relative; }\n    .IconButton.IconButton--round > .Icon {\n      width: auto;\n      height: auto; }\n  .IconButton.IconButton--plain {\n    float: left; }\n";
+styleInject(css$3);
 
-var css$5 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto; }\n  .Button.type-white {\n    color: #232f3a;\n    border-color: #fff;\n    background-color: #fff; }\n  .Button.type-blue {\n    color: #fff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.type-transparent {\n    color: #fff;\n    border-color: #fff;\n    background-color: transparent; }\n  .Button.type-link {\n    color: #b9c0c4;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.type-pink {\n    color: #fff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.size-md {\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-top: 4.5px;\n    padding-bottom: 4.5px; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href] {\n    text-decoration: none; }\n";
-styleInject(css$5);
+var IconButton = function (_Component) {
+  inherits(IconButton, _Component);
 
-var Button$1 = function (_Component) {
-  inherits(Button, _Component);
-
-  function Button() {
-    classCallCheck(this, Button);
-    return possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+  function IconButton() {
+    classCallCheck(this, IconButton);
+    return possibleConstructorReturn(this, (IconButton.__proto__ || Object.getPrototypeOf(IconButton)).apply(this, arguments));
   }
 
-  createClass(Button, [{
-    key: "calculcateClasses",
-    value: function calculcateClasses() {
-      return "Button type-" + this.props.type + " size-" + this.props.size;
-    }
-  }, {
-    key: "asReference",
-    value: function asReference() {
+  createClass(IconButton, [{
+    key: "render",
+    value: function render() {
       return React__default.createElement(
-        "a",
-        {
-          href: this.props.href,
-          disabled: this.props.disabled,
-          className: this.calculcateClasses()
-        },
-        React__default.createElement(
-          "span",
-          { className: "Label" },
-          this.props.children
-        )
-      );
-    }
-  }, {
-    key: "asButton",
-    value: function asButton() {
-      return React__default.createElement(
-        "button",
+        "div",
         {
           onClick: this.props.onClick,
           disabled: this.props.disabled,
-          className: this.calculcateClasses()
+          className: "IconButton IconButton--" + this.props.type
         },
-        this.props.children
+        React__default.createElement(Icon, { icon: this.props.icon })
       );
     }
-  }, {
-    key: "render",
-    value: function render() {
-      return this.props.href ? this.asReference() : this.asButton();
-    }
   }]);
-  return Button;
+  return IconButton;
 }(React.Component);
 
 
-var TYPE_WHITE$1 = "white";
-var TYPE_BLUE$1 = "blue";
-var TYPE_TRANSPARENT$1 = "transparent";
-var TYPE_LINK$1 = "link";
-var TYPE_RED$1 = "pink";
-var SIZE_MD$1 = "md";
-
-Button$1.propTypes = {
-  type: propTypes.oneOf([TYPE_WHITE$1, TYPE_BLUE$1, TYPE_TRANSPARENT$1, TYPE_LINK$1, TYPE_RED$1]),
-  href: propTypes.string,
-  onClick: propTypes.func,
-  disabled: propTypes.bool
+IconButton.defaultProps = {
+  type: "plain"
 };
 
-Button$1.defaultProps = {
-  type: TYPE_BLUE$1,
-  size: SIZE_MD$1,
-  disabled: false
-};
+var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    overflow: hidden;\n    width: auto;\n    min-width: 30vw;\n    max-width: 80vw;\n    position: relative;\n    border-radius: 5px;\n    background-color: #ffffff; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 10px;\n      top: 10px; }\n";
+styleInject(css$4);
 
 var Modal = function (_Component) {
   inherits(Modal, _Component);
 
-  function Modal() {
+  function Modal(props) {
     classCallCheck(this, Modal);
-    return possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).apply(this, arguments));
+
+    var _this = possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
+
+    _this.close = function () {
+      ReactDOM.unmountComponentAtNode(_this.modal.parentNode);
+    };
+
+    return _this;
   }
 
   createClass(Modal, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return React__default.createElement(
         "div",
-        { className: "Modal level-" + 1 },
+        { ref: function ref(c) {
+            return _this2.modal = c;
+          }, className: "Modal Modal--level-" + 1 },
         React__default.createElement(
           "div",
           { className: "Modal__window" },
-          React__default.createElement(
-            Button$1,
-            null,
-            "Close"
-          ),
+          React__default.createElement(IconButton, { onClick: this.close, icon: "close" }),
           React__default.createElement(
             "div",
             { className: "Modal__content" },
@@ -1176,8 +1118,8 @@ var Modal = function (_Component) {
   return Modal;
 }(React.Component);
 
-var css$6 = ".Avatar {\n  width: 40px;\n  height: 40px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 100px;\n    border: 1px solid red;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
-styleInject(css$6);
+var css$5 = ".Avatar {\n  width: 50px;\n  height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
+styleInject(css$5);
 
 var Avatar = function (_Component) {
   inherits(Avatar, _Component);
@@ -1201,8 +1143,8 @@ var Avatar = function (_Component) {
   return Avatar;
 }(React.Component);
 
-var css$7 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px; }\n\nh1.Header {\n  font-size: 30px; }\n\nh2.Header {\n  font-size: 24px; }\n\nh3.Header {\n  font-size: 18px; }\n";
-styleInject(css$7);
+var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px; }\n\nh1.Header {\n  font-size: 28px;\n  font-weight: light; }\n\nh2.Header {\n  font-size: 24px; }\n\nh3.Header {\n  font-size: 18px; }\n";
+styleInject(css$6);
 
 var Header = function (_Component) {
   inherits(Header, _Component);
@@ -1245,17 +1187,46 @@ Header.defaultProps = {
   level: 1
 };
 
-var css$8 = "html {\n  font-size: 14px;\n  font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\",\r \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n";
+var css$7 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  padding: 20px; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
+styleInject(css$7);
+
+var Block = function Block(props) {
+  return React__default.createElement(
+    "div",
+    { className: "Block Block--center" },
+    props.children
+  );
+};
+
+var Row = function Row(props) {
+  return React__default.createElement(
+    "div",
+    { className: "Row" },
+    props.children
+  );
+};
+var Column = function Column(props) {
+  return React__default.createElement(
+    "div",
+    { className: "Column" },
+    props.children
+  );
+};
+
+var Layout = { Block: Block, Row: Row, Column: Column };
+
+var css$8 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\",\r \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
 styleInject(css$8);
 
 var index = {
   Button: Button,
-  Text: Text,
   ButtonGroup: ButtonGroup,
   Icon: Icon,
+  IconButton: IconButton,
   Header: Header,
   Modal: Modal,
-  Avatar: Avatar
+  Avatar: Avatar,
+  Layout: Layout
 };
 
 return index;

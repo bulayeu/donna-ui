@@ -1,6 +1,9 @@
+@import "fonts.scss";
+@import "vars.scss";
+
 html {
   font-size: 14px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  font-family: "Proxima Nova", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 
@@ -8,4 +11,10 @@ html {
 *:after,
 *:before {
   box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0px;
+  padding: 0px;
 }

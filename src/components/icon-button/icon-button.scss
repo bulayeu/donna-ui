@@ -1,0 +1,33 @@
+@import "../vars.scss";
+
+.IconButton {
+  display: inline-block;
+  text-decoration: none;
+  appearance: none;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.IconButton--round {
+    width: $BASE * 10;
+    height: $BASE * 10;
+    background-color: $BRAND_COLOR_PINK;
+    border-radius: 50px;
+    position: relative;
+    & > .Icon {
+      width: auto;
+      height: auto;
+    }
+  }
+  &.IconButton--plain {
+    float: left;
+  }
+}
