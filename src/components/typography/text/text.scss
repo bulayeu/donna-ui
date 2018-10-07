@@ -1,14 +1,24 @@
-$size_xxl: 60px;
-$size_xl: 46px;
-$size_l: 25px;
-$size_m: 22px;
-$size_sm: 18px;
-$size_xs: 13px;
+@import "../../vars.scss";
 
-$size_spacing_lg: 1px;
-$size_spacing_sm: 0.2px;
+$TEXT_COLOR: $BRAND_COLOR_DARK_BLUE;
 
 .Text {
-    font-size: $size_sm;
-    line-height: $size_m;
+  margin: 0px;
+
+  &.Text--level-1 {
+    color: $TEXT_COLOR;
+    font-size: 16px;
+    font-weight: $FONT_WEIGHT_REGULAR;
+  }
+  &.Text--level-2 {
+    color: $TEXT_COLOR;
+    font-size: 14px;
+    font-weight: $FONT_WEIGHT_BOLD;
+  }
+  &.Text--level-3 {
+    color: #232f3a;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    font-weight: $FONT_WEIGHT_REGULAR;
+  }
 }

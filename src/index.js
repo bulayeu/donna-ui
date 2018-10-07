@@ -6,6 +6,7 @@ import Modal from "./components/modal/Modal.jsx";
 import Avatar from "./components/avatar/Avatar.jsx";
 
 import Header from "./components/typography/header/Header.jsx";
+import Text from "./components/typography/text/Text.jsx";
 
 import Layout from "./components/layout/Layout.jsx";
 
@@ -19,5 +20,6 @@ export default {
   Header,
   Modal,
   Avatar,
-  Layout
+  Layout,
+  Text
 };

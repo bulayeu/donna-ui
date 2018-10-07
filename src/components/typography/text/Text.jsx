@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "./text.scss";
 
-export default class Text extends Component {
-  render() {
-    return <p className={`Text`}>{this.props.children}</p>;
-  }
-}
+const Text = props => (
+  <p className={`Text Text--level-${props.level}`}>{props.children}</p>
+);
+
+export default Text;

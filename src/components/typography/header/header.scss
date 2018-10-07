@@ -1,17 +1,31 @@
+@import "../../vars.scss";
+
+$HEADER_COLOR: $BRAND_COLOR_BLACK;
+
 .Header {
   margin-top: 0px;
   margin-bottom: 0px;
+  color: $HEADER_COLOR;
 }
 
 h1.Header {
-  font-size: 28px;
-  font-weight: light;
+  opacity: 0.25;
+  font-size: 46px;
+  font-weight: $FONT_WEIGHT_EXTRABOLD;
 }
 
 h2.Header {
-  font-size: 24px;
+  opacity: 0.25;
+  font-size: 28px;
+  font-weight: $FONT_WEIGHT_BOLD;
 }
 
 h3.Header {
+  font-size: 28px;
+  font-weight: $FONT_WEIGHT_LIGHT;
+}
+
+h4.Header {
   font-size: 18px;
+  font-weight: $FONT_WEIGHT_REGULAR;
 }

@@ -12,36 +12,37 @@
   cursor: pointer;
   margin: $BASE;
   width: auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+
   &.Button--white {
     color: $BRAND_COLOR_DARK_BLUE;
     border-color: $BRAND_COLOR_WHITE;
     background-color: $BRAND_COLOR_WHITE;
   }
+  
   &.Button--blue {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_BLUE;
     background-color: $BRAND_COLOR_BLUE;
   }
+  
   &.Button--transparent {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_WHITE;
     background-color: transparent;
   }
+  
   &.Button--link {
     color: $BRAND_COLOR_WHITE;
     border-color: transparent;
     background-color: transparent;
   }
+  
   &.Button--pink {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_PINK;
     background-color: $BRAND_COLOR_PINK;
-  }
-  &.Button--md {
-    padding-left: $BASE * 3;
-    padding-right: $BASE * 3;
-    padding-top: ($BASE * 5-16px)/2;
-    padding-bottom: ($BASE * 5-16px)/2;
   }
   &[disabled] {
     opacity: 0.5;

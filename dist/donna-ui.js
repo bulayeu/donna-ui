@@ -841,7 +841,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto; }\n  .Button.Button--white {\n    color: #232f3a;\n    border-color: #ffffff;\n    background-color: #ffffff; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--transparent {\n    color: #ffffff;\n    border-color: #ffffff;\n    background-color: transparent; }\n  .Button.Button--link {\n    color: #ffffff;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.Button--md {\n    padding-left: 15px;\n    padding-right: 15px;\n    padding-top: 4.5px;\n    padding-bottom: 4.5px; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
+var css = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto;\n  padding-top: 12px;\n  padding-bottom: 12px; }\n  .Button.Button--white {\n    color: #232f3a;\n    border-color: #ffffff;\n    background-color: #ffffff; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--transparent {\n    color: #ffffff;\n    border-color: #ffffff;\n    background-color: transparent; }\n  .Button.Button--link {\n    color: #ffffff;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
 styleInject(css);
 
 var classCallCheck = function (instance, Constructor) {
@@ -1143,7 +1143,7 @@ var Avatar = function (_Component) {
   return Avatar;
 }(React.Component);
 
-var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px; }\n\nh1.Header {\n  font-size: 28px;\n  font-weight: light; }\n\nh2.Header {\n  font-size: 24px; }\n\nh3.Header {\n  font-size: 18px; }\n";
+var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: #000000; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 700; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 600; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
 styleInject(css$6);
 
 var Header = function (_Component) {
@@ -1176,6 +1176,12 @@ var Header = function (_Component) {
             { className: "Header" },
             this.props.children
           );
+        case 4:
+          return React__default.createElement(
+            "h4",
+            { className: "Header" },
+            this.props.children
+          );
       }
     }
   }]);
@@ -1187,8 +1193,19 @@ Header.defaultProps = {
   level: 1
 };
 
-var css$7 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  padding: 20px; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
+var css$7 = ".Text {\n  margin: 0px; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    font-weight: 600; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    font-size: 14px;\n    font-weight: 400; }\n";
 styleInject(css$7);
+
+var Text = function Text(props) {
+  return React__default.createElement(
+    "p",
+    { className: "Text Text--level-" + props.level },
+    props.children
+  );
+};
+
+var css$8 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  padding: 20px; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
+styleInject(css$8);
 
 var Block = function Block(props) {
   return React__default.createElement(
@@ -1215,8 +1232,8 @@ var Column = function Column(props) {
 
 var Layout = { Block: Block, Row: Row, Column: Column };
 
-var css$8 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\",\r \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
-styleInject(css$8);
+var css$9 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\",\r \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
+styleInject(css$9);
 
 var index = {
   Button: Button,
@@ -1226,7 +1243,8 @@ var index = {
   Header: Header,
   Modal: Modal,
   Avatar: Avatar,
-  Layout: Layout
+  Layout: Layout,
+  Text: Text
 };
 
 return index;
