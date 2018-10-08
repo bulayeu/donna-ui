@@ -17,10 +17,16 @@ export default class Modal extends Component {
     return (
       <div ref={c => (this.modal = c)} className={`Modal Modal--level-${1}`}>
         <div className="Modal__window">
-          <IconButton onClick={this.close} icon="close" />
+          {this.props.showCloseButton && (
+            <IconButton onClick={this.close} icon="close" />
+          )}
           <div className="Modal__content">{this.props.children}</div>
         </div>
       </div>
     );
   }
 }
+
+Modal.defaultProps = {
+  showCloseButton: true
+};

@@ -23,6 +23,11 @@
     }
   }
 
+  &.Button--link {
+    padding: 0px;
+    min-height: auto;
+  }
+
   &.Button--blue {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_BLUE;

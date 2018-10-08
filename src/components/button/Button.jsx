@@ -6,7 +6,7 @@ import "./button.scss";
 
 export default class Button extends Component {
   calculcateClasses() {
-    return `Button Button--${this.props.type} ${this.props.block ? "Button--block" : ""}`;
+    return `Button Button--${this.props.type} ${this.props.block ? "Button--block" : ""} ${this.props.link ? "Button--link" : ""}`;
   }
 
   asReference = () => {

@@ -7,7 +7,7 @@ const Block = props => {
   if (props.h) style.width = `${props.h}px`;
   if (props.pad) style.padding = `${props.pad}px`;
   return (
-    <div style={style} className="Block Block--center">
+    <div style={style} className={`Block ${props.center ? "Block--center" : ""}`}>
       {props.children}
     </div>
   );

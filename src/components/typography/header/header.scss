@@ -3,9 +3,10 @@
 $HEADER_COLOR: $BRAND_COLOR_BLACK;
 
 .Header {
-  margin-top: $BASE*2;
-  margin-bottom: $BASE*2;
+  margin-top: 0px;
+  margin-bottom: 0px;
   color: $HEADER_COLOR;
+  width: 100%;
 }
 
 h1.Header {

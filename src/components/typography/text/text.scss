@@ -4,9 +4,9 @@ $TEXT_COLOR: $BRAND_COLOR_DARK_BLUE;
 
 .Text {
   margin: 0px;
-  margin-top: $BASE;
-  margin-bottom: $BASE;
-
+  &.Text--center {
+    text-align: center;
+  }
   &.Text--level-1 {
     color: $TEXT_COLOR;
     font-size: 16px;

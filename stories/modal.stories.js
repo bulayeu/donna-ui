@@ -16,25 +16,3 @@ storiesOf("Modals", module)
       </Layout.Row>
     </Modal>
   ))
-  .add("modal with content", () => (
-    <Modal>
-      <Layout.Row>
-        <Layout.Block>
-          <Icon icon="youtube" />
-          <Icon icon="twitter" />
-        </Layout.Block>
-        <Layout.Block>
-          <Layout.Column>
-            <Icon icon="facebook" />
-            <Icon icon="facebook" />
-            <Button>Simple Blue Button</Button>
-            <Button>Simple Pink Button</Button>
-            <Layout.Row>
-              <Button>Simple Blue Button</Button>
-              <Button type="pink">Simple Pink Button</Button>
-            </Layout.Row>
-          </Layout.Column>
-        </Layout.Block>
-      </Layout.Row>
-    </Modal>
-  ));

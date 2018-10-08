@@ -7,6 +7,8 @@
 var React__default = 'default' in React ? React['default'] : React;
 ReactDOM = ReactDOM && ReactDOM.hasOwnProperty('default') ? ReactDOM['default'] : ReactDOM;
 
+var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -980,7 +982,7 @@ Icon.propTypes = {
   icon: propTypes.oneOf(ICON_TYPES)
 };
 
-var css$2 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  margin: 5px;\n  width: auto;\n  padding: 12px 6px;\n  min-height: 40px; }\n  .Button .Button__content {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .Button .Button__content > .Icon {\n      margin-right: 10px; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--gray {\n    color: #b9c0c4;\n    border-color: #b9c0c4;\n    background-color: transparent; }\n  .Button.Button--transparent-blue {\n    color: #32bafa;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-gray {\n    color: #b9c0c4;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-dark-gray {\n    color: #7A888C;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.Button--block {\n    width: 100%; }\n  .Button[disabled] {\n    opacity: 0.75;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
+var css$2 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  margin: 5px;\n  width: auto;\n  padding: 12px 6px;\n  min-height: 40px; }\n  .Button .Button__content {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .Button .Button__content > .Icon {\n      margin-right: 10px; }\n  .Button.Button--link {\n    padding: 0px;\n    min-height: auto; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--gray {\n    color: #b9c0c4;\n    border-color: #b9c0c4;\n    background-color: transparent; }\n  .Button.Button--transparent-blue {\n    color: #32bafa;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-gray {\n    color: #b9c0c4;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-dark-gray {\n    color: #7A888C;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.Button--block {\n    width: 100%; }\n  .Button[disabled] {\n    opacity: 0.75;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
 styleInject(css$2);
 
 var Button = function (_Component) {
@@ -1041,7 +1043,7 @@ var Button = function (_Component) {
   createClass(Button, [{
     key: "calculcateClasses",
     value: function calculcateClasses() {
-      return "Button Button--" + this.props.type + " " + (this.props.block ? "Button--block" : "");
+      return "Button Button--" + this.props.type + " " + (this.props.block ? "Button--block" : "") + " " + (this.props.link ? "Button--link" : "");
     }
   }, {
     key: "render",
@@ -1074,32 +1076,8 @@ Button.defaultProps = {
   disabled: false
 };
 
-var css$3 = ".ButtonGroup {\n  margin: 8px; }\n  .ButtonGroup > .Button {\n    margin: 0px;\n    border-radius: 0px; }\n  .ButtonGroup > .Button:first-child {\n    border-top-left-radius: 4px;\n    border-bottom-left-radius: 4px; }\n  .ButtonGroup > .Button:last-child {\n    border-top-right-radius: 4px;\n    border-bottom-right-radius: 4px; }\n";
+var css$3 = ".IconButton {\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  cursor: pointer;\n  width: auto;\n  height: auto;\n  padding: 0px;\n  margin: 0px;\n  border: 0px;\n  background-color: transparent;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .IconButton.IconButton--round {\n    width: 50px;\n    height: 50px;\n    background-color: #ed486f;\n    border-radius: 50px;\n    position: relative; }\n    .IconButton.IconButton--round > .Icon {\n      width: auto;\n      height: auto; }\n  .IconButton.IconButton--plain {\n    float: left; }\n";
 styleInject(css$3);
-
-var ButtonGroup = function (_Component) {
-  inherits(ButtonGroup, _Component);
-
-  function ButtonGroup() {
-    classCallCheck(this, ButtonGroup);
-    return possibleConstructorReturn(this, (ButtonGroup.__proto__ || Object.getPrototypeOf(ButtonGroup)).apply(this, arguments));
-  }
-
-  createClass(ButtonGroup, [{
-    key: "render",
-    value: function render() {
-      return React__default.createElement(
-        "div",
-        { className: "ButtonGroup" },
-        this.props.children
-      );
-    }
-  }]);
-  return ButtonGroup;
-}(React.Component);
-
-var css$4 = ".IconButton {\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  cursor: pointer;\n  width: auto;\n  height: auto;\n  padding: 0px;\n  margin: 0px;\n  border: 0px;\n  background-color: transparent;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .IconButton.IconButton--round {\n    width: 50px;\n    height: 50px;\n    background-color: #ed486f;\n    border-radius: 50px;\n    position: relative; }\n    .IconButton.IconButton--round > .Icon {\n      width: auto;\n      height: auto; }\n  .IconButton.IconButton--plain {\n    float: left; }\n";
-styleInject(css$4);
 
 var IconButton = function (_Component) {
   inherits(IconButton, _Component);
@@ -1131,8 +1109,8 @@ IconButton.defaultProps = {
   type: "plain"
 };
 
-var css$5 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    overflow: hidden;\n    width: auto;\n    min-width: 20vw;\n    max-width: 80vw;\n    position: relative;\n    border-radius: 5px;\n    background-color: #ffffff; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 20px;\n      top: 20px; }\n";
-styleInject(css$5);
+var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    overflow: hidden;\n    width: auto;\n    min-width: 20vw;\n    max-width: 80vw;\n    position: relative;\n    border-radius: 5px;\n    background-color: #ffffff; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 20px;\n      top: 20px; }\n";
+styleInject(css$4);
 
 var Modal = function (_Component) {
   inherits(Modal, _Component);
@@ -1162,7 +1140,7 @@ var Modal = function (_Component) {
         React__default.createElement(
           "div",
           { className: "Modal__window" },
-          React__default.createElement(IconButton, { onClick: this.close, icon: "close" }),
+          this.props.showCloseButton && React__default.createElement(IconButton, { onClick: this.close, icon: "close" }),
           React__default.createElement(
             "div",
             { className: "Modal__content" },
@@ -1175,8 +1153,13 @@ var Modal = function (_Component) {
   return Modal;
 }(React.Component);
 
-var css$6 = ".Avatar {\n  width: 50px;\n  height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
-styleInject(css$6);
+
+Modal.defaultProps = {
+  showCloseButton: true
+};
+
+var css$5 = ".Avatar {\n  width: 50px;\n  height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
+styleInject(css$5);
 
 var Avatar = function (_Component) {
   inherits(Avatar, _Component);
@@ -1200,8 +1183,8 @@ var Avatar = function (_Component) {
   return Avatar;
 }(React.Component);
 
-var css$7 = ".Header {\n  margin-top: 10px;\n  margin-bottom: 10px;\n  color: #000000; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 900; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 800; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
-styleInject(css$7);
+var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: #000000;\n  width: 100%; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 900; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 800; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
+styleInject(css$6);
 
 var Header = function (_Component) {
   inherits(Header, _Component);
@@ -1250,21 +1233,413 @@ Header.defaultProps = {
   level: 1
 };
 
-var css$8 = ".Text {\n  margin: 0px;\n  margin-top: 5px;\n  margin-bottom: 5px; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    line-height: 18px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 800; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 400; }\n\n.Text > .Icon {\n  margin-right: 10px;\n  margin-left: 10px; }\n";
-styleInject(css$8);
+var css$7 = ".Text {\n  margin: 0px; }\n  .Text.Text--center {\n    text-align: center; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    line-height: 18px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 800; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 400; }\n\n.Text > .Icon {\n  margin-right: 10px;\n  margin-left: 10px; }\n";
+styleInject(css$7);
 
 var Text = function Text(props) {
   return React__default.createElement(
     "p",
-    { className: "Text Text--level-" + props.level },
+    { className: "Text Text--level-" + props.level + " " + (props.center ? "Text--center" : "") },
     props.children
   );
 };
 
 Text.defaultProps = { level: 3 };
 
-var css$9 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
+var css$8 = ".Input {\n  display: inline-block;\n  font-size: 16px;\n  width: 100%;\n  border-bottom: 1px dashed #232f3a; }\n  .Input .Input__field {\n    background-color: transparent;\n    border-radius: 0;\n    border: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    font-family: inherit;\n    font-size: 1em;\n    padding: 0px; }\n  .Input .Input__field:focus {\n    outline: none; }\n  .Input .Input__field:focus::-webkit-input-placeholder {\n    color: red; }\n  .Input .Input__field:focus::-moz-placeholder {\n    color: red;\n    opacity: 1; }\n  .Input .Input__field {\n    display: block;\n    box-sizing: border-box;\n    width: 100%; }\n";
+styleInject(css$8);
+
+var Input = function (_Component) {
+  inherits(Input, _Component);
+
+  function Input(props) {
+    classCallCheck(this, Input);
+
+    var _this = possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+
+    _this.handleChange = function (ev) {
+      _this.setState({ value: ev.target.value });
+    };
+
+    _this.state = { value: _this.props.initValue || "" };
+    return _this;
+  }
+
+  createClass(Input, [{
+    key: "render",
+    value: function render() {
+      return React__default.createElement(
+        "div",
+        { className: "Input " + (this.props.block ? "Input--block" : "") },
+        React__default.createElement(
+          "div",
+          { className: "Input__label" },
+          React__default.createElement(
+            Label,
+            null,
+            this.props.placeholder
+          )
+        ),
+        React__default.createElement("input", {
+          className: "Input__field",
+          type: "text",
+          value: this.state.value,
+          onChange: this.handleChange
+        })
+      );
+    }
+  }]);
+  return Input;
+}(React.Component);
+
+var css$9 = ".Textarea {\n  display: inline-block;\n  font-size: 16px;\n  width: 100%; }\n  .Textarea .Textarea__field {\n    width: 100%;\n    padding: 0px;\n    resize: none;\n    background-color: transparent;\n    border-radius: 0;\n    border: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    font-family: inherit;\n    font-size: 1em;\n    border-bottom: 1px dashed #232f3a;\n    max-height: 100px; }\n  .Textarea .Textarea__field:focus {\n    outline: none; }\n";
 styleInject(css$9);
+
+var autosize = createCommonjsModule(function (module, exports) {
+/*!
+	autosize 4.0.2
+	license: MIT
+	http://www.jacklmoore.com/autosize
+*/
+(function (global, factory) {
+	if (typeof undefined === "function" && undefined.amd) {
+		undefined(['module', 'exports'], factory);
+	} else {
+		factory(module, exports);
+	}
+})(commonjsGlobal, function (module, exports) {
+
+	var map = typeof Map === "function" ? new Map() : function () {
+		var keys = [];
+		var values = [];
+
+		return {
+			has: function has(key) {
+				return keys.indexOf(key) > -1;
+			},
+			get: function get(key) {
+				return values[keys.indexOf(key)];
+			},
+			set: function set(key, value) {
+				if (keys.indexOf(key) === -1) {
+					keys.push(key);
+					values.push(value);
+				}
+			},
+			delete: function _delete(key) {
+				var index = keys.indexOf(key);
+				if (index > -1) {
+					keys.splice(index, 1);
+					values.splice(index, 1);
+				}
+			}
+		};
+	}();
+
+	var createEvent = function createEvent(name) {
+		return new Event(name, { bubbles: true });
+	};
+	try {
+		new Event('test');
+	} catch (e) {
+		// IE does not support `new Event()`
+		createEvent = function createEvent(name) {
+			var evt = document.createEvent('Event');
+			evt.initEvent(name, true, false);
+			return evt;
+		};
+	}
+
+	function assign(ta) {
+		if (!ta || !ta.nodeName || ta.nodeName !== 'TEXTAREA' || map.has(ta)) return;
+
+		var heightOffset = null;
+		var clientWidth = null;
+		var cachedHeight = null;
+
+		function init() {
+			var style = window.getComputedStyle(ta, null);
+
+			if (style.resize === 'vertical') {
+				ta.style.resize = 'none';
+			} else if (style.resize === 'both') {
+				ta.style.resize = 'horizontal';
+			}
+
+			if (style.boxSizing === 'content-box') {
+				heightOffset = -(parseFloat(style.paddingTop) + parseFloat(style.paddingBottom));
+			} else {
+				heightOffset = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+			}
+			// Fix when a textarea is not on document body and heightOffset is Not a Number
+			if (isNaN(heightOffset)) {
+				heightOffset = 0;
+			}
+
+			update();
+		}
+
+		function changeOverflow(value) {
+			{
+				// Chrome/Safari-specific fix:
+				// When the textarea y-overflow is hidden, Chrome/Safari do not reflow the text to account for the space
+				// made available by removing the scrollbar. The following forces the necessary text reflow.
+				var width = ta.style.width;
+				ta.style.width = '0px';
+				// Force reflow:
+				/* jshint ignore:start */
+				ta.offsetWidth;
+				/* jshint ignore:end */
+				ta.style.width = width;
+			}
+
+			ta.style.overflowY = value;
+		}
+
+		function getParentOverflows(el) {
+			var arr = [];
+
+			while (el && el.parentNode && el.parentNode instanceof Element) {
+				if (el.parentNode.scrollTop) {
+					arr.push({
+						node: el.parentNode,
+						scrollTop: el.parentNode.scrollTop
+					});
+				}
+				el = el.parentNode;
+			}
+
+			return arr;
+		}
+
+		function resize() {
+			if (ta.scrollHeight === 0) {
+				// If the scrollHeight is 0, then the element probably has display:none or is detached from the DOM.
+				return;
+			}
+
+			var overflows = getParentOverflows(ta);
+			var docTop = document.documentElement && document.documentElement.scrollTop; // Needed for Mobile IE (ticket #240)
+
+			ta.style.height = '';
+			ta.style.height = ta.scrollHeight + heightOffset + 'px';
+
+			// used to check if an update is actually necessary on window.resize
+			clientWidth = ta.clientWidth;
+
+			// prevents scroll-position jumping
+			overflows.forEach(function (el) {
+				el.node.scrollTop = el.scrollTop;
+			});
+
+			if (docTop) {
+				document.documentElement.scrollTop = docTop;
+			}
+		}
+
+		function update() {
+			resize();
+
+			var styleHeight = Math.round(parseFloat(ta.style.height));
+			var computed = window.getComputedStyle(ta, null);
+
+			// Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
+			var actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
+
+			// The actual height not matching the style height (set via the resize method) indicates that 
+			// the max-height has been exceeded, in which case the overflow should be allowed.
+			if (actualHeight < styleHeight) {
+				if (computed.overflowY === 'hidden') {
+					changeOverflow('scroll');
+					resize();
+					actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
+				}
+			} else {
+				// Normally keep overflow set to hidden, to avoid flash of scrollbar as the textarea expands.
+				if (computed.overflowY !== 'hidden') {
+					changeOverflow('hidden');
+					resize();
+					actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
+				}
+			}
+
+			if (cachedHeight !== actualHeight) {
+				cachedHeight = actualHeight;
+				var evt = createEvent('autosize:resized');
+				try {
+					ta.dispatchEvent(evt);
+				} catch (err) {
+					// Firefox will throw an error on dispatchEvent for a detached element
+					// https://bugzilla.mozilla.org/show_bug.cgi?id=889376
+				}
+			}
+		}
+
+		var pageResize = function pageResize() {
+			if (ta.clientWidth !== clientWidth) {
+				update();
+			}
+		};
+
+		var destroy = function (style) {
+			window.removeEventListener('resize', pageResize, false);
+			ta.removeEventListener('input', update, false);
+			ta.removeEventListener('keyup', update, false);
+			ta.removeEventListener('autosize:destroy', destroy, false);
+			ta.removeEventListener('autosize:update', update, false);
+
+			Object.keys(style).forEach(function (key) {
+				ta.style[key] = style[key];
+			});
+
+			map.delete(ta);
+		}.bind(ta, {
+			height: ta.style.height,
+			resize: ta.style.resize,
+			overflowY: ta.style.overflowY,
+			overflowX: ta.style.overflowX,
+			wordWrap: ta.style.wordWrap
+		});
+
+		ta.addEventListener('autosize:destroy', destroy, false);
+
+		// IE9 does not fire onpropertychange or oninput for deletions,
+		// so binding to onkeyup to catch most of those events.
+		// There is no way that I know of to detect something like 'cut' in IE9.
+		if ('onpropertychange' in ta && 'oninput' in ta) {
+			ta.addEventListener('keyup', update, false);
+		}
+
+		window.addEventListener('resize', pageResize, false);
+		ta.addEventListener('input', update, false);
+		ta.addEventListener('autosize:update', update, false);
+		ta.style.overflowX = 'hidden';
+		ta.style.wordWrap = 'break-word';
+
+		map.set(ta, {
+			destroy: destroy,
+			update: update
+		});
+
+		init();
+	}
+
+	function destroy(ta) {
+		var methods = map.get(ta);
+		if (methods) {
+			methods.destroy();
+		}
+	}
+
+	function update(ta) {
+		var methods = map.get(ta);
+		if (methods) {
+			methods.update();
+		}
+	}
+
+	var autosize = null;
+
+	// Do nothing in Node.js environment and IE8 (or lower)
+	if (typeof window === 'undefined' || typeof window.getComputedStyle !== 'function') {
+		autosize = function autosize(el) {
+			return el;
+		};
+		autosize.destroy = function (el) {
+			return el;
+		};
+		autosize.update = function (el) {
+			return el;
+		};
+	} else {
+		autosize = function autosize(el, options) {
+			if (el) {
+				Array.prototype.forEach.call(el.length ? el : [el], function (x) {
+					return assign(x, options);
+				});
+			}
+			return el;
+		};
+		autosize.destroy = function (el) {
+			if (el) {
+				Array.prototype.forEach.call(el.length ? el : [el], destroy);
+			}
+			return el;
+		};
+		autosize.update = function (el) {
+			if (el) {
+				Array.prototype.forEach.call(el.length ? el : [el], update);
+			}
+			return el;
+		};
+	}
+
+	exports.default = autosize;
+	module.exports = exports['default'];
+});
+});
+
+var Textarea = function (_Component) {
+  inherits(Textarea, _Component);
+
+  function Textarea(props) {
+    classCallCheck(this, Textarea);
+
+    var _this = possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
+
+    _this.handleChange = function (ev) {
+      _this.setState({ value: ev.target.value });
+    };
+
+    _this.state = { value: _this.props.initValue || "" };
+    return _this;
+  }
+
+  createClass(Textarea, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      autosize(this.textarea);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      autosize.destroy(this.textarea);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return React__default.createElement(
+        "div",
+        { className: "Textarea " + (this.props.block ? "Textarea--block" : "") },
+        React__default.createElement(
+          "div",
+          { className: "Textarea__label" },
+          React__default.createElement(
+            Label,
+            null,
+            this.props.placeholder
+          )
+        ),
+        React__default.createElement("textarea", {
+          ref: function ref(c) {
+            return _this2.textarea = c;
+          },
+          className: "Textarea__field",
+          value: this.state.value,
+          type: "text",
+          onChange: this.handleChange,
+          rows: "1"
+        })
+      );
+    }
+  }]);
+  return Textarea;
+}(React.Component);
+
+var css$10 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
+styleInject(css$10);
 
 var Block = function Block(props) {
   var style = {};
@@ -1273,7 +1648,7 @@ var Block = function Block(props) {
   if (props.pad) style.padding = props.pad + "px";
   return React__default.createElement(
     "div",
-    { style: style, className: "Block Block--center" },
+    { style: style, className: "Block " + (props.center ? "Block--center" : "") },
     props.children
   );
 };
@@ -1295,19 +1670,21 @@ var Column = function Column(props) {
 
 var Layout = { Block: Block, Row: Row, Column: Column };
 
-var css$10 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\",\r \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
-styleInject(css$10);
+var css$11 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\",\r \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
+styleInject(css$11);
 
 var index = {
   Button: Button,
-  ButtonGroup: ButtonGroup,
   Icon: Icon,
   IconButton: IconButton,
   Header: Header,
   Modal: Modal,
   Avatar: Avatar,
   Layout: Layout,
-  Text: Text
+  Text: Text,
+  Input: Input,
+  Label: Label,
+  Textarea: Textarea
 };
 
 return index;

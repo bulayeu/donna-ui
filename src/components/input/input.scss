@@ -1,0 +1,41 @@
+@import "../vars.scss";
+
+.Input {
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+
+  .Input__field {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    font-family: inherit;
+    font-size: 1em;
+    padding: 0px;
+  }
+
+  .Input__field:focus {
+    outline: none;
+  }
+
+  .Input__field:focus::-webkit-input-placeholder {
+    color: red;
+  }
+
+  .Input__field:focus::-moz-placeholder {
+    color: red;
+    opacity: 1;
+  }
+
+  .Input__field {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  border-bottom: 1px dashed $BRAND_COLOR_DARK_BLUE;
+}

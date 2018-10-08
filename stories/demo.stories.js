@@ -1,15 +1,24 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { Modal, Layout, Button, Icon, Text, Header } from "../dist/donna-ui";
+import {
+  Modal,
+  Layout,
+  Button,
+  Icon,
+  Text,
+  Header,
+  Input,
+  Textarea
+} from "../dist/donna-ui";
 const { Row, Block, Column } = Layout;
 
 storiesOf("Demo", module)
   .add("facebook one", () => {
     return (
       <Modal>
-        <Block pad={30} w={520}>
+        <Block center pad={30} w={520}>
           <Column>
-            <Block pad={30}>
+            <Block center pad={30}>
               <Icon icon="promo" />
             </Block>
             <Text level={3}>Promo application is requestiong allowence:</Text>
@@ -25,9 +34,10 @@ storiesOf("Demo", module)
                 </Button>
               </Column>
             </Block>
-            <Button icon="lock" type="transparent-dark-gray">
+            <Text>
+              <Icon icon="lock" />
               Application will be allowed to publish on Facebook
-            </Button>
+            </Text>
             <Button href="#" type="transparent-blue">
               Terms and Conditions
             </Button>
@@ -38,8 +48,8 @@ storiesOf("Demo", module)
   })
   .add("Well Done!", () => {
     return (
-      <Modal>
-        <Block pad={30}>
+      <Modal showCloseButton={false}>
+        <Block center pad={30}>
           <Column>
             <Header level={3}>Well Done!</Header>
             <Text pad={30}>
@@ -51,6 +61,20 @@ storiesOf("Demo", module)
             <Block w={200}>
               <Button block>OK</Button>
             </Block>
+          </Column>
+        </Block>
+      </Modal>
+    );
+  })
+  .add("video", () => {
+    return (
+      <Modal>
+        <Block w={340} pad={30}>
+          <Column>
+            <Header level={3}>Post to Facebook</Header>
+            <Input block placeholder="TITLE" />
+            <Textarea block placeholder="TEXT" />
+            <Button block>Next</Button>
           </Column>
         </Block>
       </Modal>
