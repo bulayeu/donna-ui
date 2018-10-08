@@ -2,101 +2,114 @@
 
 $BORDER: 1px solid $BRAND_COLOR_BLUE;
 
-.grid-item {
-  width: 200px;
-  height: 200px;
-  border: $BORDER;
-}
-
-.color {
-  margin: 5px;
-  width: 200px;
-  height: 30px;
-  border: $BORDER;
-  float: left;
-  position: relative;
-  top: 35px;
-
-  &:after {
-    position: absolute;
-    bottom: -35px;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-    border: $BORDER;
+section.story {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
   }
-
-  &:before {
-    position: absolute;
-    top: -35px;
-    width: 100%;
-    text-align: center;
-    padding: 5px;
-    border: $BORDER;
-  }
-
-  &.brand-white {
-    background-color: $BRAND_COLOR_WHITE;
-    &:after {
-      content: "#{$BRAND_COLOR_WHITE}";
-    }
-    &:before {
-      content: "#{BRAND_COLOR_WHITE}";
-    }
-  }
-
-  &.brand-blue {
-    background-color: $BRAND_COLOR_BLUE;
-    &:after {
-      content: "#{$BRAND_COLOR_BLUE}";
-    }
-    &:before {
-      content: "#{BRAND_COLOR_BLUE}";
-    }
-  }
-
-  &.brand-pink {
-    background-color: $BRAND_COLOR_PINK;
-    &:after {
-      content: "#{$BRAND_COLOR_PINK}";
-    }
-    &:before {
-      content: "#{BRAND_COLOR_PINK}";
-    }
-  }
-
-  &.brand-dark-blue {
-    background-color: $BRAND_COLOR_DARK_BLUE;
-    &:after {
-      content: "#{$BRAND_COLOR_DARK_BLUE}";
-    }
-    &:before {
-      content: "#{BRAND_COLOR_DARK_BLUE}";
-    }
-  }
-
-  &.brand-gray {
-    background-color: $BRAND_COLOR_GRAY;
-    &:after {
-      content: "#{$BRAND_COLOR_GRAY}";
-    }
-    &:before {
-      content: "#{BRAND_COLOR_GRAY}";
-    }
-  }
-}
-
-section {
   padding: $BASE * 2;
   &.dark {
     background-color: $BRAND_COLOR_DARK_BLUE;
   }
+  &.space-between {
+    & > * {
+      margin: $BASE;
+    }
+  }
 }
 
-h1 {
-  font-size: 2rem !important;
-}
+.story {
+  .icon-and-name {
+    float: left;
+  }
+  &.dark {
+    .icon-and-name {
+      color: $BRAND_COLOR_WHITE;
+    }
+  }
 
-h2 {
-  font-size: 1.5rem !important;
+  .grid-item {
+    width: 200px;
+    height: 200px;
+    border: $BORDER;
+  }
+
+  .color {
+    margin: 5px;
+    width: 200px;
+    height: 30px;
+    border: $BORDER;
+    float: left;
+    position: relative;
+    top: 35px;
+
+    &:after {
+      position: absolute;
+      bottom: -35px;
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      border: $BORDER;
+    }
+
+    &:before {
+      position: absolute;
+      top: -35px;
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      border: $BORDER;
+    }
+
+    &.brand-white {
+      background-color: $BRAND_COLOR_WHITE;
+      &:after {
+        content: "#{$BRAND_COLOR_WHITE}";
+      }
+      &:before {
+        content: "#{BRAND_COLOR_WHITE}";
+      }
+    }
+
+    &.brand-blue {
+      background-color: $BRAND_COLOR_BLUE;
+      &:after {
+        content: "#{$BRAND_COLOR_BLUE}";
+      }
+      &:before {
+        content: "#{BRAND_COLOR_BLUE}";
+      }
+    }
+
+    &.brand-pink {
+      background-color: $BRAND_COLOR_PINK;
+      &:after {
+        content: "#{$BRAND_COLOR_PINK}";
+      }
+      &:before {
+        content: "#{BRAND_COLOR_PINK}";
+      }
+    }
+
+    &.brand-dark-blue {
+      background-color: $BRAND_COLOR_DARK_BLUE;
+      &:after {
+        content: "#{$BRAND_COLOR_DARK_BLUE}";
+      }
+      &:before {
+        content: "#{BRAND_COLOR_DARK_BLUE}";
+      }
+    }
+
+    &.brand-gray {
+      background-color: $BRAND_COLOR_GRAY;
+      &:after {
+        content: "#{$BRAND_COLOR_GRAY}";
+      }
+      &:before {
+        content: "#{BRAND_COLOR_GRAY}";
+      }
+    }
+  }
 }

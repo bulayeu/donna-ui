@@ -8,9 +8,9 @@ const MODULE_NAME = "donna-ui";
 
 export default {
   input: "./src/index.js",
-  output:{
+  output: {
     file: `./dist/${MODULE_NAME}.js`,
-    format: 'umd',
+    format: "umd",
     name: `${MODULE_NAME}`,
     sourcemap: false,
     globals: {
@@ -32,5 +32,5 @@ export default {
     commonjs()
   ],
 
-  external: ["react", "react-dom"],
+  external: ["react", "react-dom"]
 };

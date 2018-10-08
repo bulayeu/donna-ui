@@ -7,6 +7,7 @@ import Avatar from "./components/avatar/Avatar.jsx";
 
 import Header from "./components/typography/header/Header.jsx";
 import Text from "./components/typography/text/Text.jsx";
+import Label from "./components/typography/label/Label.jsx";
 
 import Layout from "./components/layout/Layout.jsx";
 

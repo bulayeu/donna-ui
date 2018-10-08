@@ -5,7 +5,7 @@ import { Layout } from "../dist/donna-ui";
 const { Block, Column, Row } = Layout;
 
 storiesOf("Layout", module).add("layout", () => (
-  <section>
+  <section className="story">
     <Block>
       <Row>
         <div className="grid-item" />

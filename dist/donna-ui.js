@@ -841,7 +841,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  font-size: 14px;\n  cursor: pointer;\n  margin: 5px;\n  width: auto;\n  padding-top: 12px;\n  padding-bottom: 12px; }\n  .Button.Button--white {\n    color: #232f3a;\n    border-color: #ffffff;\n    background-color: #ffffff; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--transparent {\n    color: #ffffff;\n    border-color: #ffffff;\n    background-color: transparent; }\n  .Button.Button--link {\n    color: #ffffff;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button[disabled] {\n    opacity: 0.5;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
+var css = ".Label {\n  display: inline-block;\n  font-size: inherit;\n  font-weight: inherit;\n  width: auto;\n  font-size: 14px; }\n";
 styleInject(css);
 
 var classCallCheck = function (instance, Constructor) {
@@ -892,103 +892,29 @@ var possibleConstructorReturn = function (self, call) {
   return call && (typeof call === "object" || typeof call === "function") ? call : self;
 };
 
-var Button = function (_Component) {
-  inherits(Button, _Component);
+var Label = function (_Component) {
+  inherits(Label, _Component);
 
-  function Button() {
-    classCallCheck(this, Button);
-    return possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+  function Label() {
+    classCallCheck(this, Label);
+    return possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).apply(this, arguments));
   }
 
-  createClass(Button, [{
-    key: "calculcateClasses",
-    value: function calculcateClasses() {
-      return "Button Button--" + this.props.type;
-    }
-  }, {
-    key: "asReference",
-    value: function asReference() {
+  createClass(Label, [{
+    key: "render",
+    value: function render() {
       return React__default.createElement(
-        "a",
-        {
-          href: this.props.href,
-          disabled: this.props.disabled,
-          className: this.calculcateClasses()
-        },
-        React__default.createElement(
-          "span",
-          { className: "Label" },
-          this.props.children
-        )
-      );
-    }
-  }, {
-    key: "asButton",
-    value: function asButton() {
-      return React__default.createElement(
-        "button",
-        {
-          onClick: this.props.onClick,
-          disabled: this.props.disabled,
-          className: this.calculcateClasses()
-        },
+        "span",
+        { className: "Label" },
         this.props.children
       );
     }
-  }, {
-    key: "render",
-    value: function render() {
-      return this.props.href ? this.asReference() : this.asButton();
-    }
   }]);
-  return Button;
+  return Label;
 }(React.Component);
 
-
-var TYPE_WHITE = "white";
-var TYPE_BLUE = "blue";
-var TYPE_TRANSPARENT = "transparent";
-var TYPE_LINK = "link";
-var TYPE_RED = "pink";
-
-Button.propTypes = {
-  type: propTypes.oneOf([TYPE_WHITE, TYPE_BLUE, TYPE_TRANSPARENT, TYPE_LINK, TYPE_RED]),
-  href: propTypes.string,
-  onClick: propTypes.func,
-  disabled: propTypes.bool
-};
-
-Button.defaultProps = {
-  type: TYPE_BLUE,
-  disabled: false
-};
-
-var css$1 = ".ButtonGroup {\n  margin: 8px; }\n  .ButtonGroup > .Button {\n    margin: 0px;\n    border-radius: 0px; }\n  .ButtonGroup > .Button:first-child {\n    border-top-left-radius: 4px;\n    border-bottom-left-radius: 4px; }\n  .ButtonGroup > .Button:last-child {\n    border-top-right-radius: 4px;\n    border-bottom-right-radius: 4px; }\n";
+var css$1 = ".Icon {\n  display: inline-block;\n  width: auto;\n  height: auto;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: none; }\n  .Icon > img {\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -o-user-select: none;\n    user-select: none;\n    width: auto;\n    height: auto;\n    float: left; }\n";
 styleInject(css$1);
-
-var ButtonGroup = function (_Component) {
-  inherits(ButtonGroup, _Component);
-
-  function ButtonGroup() {
-    classCallCheck(this, ButtonGroup);
-    return possibleConstructorReturn(this, (ButtonGroup.__proto__ || Object.getPrototypeOf(ButtonGroup)).apply(this, arguments));
-  }
-
-  createClass(ButtonGroup, [{
-    key: "render",
-    value: function render() {
-      return React__default.createElement(
-        "div",
-        { className: "ButtonGroup" },
-        this.props.children
-      );
-    }
-  }]);
-  return ButtonGroup;
-}(React.Component);
-
-var css$2 = ".Icon {\n  display: inline-block;\n  width: auto;\n  height: auto;\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: none; }\n  .Icon > img {\n    -webkit-user-select: none;\n    -khtml-user-select: none;\n    -moz-user-select: none;\n    -o-user-select: none;\n    user-select: none;\n    width: auto;\n    height: auto;\n    float: left; }\n";
-styleInject(css$2);
 
 var facebook = "data:image/png;base64,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";
 
@@ -1002,13 +928,28 @@ var linkedin = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/N
 
 var close = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABHNCSVQICAgIfAhkiAAAAT5JREFUOI2l0zFLw0AUB/D/e5c0DRW1FEUKDvYTCHYSNzdXNwcNgehXEgNJ/QZ+AVexUzo6OlVQpKWxtNqkdRJCm14u583vfty99390eeWMhGDDEOLY9/0eNI/jONtE/AxCiwWz1X8f2EmaPnmed/gfcBiPW9Pvn4SJcNPcqc904SxYtcykUjEfCABc13UWC9z1PwZmc7c+UW1FHngfhhf0V1AWXgcCAGULVWEZuIKqwEVgLiqDVcC1aB4smM/SdH5bBErRZXh/r4HPYTwrAgFAyNAoinrt9lFcs63Tl9c30djamNuW+dgJw3PZPelLsz0UgikeTw2VuLEKWLXMZLNmd1U3LxfNm3IQBCdEuFaBV75fFBuVBaEyoCpMZUEVmHTAIph0QRnMAHd1QQAIgqCznApO0uRAF8yDR18T+xd2+mrGH1AqUQAAAABJRU5ErkJggg==";
 
+var edit = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAMCAYAAABfnvydAAAABHNCSVQICAgIfAhkiAAAAOJJREFUGJVl0L1Nw2AUheH3fNipaejDBg4LkBQIUSAyAtnAG4AnMBtkBagQpjALoJgJyAZgCSHhiO9QhB/LnPLeR7o/MMjB3cflpOpeJlVXA6jfzO4302DX2AXShdJ0L/SB7BLA0iEAb7z/gqzqzgUZdiGYYhePp9qCrPauoMQuvn0bR6MrgAQgdF2OpChdB1hFWDQzvQIou/U47GyeIyyCfWa0vzoeZT+jkxC60tYTQWtgbmnWXzwgzQW1YlzavmmO0oc+SLb3kQu18TPNh48LQItdxDQdNydaDwHUTv4X//IFq5dViuOr00oAAAAASUVORK5CYII=";
+
+var fb = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAfdJREFUOBGdVM1O20AQntlgEVqKcGgvHKoqIFFewUWAhNRcAPEKcAFVoj9nHqDqCQpvAA9AroUDPxLmSKUQRRVQRAWoNJEAJamrxMl0xsaOiV1B2cvOfPPNt+vZGSPcsTay2XZVKOuaZhcMw7D+RceowPrWbj9B7R0AjhFRd4ODh4CUbtHUwohhnDVwZgYdToqtb5ufeH/PeCwYC9qIaBHSXGpwYN7DfSERWdsy0wA06gXv3nEpNfzqrfCUR5ab/J+IZNIsHz4tlnMjqUmdahn2Q5/zqC0OfT1JkP384hcc/ziVPH+xwFVbrCPp3MgtbFhE2D0vnsOzLp0tAtu2fQHPIIBOq16canEBHBNi1Iq3tjrw3n4Oflt/oiiCjcekT2pl62MU42VvEp4mdFBKQZfeCfxacF0shagIGFf2pZUIRW4Afkk/VK8TVCpV3w8ahKCrx6qSD4JB+9vRMRRLZQf6ms3Bz3whGPZtJMgrt+3xyEcfYBBQxu0jpNUH5DdSUK06QjI70vaNyP0tLvTZEw1WHCEZQJmdqPST03PIHXyHSjXcQ3w48RC/kfL4syYiXzZ3FqXtowSbMUcE8MPrIeOzxNwa3bBkABHVjLR9c2LQl8/hAyc8EYndupFHNk0zUarSJPvj3PB90ifyxPI6fFC6XYPl5p/cXzIksYMiUwScAAAAAElFTkSuQmCC";
+
+var lock = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAPCAYAAAAyPTUwAAAABHNCSVQICAgIfAhkiAAAAQxJREFUKJGVkUFOAkEQRV81E2WnngCOwBHYupMb6AlkNBBmNsKGmYRJ8AbgDbiBeAPcs/AIuNNE+rtgwDEDRP+uql+q/q+Gf8iKRZxmt6BrsIZgZs4Pht3uYvvudmAy6gsNwF5ktJAu8O65l4zrWyb42WEPJrsZRvfTvDOLk+zN2boNtHeTe8moCXBSdbPfLjWV1CjZAOiH4epowDjNdPQEubz8ZQAgUyjP4hBoZo+QB5RnkUad+cb/uO7wzUJQomS0Knne6KuOabJvwx4YhN7/BKdRZ25OzYOwOTsvNotfDGDGGUAg8WQwidOsJufKF/HrK7AGVJbBabXS/vxYYxCa97Wyf3uV0Up7d8tvad9hCTo+JqcAAAAASUVORK5CYII=";
+
+var plus = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAAAAAXNSR0IArs4c6QAAAG9JREFUOBFjYMAD/v//bwDEPHiU4JcCar4HxCn4VDHhkwTKsUIxTmWEDMCpESYxDAxghIayE8xPaLQ/kH8ViO+gicO4+ygOA5hJWGmg6x4DcSZWSaggxS4YNYCBgVAYfAMGNgiTB4BRKA7EzPh0AwDyiCM9CQynewAAAABJRU5ErkJggg==";
+
+var promo = "data:image/png;base64,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";
+
 var icons = {
   facebook: facebook,
   twitter: twitter,
   instagram: instagram,
   youtube: youtube,
   linkedin: linkedin,
-  close: close
+  close: close,
+  edit: edit,
+  fb: fb,
+  lock: lock,
+  plus: plus,
+  promo: promo
 };
 
 var Icon = function (_Component) {
@@ -1033,16 +974,132 @@ var Icon = function (_Component) {
 }(React.Component);
 
 
-Icon.defaultProps = {
-  icon: "default"
-};
+var ICON_TYPES = Object.keys(icons);
 
 Icon.propTypes = {
-  icon: propTypes.oneOf(["facebook", "twitter", "instagram", "youtube", "linkedin", "close", "default"])
+  icon: propTypes.oneOf(ICON_TYPES)
 };
 
-var css$3 = ".IconButton {\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  cursor: pointer;\n  width: auto;\n  height: auto;\n  padding: 0px;\n  margin: 0px;\n  border: 0px;\n  background-color: transparent;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .IconButton.IconButton--round {\n    width: 50px;\n    height: 50px;\n    background-color: #ed486f;\n    border-radius: 50px;\n    position: relative; }\n    .IconButton.IconButton--round > .Icon {\n      width: auto;\n      height: auto; }\n  .IconButton.IconButton--plain {\n    float: left; }\n";
+var css$2 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  margin: 5px;\n  width: auto;\n  padding: 12px 6px;\n  min-height: 40px; }\n  .Button .Button__content {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .Button .Button__content > .Icon {\n      margin-right: 10px; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--gray {\n    color: #b9c0c4;\n    border-color: #b9c0c4;\n    background-color: transparent; }\n  .Button.Button--transparent-blue {\n    color: #32bafa;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-gray {\n    color: #b9c0c4;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-dark-gray {\n    color: #7A888C;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.Button--block {\n    width: 100%; }\n  .Button[disabled] {\n    opacity: 0.75;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
+styleInject(css$2);
+
+var Button = function (_Component) {
+  inherits(Button, _Component);
+
+  function Button() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    classCallCheck(this, Button);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = Button.__proto__ || Object.getPrototypeOf(Button)).call.apply(_ref, [this].concat(args))), _this), _this.asReference = function () {
+      return React__default.createElement(
+        "a",
+        {
+          href: _this.props.href,
+          disabled: _this.props.disabled,
+          className: _this.calculcateClasses()
+        },
+        React__default.createElement(
+          "span",
+          { className: "Button__content" },
+          _this.renderIcon(),
+          _this.renderLabel()
+        )
+      );
+    }, _this.asButton = function () {
+      return React__default.createElement(
+        "button",
+        {
+          onClick: _this.props.onClick,
+          disabled: _this.props.disabled,
+          className: _this.calculcateClasses()
+        },
+        React__default.createElement(
+          "span",
+          { className: "Button__content" },
+          _this.renderIcon(),
+          _this.renderLabel()
+        )
+      );
+    }, _this.renderIcon = function () {
+      return _this.props.icon ? React__default.createElement(Icon, { icon: _this.props.icon }) : null;
+    }, _this.renderLabel = function () {
+      return React__default.createElement(
+        Label,
+        null,
+        _this.props.children
+      );
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  createClass(Button, [{
+    key: "calculcateClasses",
+    value: function calculcateClasses() {
+      return "Button Button--" + this.props.type + " " + (this.props.block ? "Button--block" : "");
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return this.props.href ? this.asReference() : this.asButton();
+    }
+  }]);
+  return Button;
+}(React.Component);
+
+
+var BUTTON_BLUE = "blue";
+var BUTTON_GRAY = "gray";
+var BUTTON_PINK = "pink";
+var BUTTON_TRANSPARENT_BLUE = "transparent-blue";
+var BUTTON_TRANSPARENT_GRAY = "transparent-gray";
+var BUTTON_TRANSPARENT_DARK_GRAY = "transparent-dark-gray";
+
+var BUTTON_TYPES = [BUTTON_BLUE, BUTTON_GRAY, BUTTON_PINK, BUTTON_TRANSPARENT_BLUE, BUTTON_TRANSPARENT_GRAY, BUTTON_TRANSPARENT_DARK_GRAY];
+
+Button.propTypes = {
+  type: propTypes.oneOf(BUTTON_TYPES),
+  href: propTypes.string,
+  onClick: propTypes.func,
+  disabled: propTypes.bool
+};
+
+Button.defaultProps = {
+  type: BUTTON_BLUE,
+  disabled: false
+};
+
+var css$3 = ".ButtonGroup {\n  margin: 8px; }\n  .ButtonGroup > .Button {\n    margin: 0px;\n    border-radius: 0px; }\n  .ButtonGroup > .Button:first-child {\n    border-top-left-radius: 4px;\n    border-bottom-left-radius: 4px; }\n  .ButtonGroup > .Button:last-child {\n    border-top-right-radius: 4px;\n    border-bottom-right-radius: 4px; }\n";
 styleInject(css$3);
+
+var ButtonGroup = function (_Component) {
+  inherits(ButtonGroup, _Component);
+
+  function ButtonGroup() {
+    classCallCheck(this, ButtonGroup);
+    return possibleConstructorReturn(this, (ButtonGroup.__proto__ || Object.getPrototypeOf(ButtonGroup)).apply(this, arguments));
+  }
+
+  createClass(ButtonGroup, [{
+    key: "render",
+    value: function render() {
+      return React__default.createElement(
+        "div",
+        { className: "ButtonGroup" },
+        this.props.children
+      );
+    }
+  }]);
+  return ButtonGroup;
+}(React.Component);
+
+var css$4 = ".IconButton {\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  cursor: pointer;\n  width: auto;\n  height: auto;\n  padding: 0px;\n  margin: 0px;\n  border: 0px;\n  background-color: transparent;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .IconButton.IconButton--round {\n    width: 50px;\n    height: 50px;\n    background-color: #ed486f;\n    border-radius: 50px;\n    position: relative; }\n    .IconButton.IconButton--round > .Icon {\n      width: auto;\n      height: auto; }\n  .IconButton.IconButton--plain {\n    float: left; }\n";
+styleInject(css$4);
 
 var IconButton = function (_Component) {
   inherits(IconButton, _Component);
@@ -1074,8 +1131,8 @@ IconButton.defaultProps = {
   type: "plain"
 };
 
-var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    overflow: hidden;\n    width: auto;\n    min-width: 30vw;\n    max-width: 80vw;\n    position: relative;\n    border-radius: 5px;\n    background-color: #ffffff; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 10px;\n      top: 10px; }\n";
-styleInject(css$4);
+var css$5 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    overflow: hidden;\n    width: auto;\n    min-width: 20vw;\n    max-width: 80vw;\n    position: relative;\n    border-radius: 5px;\n    background-color: #ffffff; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 20px;\n      top: 20px; }\n";
+styleInject(css$5);
 
 var Modal = function (_Component) {
   inherits(Modal, _Component);
@@ -1118,8 +1175,8 @@ var Modal = function (_Component) {
   return Modal;
 }(React.Component);
 
-var css$5 = ".Avatar {\n  width: 50px;\n  height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
-styleInject(css$5);
+var css$6 = ".Avatar {\n  width: 50px;\n  height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
+styleInject(css$6);
 
 var Avatar = function (_Component) {
   inherits(Avatar, _Component);
@@ -1143,8 +1200,8 @@ var Avatar = function (_Component) {
   return Avatar;
 }(React.Component);
 
-var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: #000000; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 700; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 600; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
-styleInject(css$6);
+var css$7 = ".Header {\n  margin-top: 10px;\n  margin-bottom: 10px;\n  color: #000000; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 900; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 800; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
+styleInject(css$7);
 
 var Header = function (_Component) {
   inherits(Header, _Component);
@@ -1193,8 +1250,8 @@ Header.defaultProps = {
   level: 1
 };
 
-var css$7 = ".Text {\n  margin: 0px; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    font-weight: 600; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    font-size: 14px;\n    font-weight: 400; }\n";
-styleInject(css$7);
+var css$8 = ".Text {\n  margin: 0px;\n  margin-top: 5px;\n  margin-bottom: 5px; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    line-height: 18px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 800; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 400; }\n\n.Text > .Icon {\n  margin-right: 10px;\n  margin-left: 10px; }\n";
+styleInject(css$8);
 
 var Text = function Text(props) {
   return React__default.createElement(
@@ -1204,13 +1261,19 @@ var Text = function Text(props) {
   );
 };
 
-var css$8 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  padding: 20px; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
-styleInject(css$8);
+Text.defaultProps = { level: 3 };
+
+var css$9 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
+styleInject(css$9);
 
 var Block = function Block(props) {
+  var style = {};
+  if (props.w) style.width = props.w + "px";
+  if (props.h) style.width = props.h + "px";
+  if (props.pad) style.padding = props.pad + "px";
   return React__default.createElement(
     "div",
-    { className: "Block Block--center" },
+    { style: style, className: "Block Block--center" },
     props.children
   );
 };
@@ -1232,8 +1295,8 @@ var Column = function Column(props) {
 
 var Layout = { Block: Block, Row: Row, Column: Column };
 
-var css$9 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\",\r \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
-styleInject(css$9);
+var css$10 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\",\r \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
+styleInject(css$10);
 
 var index = {
   Button: Button,

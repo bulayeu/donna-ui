@@ -9,16 +9,11 @@ const colors = ["white", "gray", "blue", "dark-blue", "pink"];
 storiesOf("Introduction", module)
   .add("default", () => <section>Description</section>)
   .add("variables", () => (
-    <section>
+    <section className="story">
       <div>
         {colors.map(c => {
           return <div key={c} className={`color brand-${c}`} />;
         })}
-      </div>
-      <div>
-        <div className="size">
-          
-        </div>
       </div>
     </section>
   ));

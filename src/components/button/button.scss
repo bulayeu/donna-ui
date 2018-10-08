@@ -8,49 +8,70 @@
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
-  font-size: 14px;
   cursor: pointer;
   margin: $BASE;
   width: auto;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 12px 6px;
+  min-height: $BASE * 8;
 
-  &.Button--white {
-    color: $BRAND_COLOR_DARK_BLUE;
-    border-color: $BRAND_COLOR_WHITE;
-    background-color: $BRAND_COLOR_WHITE;
+  .Button__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > .Icon {
+      margin-right: $BASE*2;
+    }
   }
-  
+
   &.Button--blue {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_BLUE;
     background-color: $BRAND_COLOR_BLUE;
   }
-  
-  &.Button--transparent {
-    color: $BRAND_COLOR_WHITE;
-    border-color: $BRAND_COLOR_WHITE;
+
+  &.Button--gray {
+    color: $BRAND_COLOR_GRAY;
+    border-color: $BRAND_COLOR_GRAY;
     background-color: transparent;
   }
-  
-  &.Button--link {
-    color: $BRAND_COLOR_WHITE;
-    border-color: transparent;
-    background-color: transparent;
+
+  &.Button--transparent-blue {
+    color: $BRAND_COLOR_BLUE;
+    border-color: transparent !important;
+    background-color: transparent !important;
   }
-  
+
+  &.Button--transparent-gray {
+    color: $BRAND_COLOR_GRAY;
+    border-color: transparent !important;
+    background-color: transparent !important;
+  }
+
+  &.Button--transparent-dark-gray {
+    color: $BRAND_COLOR_DARK_GRAY;
+    border-color: transparent !important;
+    background-color: transparent !important;
+  }
+
   &.Button--pink {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_PINK;
     background-color: $BRAND_COLOR_PINK;
   }
+
+  &.Button--block {
+    width: 100%;
+  }
+
   &[disabled] {
-    opacity: 0.5;
+    opacity: 0.75;
     cursor: not-allowed;
     pointer-events: none;
   }
   &[href] {
-    &:visited, &:focus, &:active {
+    &:visited,
+    &:focus,
+    &:active {
       text-decoration: none;
     }
   }
