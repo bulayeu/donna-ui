@@ -2,8 +2,6 @@
 
 .Block {
   display: flex;
-  width: 100%;
-  height: 100%;
   &.Block--center {
     justify-content: center;
     align-items: center;
@@ -13,12 +11,15 @@
 .Row {
   display: flex;
   flex-direction: row;
+  height: auto;
+  width: 100%;
 }
 
 .Column {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  // justify-content: flex-start;
   align-items: center;
 }

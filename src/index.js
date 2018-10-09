@@ -11,6 +11,7 @@ import Input from "./components/input/Input.jsx";
 import Textarea from "./components/textarea/Textarea.jsx";
 
 import Layout from "./components/layout/Layout.jsx";
+import SocialCheckbox from "./components/social-checkbox/SocialCheckbox.jsx";
 
 import "./components/global.scss";
 
@@ -25,5 +26,6 @@ export default {
   Text,
   Input,
   Label,
-  Textarea
+  Textarea,
+  SocialCheckbox
 };

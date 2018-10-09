@@ -17,6 +17,9 @@ import fb from "../../assets/icons/facebook.png";
 import lock from "../../assets/icons/lock.png";
 import plus from "../../assets/icons/plus.png";
 import promo from "../../assets/icons/promo.png";
+import selected from "../../assets/icons/selected.svg";
+
+import placeholder from "../../assets/icons/placeholder.png";
 
 const icons = {
   facebook,
@@ -29,13 +32,15 @@ const icons = {
   fb,
   lock,
   plus,
-  promo
+  promo,
+  selected,
+  placeholder
 };
 
 export default class Icon extends Component {
   render() {
     return (
-      <span className={`Icon icon-${this.props.icon}`}>
+      <span className={`Icon Icon--${this.props.icon}`}>
         <img draggable={false} src={icons[this.props.icon]} />
       </span>
     );
@@ -46,4 +51,8 @@ const ICON_TYPES = Object.keys(icons);
 
 Icon.propTypes = {
   icon: PropTypes.oneOf(ICON_TYPES)
+};
+
+Icon.defaultProps = {
+  icon: "placeholder"
 };

@@ -1,4 +1,7 @@
 .Label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   display: inline-block;
   font-size: inherit;
   font-weight: inherit;

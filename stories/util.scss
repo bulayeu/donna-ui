@@ -20,11 +20,24 @@ section.story {
 }
 
 .story {
-  .icon-and-name {
-    float: left;
+  .icons-table {
+    border-spacing: 10px;
+    border-collapse: collapse;
+    td,
+    th {
+      padding: 5px;
+      text-align: center;
+      vertical-align: center;
+      border: 1px solid $BRAND_COLOR_DARK_BLUE;
+    }
   }
+
   &.dark {
-    .icon-and-name {
+    .icons-table {
+      td,
+      th {
+        border: 1px solid $BRAND_COLOR_WHITE;
+      }
       color: $BRAND_COLOR_WHITE;
     }
   }
@@ -111,5 +124,45 @@ section.story {
         content: "#{BRAND_COLOR_GRAY}";
       }
     }
+  }
+
+  p[class^="font-"] {
+    margin: 10px;
+    font-size: 16px;
+    pre {
+      margin-right: 10px;
+      display: inline;
+      font-weight: 300;
+      padding-right: 10px;
+      border-right: 1px solid black;
+    }
+  }
+
+  .font-100 {
+    font-weight: 100;
+  }
+  .font-200 {
+    font-weight: 200;
+  }
+  .font-300 {
+    font-weight: 300;
+  }
+  .font-400 {
+    font-weight: 400;
+  }
+  .font-500 {
+    font-weight: 500;
+  }
+  .font-600 {
+    font-weight: 600;
+  }
+  .font-700 {
+    font-weight: 700;
+  }
+  .font-800 {
+    font-weight: 800;
+  }
+  .font-900 {
+    font-weight: 900;
   }
 }

@@ -2,33 +2,45 @@
 
 $TEXT_COLOR: $BRAND_COLOR_DARK_BLUE;
 
+$FONT_LEVEL_1: 16px;
+$FONT_LEVEL_2: 14px;
+$FONT_LEVEL_3: 14px;
+
+$LINE_HEIGHT_ADD: 4px;
+
 .Text {
   margin: 0px;
   &.Text--center {
     text-align: center;
   }
+  &.Text--left {
+    text-align: left;
+  }
+  &.Text--right {
+    text-align: left;
+  }
   &.Text--level-1 {
     color: $TEXT_COLOR;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: $FONT_LEVEL_1;
+    line-height: $FONT_LEVEL_1 + $LINE_HEIGHT_ADD;
     font-weight: $FONT_WEIGHT_REGULAR;
   }
   &.Text--level-2 {
     color: $TEXT_COLOR;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: $FONT_LEVEL_2;
+    line-height: $FONT_LEVEL_2 + $LINE_HEIGHT_ADD;
     font-weight: $FONT_WEIGHT_BOLD;
   }
   &.Text--level-3 {
     color: #232f3a;
     font-family: "Proxima Nova";
-    font-size: 14px;
-    line-height: 16px;
+    line-height: $FONT_LEVEL_3;
+    line-height: $FONT_LEVEL_3 + $LINE_HEIGHT_ADD;
     font-weight: $FONT_WEIGHT_REGULAR;
   }
 }
 
 .Text > .Icon {
-  margin-right: $BASE*2;
-  margin-left: $BASE*2;
+  margin-right: $BASE * 2;
+  margin-left: $BASE * 2;
 }

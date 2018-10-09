@@ -1,0 +1,28 @@
+.SocialCheckbox {
+  display: inline-block;
+  height: 60px;
+  overflow: hidden;
+  cursor: pointer;
+  width: auto;
+  .SocialCheckbox__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    & > .Icon {
+      visibility: hidden;
+    }
+    & > .Label {
+      white-space: nowrap;
+    }
+    & > * {
+      margin-right: 10px;
+      user-select: none;
+    }
+  }
+  &.SocialCheckbox--selected {
+    .SocialCheckbox__content > .Icon {
+      visibility: visible;
+    }
+  }
+}

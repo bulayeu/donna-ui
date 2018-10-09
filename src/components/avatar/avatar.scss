@@ -3,9 +3,13 @@
 $AVATAR_SIZE: $BASE * 10;
 
 .Avatar {
+  display: inline-block;
   width: $AVATAR_SIZE;
   height: $AVATAR_SIZE;
+  min-width: $AVATAR_SIZE;
+  min-height: $AVATAR_SIZE;
   position: relative;
+  margin: $BASE;
   & > .Avatar__image {
     border-radius: $AVATAR_SIZE;
     overflow: hidden;
@@ -17,5 +21,6 @@ $AVATAR_SIZE: $BASE * 10;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: $BRAND_COLOR_PINK;
   }
 }

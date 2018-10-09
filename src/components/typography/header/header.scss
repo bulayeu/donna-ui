@@ -7,6 +7,15 @@ $HEADER_COLOR: $BRAND_COLOR_BLACK;
   margin-bottom: 0px;
   color: $HEADER_COLOR;
   width: 100%;
+  &.Header--center {
+    text-align: center;
+  }
+  &.Header--left {
+    text-align: left;
+  }
+  &.Header--right {
+    text-align: left;
+  }
 }
 
 h1.Header {

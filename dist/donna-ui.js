@@ -843,7 +843,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".Label {\n  display: inline-block;\n  font-size: inherit;\n  font-weight: inherit;\n  width: auto;\n  font-size: 14px; }\n";
+var css = ".Label {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n  display: inline-block;\n  font-size: inherit;\n  font-weight: inherit;\n  width: auto;\n  font-size: 14px; }\n";
 styleInject(css);
 
 var classCallCheck = function (instance, Constructor) {
@@ -940,6 +940,10 @@ var plus = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAYAAADUryzEAA
 
 var promo = "data:image/png;base64,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";
 
+var selected = "data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3E5BF3CFC8-3A1E-41C6-838B-72E9AAD3EC5C%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20sketchtool.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22photo-editor%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%22ICONS%22%20transform%3D%22translate%28-798.000000%2C%20-240.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22selected%22%20transform%3D%22translate%28798.000000%2C%20240.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20id%3D%22Oval-6%22%20fill%3D%22%2332BAFA%22%20cx%3D%226%22%20cy%3D%226%22%20r%3D%226%22%3E%3C%2Fcircle%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolyline%20id%3D%22Shape%22%20stroke%3D%22%23FFFFFF%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20points%3D%229%204%204.875%208.5%203%206.45454545%22%3E%3C%2Fpolyline%3E%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E";
+
+var placeholder = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABOSURBVFhHY/wPBAwDCJig9ICBUQeMOoDsXPBOVhXKYmAQenwbyiIdjEbBqANGHTDqgFEHjDpgtEk2dKNgtD1ALTCaC0YdMOqAAXYAAwMAZsMaKIRhZOsAAAAASUVORK5CYII=";
+
 var icons = {
   facebook: facebook,
   twitter: twitter,
@@ -951,7 +955,9 @@ var icons = {
   fb: fb,
   lock: lock,
   plus: plus,
-  promo: promo
+  promo: promo,
+  selected: selected,
+  placeholder: placeholder
 };
 
 var Icon = function (_Component) {
@@ -967,7 +973,7 @@ var Icon = function (_Component) {
     value: function render() {
       return React__default.createElement(
         "span",
-        { className: "Icon icon-" + this.props.icon },
+        { className: "Icon Icon--" + this.props.icon },
         React__default.createElement("img", { draggable: false, src: icons[this.props.icon] })
       );
     }
@@ -980,6 +986,10 @@ var ICON_TYPES = Object.keys(icons);
 
 Icon.propTypes = {
   icon: propTypes.oneOf(ICON_TYPES)
+};
+
+Icon.defaultProps = {
+  icon: "placeholder"
 };
 
 var css$2 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  margin: 5px;\n  width: auto;\n  padding: 12px 6px;\n  min-height: 40px; }\n  .Button .Button__content {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .Button .Button__content > .Icon {\n      margin-right: 10px; }\n  .Button.Button--link {\n    padding: 0px;\n    min-height: auto; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--gray {\n    color: #b9c0c4;\n    border-color: #b9c0c4;\n    background-color: transparent; }\n  .Button.Button--transparent-blue {\n    color: #32bafa;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-gray {\n    color: #b9c0c4;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-dark-gray {\n    color: #7A888C;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.Button--block {\n    width: 100%; }\n  .Button[disabled] {\n    opacity: 0.75;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
@@ -1109,7 +1119,7 @@ IconButton.defaultProps = {
   type: "plain"
 };
 
-var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    overflow: hidden;\n    width: auto;\n    min-width: 20vw;\n    max-width: 80vw;\n    position: relative;\n    border-radius: 5px;\n    background-color: #ffffff; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 20px;\n      top: 20px; }\n";
+var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.9);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    width: auto;\n    min-width: 20vw;\n    max-width: 80vw;\n    position: relative; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 20px;\n      top: 20px; }\n    .Modal > .Modal__window > .Modal__content {\n      background-color: #ffffff;\n      width: 100%;\n      height: 100%;\n      overflow: hidden;\n      border-radius: 5px; }\n";
 styleInject(css$4);
 
 var Modal = function (_Component) {
@@ -1158,7 +1168,7 @@ Modal.defaultProps = {
   showCloseButton: true
 };
 
-var css$5 = ".Avatar {\n  width: 50px;\n  height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n";
+var css$5 = ".Avatar {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  min-width: 50px;\n  min-height: 50px;\n  position: relative;\n  margin: 5px; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #ed486f; }\n";
 styleInject(css$5);
 
 var Avatar = function (_Component) {
@@ -1173,17 +1183,18 @@ var Avatar = function (_Component) {
     key: "render",
     value: function render() {
       var url = this.props.url;
+      var style = { backgroundImage: "url(" + url + ")" };
       return React__default.createElement(
         "div",
         { className: "Avatar" },
-        React__default.createElement("div", { style: { backgroundImage: "url(" + url + ")" }, className: "Avatar__image" })
+        React__default.createElement("div", { style: style, className: "Avatar__image" })
       );
     }
   }]);
   return Avatar;
 }(React.Component);
 
-var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: #000000;\n  width: 100%; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 900; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 800; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
+var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: #000000;\n  width: 100%; }\n  .Header.Header--center {\n    text-align: center; }\n  .Header.Header--left {\n    text-align: left; }\n  .Header.Header--right {\n    text-align: left; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 900; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 800; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
 styleInject(css$6);
 
 var Header = function (_Component) {
@@ -1233,7 +1244,7 @@ Header.defaultProps = {
   level: 1
 };
 
-var css$7 = ".Text {\n  margin: 0px; }\n  .Text.Text--center {\n    text-align: center; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    line-height: 18px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 800; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    font-size: 14px;\n    line-height: 16px;\n    font-weight: 400; }\n\n.Text > .Icon {\n  margin-right: 10px;\n  margin-left: 10px; }\n";
+var css$7 = ".Text {\n  margin: 0px; }\n  .Text.Text--center {\n    text-align: center; }\n  .Text.Text--left {\n    text-align: left; }\n  .Text.Text--right {\n    text-align: left; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    line-height: 20px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    line-height: 18px;\n    font-weight: 800; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    line-height: 14px;\n    line-height: 18px;\n    font-weight: 400; }\n\n.Text > .Icon {\n  margin-right: 10px;\n  margin-left: 10px; }\n";
 styleInject(css$7);
 
 var Text = function Text(props) {
@@ -1638,17 +1649,20 @@ var Textarea = function (_Component) {
   return Textarea;
 }(React.Component);
 
-var css$10 = ".Block {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row; }\n\n.Column {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n";
+var css$10 = ".Block {\n  display: flex; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  width: 100%; }\n\n.Column {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center; }\n";
 styleInject(css$10);
 
 var Block = function Block(props) {
   var style = {};
   if (props.w) style.width = props.w + "px";
-  if (props.h) style.width = props.h + "px";
+  if (props.h) style.height = props.h + "px";
   if (props.pad) style.padding = props.pad + "px";
   return React__default.createElement(
     "div",
-    { style: style, className: "Block " + (props.center ? "Block--center" : "") },
+    {
+      style: style,
+      className: "Block " + (props.center ? "Block--center" : "")
+    },
     props.children
   );
 };
@@ -1670,8 +1684,110 @@ var Column = function Column(props) {
 
 var Layout = { Block: Block, Row: Row, Column: Column };
 
-var css$11 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Light.woff) format(\"woff\");\n  font-weight: 200;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Regular.woff) format(\"woff\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Semibold.woff) format(\"woff\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(../assets/fonts/ProximaNova-Bold.woff) format(\"woff\");\n  font-weight: 800;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\",\r \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
+var css$11 = ".SocialCheckbox {\n  display: inline-block;\n  height: 60px;\n  overflow: hidden;\n  cursor: pointer;\n  width: auto; }\n  .SocialCheckbox .SocialCheckbox__content {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between; }\n    .SocialCheckbox .SocialCheckbox__content > .Icon {\n      visibility: hidden; }\n    .SocialCheckbox .SocialCheckbox__content > .Label {\n      white-space: nowrap; }\n    .SocialCheckbox .SocialCheckbox__content > * {\n      margin-right: 10px;\n      user-select: none; }\n  .SocialCheckbox.SocialCheckbox--selected .SocialCheckbox__content > .Icon {\n    visibility: visible; }\n";
 styleInject(css$11);
+
+var classnames = createCommonjsModule(function (module) {
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ('object' !== 'undefined' && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (typeof undefined === 'function' && typeof undefined.amd === 'object' && undefined.amd) {
+		// register as 'classnames', consistent with npm package name
+		undefined('classnames', [], function () {
+			return classNames;
+		});
+	} else {
+		window.classNames = classNames;
+	}
+}());
+});
+
+var SocialCheckbox = function (_Component) {
+  inherits(SocialCheckbox, _Component);
+
+  function SocialCheckbox(props) {
+    classCallCheck(this, SocialCheckbox);
+
+    var _this = possibleConstructorReturn(this, (SocialCheckbox.__proto__ || Object.getPrototypeOf(SocialCheckbox)).call(this, props));
+
+    _this.select = function () {
+      _this.setState({ selected: !_this.state.selected });
+    };
+
+    var state = {
+      selected: _this.props.selected
+    };
+    _this.state = state;
+    return _this;
+  }
+
+  createClass(SocialCheckbox, [{
+    key: "render",
+    value: function render() {
+      var clazz = classnames("SocialCheckbox", {
+        "SocialCheckbox--selected": this.state.selected
+      });
+      return React__default.createElement(
+        "div",
+        { className: clazz, onClick: this.select },
+        React__default.createElement(
+          "div",
+          { className: "SocialCheckbox__content" },
+          React__default.createElement(Avatar, { url: this.props.avatar }),
+          React__default.createElement(
+            Label,
+            null,
+            this.props.label
+          ),
+          React__default.createElement(Icon, { icon: "selected" })
+        )
+      );
+    }
+  }]);
+  return SocialCheckbox;
+}(React.Component);
+
+var css$12 = "@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(./fonts/ProximaNova-Light.otf) format(\"opentype\");\n  font-weight: 300;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(./fonts/ProximaNova-Regular.otf) format(\"opentype\");\n  font-weight: 400;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(./fonts/ProximaNova-Semibold.otf) format(\"opentype\");\n  font-weight: 600;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(./fonts/ProximaNova-Bold.otf) format(\"opentype\");\n  font-weight: 700;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(./fonts/ProximaNova-Extrabold.otf) format(\"opentype\");\n  font-weight: 800;\n  font-style: normal; }\n\n@font-face {\n  font-family: \"Proxima Nova\";\n  src: url(./fonts/ProximaNova-Black.otf) format(\"opentype\");\n  font-weight: 900;\n  font-style: normal; }\n\nhtml {\n  font-size: 14px;\n  font-family: \"Proxima Nova\", \"Trebuchet MS\", \"Lucida Sans Unicode\",\r \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif; }\n\n*,\n*:after,\n*:before {\n  box-sizing: border-box; }\n\nbody,\nhtml {\n  margin: 0px;\n  padding: 0px; }\n";
+styleInject(css$12);
 
 var index = {
   Button: Button,
@@ -1684,7 +1800,8 @@ var index = {
   Text: Text,
   Input: Input,
   Label: Label,
-  Textarea: Textarea
+  Textarea: Textarea,
+  SocialCheckbox: SocialCheckbox
 };
 
 return index;
