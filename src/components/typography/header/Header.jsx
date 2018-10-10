@@ -6,7 +6,8 @@ import cn from "classnames";
 const Header = props => {
   let header = null;
   const clazz = cn("Header", `Header--level-${props.level}`, {
-    "Header--center": props.center
+    "Header--center": props.center,
+    "Header--no-margin": props["no-margin"]
   });
   switch (props.level) {
     case 1:

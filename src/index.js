@@ -10,6 +10,7 @@ import Label from "./components/typography/label/Label.jsx";
 import Input from "./components/input/Input.jsx";
 import Textarea from "./components/textarea/Textarea.jsx";
 
+import Tabs from "./components/tabs/Tabs.jsx";
 import Layout from "./components/layout/Layout.jsx";
 import SocialCheckbox from "./components/social-checkbox/SocialCheckbox.jsx";
 
@@ -27,5 +28,6 @@ export default {
   Input,
   Label,
   Textarea,
-  SocialCheckbox
+  SocialCheckbox,
+  Tabs
 };

@@ -1,3 +1,5 @@
+@import "../vars.scss";
+
 .Icon {
   display: inline-block;
   width: auto;
@@ -7,14 +9,24 @@
   -moz-user-select: none;
   -o-user-select: none;
   user-select: none;
+  &.Icon--size-sm > img {
+    width: $BASE * 3;
+    height: $BASE * 3;
+  }
+  &.Icon--size-md > img {
+    width: $BASE * 4;
+    height: $BASE * 4;
+  }
+  &.Icon--size-lg > img {
+    width: $BASE * 6;
+    height: $BASE * 6;
+  }
   & > img {
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
-    width: auto;
-    height: auto;
     float: left;
   }
 }

@@ -3,9 +3,12 @@
 .Textarea {
   display: inline-block;
   font-size: 16px;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: $BASE * 2;
+  margin-bottom: $BASE * 2;
+
+  &.Textarea--block {
+    width: 100%;
+  }
 
   .Textarea__field {
     width: 100%;

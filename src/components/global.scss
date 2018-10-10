@@ -1,9 +1,10 @@
 @import "fonts.scss";
 
+$DEFAULT_FONT: "Proxima Nova", "Trebuchet MS", "Lucida Sans", Arial, sans-serif;
+
 html {
   font-size: 14px;
-  font-family: "Proxima Nova", "Trebuchet MS", "Lucida Sans Unicode",
-    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-family: $DEFAULT_FONT;
 }
 
 *,

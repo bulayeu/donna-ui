@@ -43,8 +43,8 @@ const colors = [
 ];
 
 storiesOf("Introduction", module)
-  .add("default", () => <section className="story">Description</section>)
-  .add("colors", () => (
+  .add("info", () => <section className="story">Description</section>)
+  .add("palette", () => (
     <section className="story">
       {colorsView(mainBlue, "Main")}
       {colorsView(mainDarkBlue)}

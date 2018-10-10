@@ -14,7 +14,7 @@
   border-radius: 4px;
 
   & + .Button {
-    margin: 10px;
+    margin-left: 10px;
   }
 
   &:focus {
@@ -76,11 +76,10 @@
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_BLUE;
     background-color: $BRAND_COLOR_BLUE;
-    &:hover {
-      background-color: $BRAND_COLOR_BLUE_75;
-    }
+    &:hover,
     &:focus {
-      background-color: $BRAND_COLOR_BLUE_50;
+      background-color: $BRAND_COLOR_BLUE_75;
+      border-color: $BRAND_COLOR_BLUE_75;
     }
   }
 
@@ -88,21 +87,20 @@
     color: $BRAND_COLOR_DARK_BLUE_50;
     border-color: $BRAND_COLOR_DARK_BLUE_50;
     background-color: transparent;
+    &:hover,
+    &:focus {
+      background-color: $BRAND_COLOR_DARK_BLUE_5;
+    }
   }
 
   &.Button--gray {
     color: $BRAND_COLOR_DARK_BLUE_50;
     border-color: $BRAND_COLOR_DARK_BLUE_15;
     background-color: $BRAND_COLOR_DARK_BLUE_15;
-    &:hover {
-      border-color: $BRAND_COLOR_DARK_BLUE_50;
-      color: $BRAND_COLOR_DARK_BLUE_75;
-    }
-    &:focus,
-    &:active {
-      color: $BRAND_COLOR_DARK_BLUE_75;
+    &:hover,
+    &:focus {
       border-color: $BRAND_COLOR_DARK_BLUE_75;
-      background-color: $BRAND_COLOR_DARK_BLUE_25;
+      color: $BRAND_COLOR_DARK_BLUE_75;
     }
   }
 
@@ -110,11 +108,9 @@
     color: $BRAND_COLOR_BLUE;
     border-color: transparent;
     background-color: transparent;
-    &:hover {
-      background-color: darken($BRAND_COLOR_WHITE, 2.5%);
-    }
+    &:hover,
     &:focus {
-      background-color: darken($BRAND_COLOR_WHITE, 5%);
+      background-color: darken($BRAND_COLOR_WHITE, 2.5%);
     }
   }
 

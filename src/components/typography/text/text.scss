@@ -9,6 +9,8 @@ $FONT_LEVEL_4: 11px;
 
 .Text {
   margin: 0px;
+  margin-top: $BASE * 2;
+  margin-bottom: $BASE * 2;
   &.Text--center {
     text-align: center;
   }
@@ -17,6 +19,10 @@ $FONT_LEVEL_4: 11px;
   }
   &.Text--right {
     text-align: left;
+  }
+  &.Text--no-margin {
+    margin-top: 0;
+    margin-bottom: 0;
   }
   &.Text--level-1 {
     color: $TEXT_COLOR;

@@ -10,9 +10,7 @@ const social_icons = [
   "twitter"
 ];
 
-const small_icons = ["close", "edit", "fb", "lock", "promo", "placeholder"];
-
-const white_icons = ["plus"];
+const small_icons = ["close", "avatar"];
 
 const iconsTable = icons => {
   return (
@@ -41,9 +39,4 @@ const icons = storiesOf("Icons", module)
   ))
   .add("icons", () => (
     <section className="story space-between">{iconsTable(small_icons)}</section>
-  ))
-  .add("white icons", () => (
-    <section className="story dark space-between">
-      {iconsTable(white_icons)}
-    </section>
   ));

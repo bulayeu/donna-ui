@@ -3,8 +3,9 @@
 $HEADER_COLOR: $BRAND_COLOR_DARK_BLUE;
 
 .Header {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin: 0px;
+  margin-top: $BASE * 2;
+  margin-bottom: $BASE * 2;
   color: $HEADER_COLOR;
   width: 100%;
   &.Header--center {
@@ -15,6 +16,10 @@ $HEADER_COLOR: $BRAND_COLOR_DARK_BLUE;
   }
   &.Header--right {
     text-align: left;
+  }
+  &.Header--no-margin {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 

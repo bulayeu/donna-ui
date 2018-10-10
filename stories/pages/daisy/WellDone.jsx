@@ -9,16 +9,14 @@ export default class WellDone extends React.Component {
         <Block w={360} h={250} center>
           <Block w={280} h={170}>
             <Column>
-              <Header center level={3}>
+              <Header no-margin center level={3}>
                 Well Done!
               </Header>
-              <Block w={280} center>
-                <Text center level={2}>
-                  Your Video is being processed by Facebook.
-                  <br />
-                  Facebook will notify you once it is ready
-                </Text>
-              </Block>
+              <Text no-margin center level={2}>
+                Your Video is being processed by Facebook.
+                <br />
+                Facebook will notify you once it is ready
+              </Text>
               <Block w={200}>
                 <Button block>OK</Button>
               </Block>

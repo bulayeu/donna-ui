@@ -7,7 +7,8 @@ const Text = props => {
   const clazz = cn("Text", `Text--level-${props.level}`, {
     "Text--center": props.center,
     "Text--bold": props.bold,
-    "Text--semibold": props.semibold
+    "Text--semibold": props.semibold,
+    "Text--no-margin": props["no-margin"]
   });
   return <p className={clazz}>{props.children}</p>;
 };
