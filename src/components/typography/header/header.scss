@@ -1,6 +1,6 @@
 @import "../../vars.scss";
 
-$HEADER_COLOR: $BRAND_COLOR_BLACK;
+$HEADER_COLOR: $BRAND_COLOR_DARK_BLUE;
 
 .Header {
   margin-top: 0px;
@@ -19,23 +19,35 @@ $HEADER_COLOR: $BRAND_COLOR_BLACK;
 }
 
 h1.Header {
-  opacity: 0.25;
   font-size: 46px;
-  font-weight: $FONT_WEIGHT_EXTRABOLD;
+  font-weight: $FONT_WEIGHT_LIGHT;
+  line-height: 55px;
 }
 
 h2.Header {
-  opacity: 0.25;
-  font-size: 28px;
-  font-weight: $FONT_WEIGHT_BOLD;
+  font-size: 32px;
+  font-weight: $FONT_WEIGHT_LIGHT;
+  line-height: 40px;
+  letter-spacing: 0.1px;
 }
 
 h3.Header {
   font-size: 28px;
   font-weight: $FONT_WEIGHT_LIGHT;
+  line-height: 35px;
+  letter-spacing: 0.1px;
 }
 
 h4.Header {
+  font-size: 22px;
+  font-weight: $FONT_WEIGHT_REGULAR;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+}
+
+h5.Header {
   font-size: 18px;
   font-weight: $FONT_WEIGHT_REGULAR;
+  line-height: 20px;
+  letter-spacing: 0.2px;
 }

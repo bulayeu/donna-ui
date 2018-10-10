@@ -13,6 +13,9 @@ import {
 } from "../dist/donna-ui";
 const { Row, Block, Column } = Layout;
 
+import PostToFacebookPage from "./pages/PostToFacebookPage.jsx";
+import WellDone from "./pages/daisy/WellDone.jsx";
+
 storiesOf("Demo", module)
   .add("screen_2", () => {
     return (
@@ -115,66 +118,36 @@ storiesOf("Demo", module)
   })
   .add("video 1x2", () => {
     return (
-      <Modal>
-        <Row>
-          <Block>
-            <video controls>
-              <source src="./video/1_2.mp4" type="video/mp4" />
-            </video>
-          </Block>
-          <Block pad={20} w={320}>
-            <Column>
-              <Header level={3}>Post to Facebook</Header>
-              <Input block placeholder="TITLE" />
-              <Textarea block placeholder="TEXT" />
-              <Button block>Next</Button>
-            </Column>
-          </Block>
-        </Row>
-      </Modal>
+      <PostToFacebookPage
+        onClick={data => console.log(data)}
+        video="./video/16_9_promo.mp4"
+      />
     );
   })
   .add("video 16x9", () => {
     return (
-      <Modal>
-        <Row>
-          <Block>
-            <video controls>
-              <source src="./video/16_9.mp4" type="video/mp4" />
-            </video>
-          </Block>
-          <Block pad={20} w={320}>
-            <Column>
-              <Header level={3}>Post to Facebook</Header>
-              <Input block placeholder="TITLE" />
-              <Textarea block placeholder="TEXT" />
-              <Button block>Next</Button>
-            </Column>
-          </Block>
-        </Row>
-      </Modal>
+      <PostToFacebookPage
+        onClick={data => console.log(data)}
+        video="./video/16_9_promo.mp4"
+      />
     );
   })
   .add("video 1x1", () => {
     return (
-      <Modal>
-        <Row>
-          <Block>
-            <video controls>
-              <source src="./video/1_1.mp4" type="video/mp4" />
-            </video>
-          </Block>
-          <Block pad={20} w={320}>
-            <Column>
-              <Column>
-                <Header level={3}>Post to Facebook</Header>
-                <Input block placeholder="TITLE" />
-                <Textarea block placeholder="TEXT" />
-              </Column>
-              <Button block>Next</Button>
-            </Column>
-          </Block>
-        </Row>
-      </Modal>
+      <PostToFacebookPage
+        onClick={data => console.log(data)}
+        video="./video/1_1.mp4"
+      />
     );
+  })
+  .add("16x9 promo", () => {
+    return (
+      <PostToFacebookPage
+        onClick={data => console.log(data)}
+        video="./video/16_9_promo.mp4"
+      />
+    );
+  })
+  .add("Well Done!", () => {
+    return <WellDone />;
   });

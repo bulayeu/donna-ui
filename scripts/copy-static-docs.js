@@ -4,5 +4,4 @@ ncp("./stories/static", "./docs", function(err) {
   if (err) {
     return console.error(err);
   }
-  console.log("done!");
 });

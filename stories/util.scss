@@ -2,13 +2,15 @@
 
 $BORDER: 1px solid $BRAND_COLOR_BLUE;
 
+// BASIC STORY
+
 section.story {
   &::after {
     content: "";
     clear: both;
     display: table;
   }
-  padding: $BASE * 2;
+  padding: $BASE * 4;
   &.dark {
     background-color: $BRAND_COLOR_DARK_BLUE;
   }
@@ -16,6 +18,94 @@ section.story {
     & > * {
       margin: $BASE;
     }
+  }
+}
+
+// COLORS STORY
+.story {
+  .colors {
+    .Header {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    .color {
+      min-width: 75px;
+      min-height: 75px;
+      width: 75px;
+      height: 75px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+
+      &.white {
+        border: 2px solid $BRAND_COLOR_BLUE_25;
+        background-color: $BRAND_COLOR_WHITE;
+      }
+      &.black {
+        background-color: $BRAND_COLOR_BLACK;
+      }
+      &.blue {
+        background-color: $BRAND_COLOR_BLUE;
+      }
+      &.blue-75 {
+        background-color: $BRAND_COLOR_BLUE_75;
+      }
+      &.blue-50 {
+        background-color: $BRAND_COLOR_BLUE_50;
+      }
+      &.blue-25 {
+        background-color: $BRAND_COLOR_BLUE_25;
+      }
+
+      &.dark-blue {
+        background-color: $BRAND_COLOR_DARK_BLUE;
+      }
+      &.dark-blue-75 {
+        background-color: $BRAND_COLOR_DARK_BLUE_75;
+      }
+      &.dark-blue-50 {
+        background-color: $BRAND_COLOR_DARK_BLUE_50;
+      }
+      &.dark-blue-25 {
+        background-color: $BRAND_COLOR_DARK_BLUE_25;
+      }
+      &.dark-blue-15 {
+        background-color: $BRAND_COLOR_DARK_BLUE_15;
+      }
+      &.dark-blue-5 {
+        background-color: $BRAND_COLOR_DARK_BLUE_5;
+      }
+
+      &.pink {
+        background-color: $BRAND_COLOR_PINK;
+      }
+      &.red {
+        background-color: $BRAND_COLOR_RED;
+      }
+
+      &.yellow {
+        background-color: $BRAND_COLOR_YELLOW;
+      }
+      &.purple {
+        background-color: $BRAND_COLOR_PURPLE;
+      }
+    }
+  }
+}
+
+// BUTTONS STORY
+.story {
+  &.buttons {
+    .Header {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
   }
 }
 
@@ -48,87 +138,8 @@ section.story {
     border: $BORDER;
   }
 
-  .color {
-    margin: 5px;
-    width: 200px;
-    height: 30px;
-    border: $BORDER;
-    float: left;
-    position: relative;
-    top: 35px;
-
-    &:after {
-      position: absolute;
-      bottom: -35px;
-      width: 100%;
-      text-align: center;
-      padding: 5px;
-      border: $BORDER;
-    }
-
-    &:before {
-      position: absolute;
-      top: -35px;
-      width: 100%;
-      text-align: center;
-      padding: 5px;
-      border: $BORDER;
-    }
-
-    &.brand-white {
-      background-color: $BRAND_COLOR_WHITE;
-      &:after {
-        content: "#{$BRAND_COLOR_WHITE}";
-      }
-      &:before {
-        content: "#{BRAND_COLOR_WHITE}";
-      }
-    }
-
-    &.brand-blue {
-      background-color: $BRAND_COLOR_BLUE;
-      &:after {
-        content: "#{$BRAND_COLOR_BLUE}";
-      }
-      &:before {
-        content: "#{BRAND_COLOR_BLUE}";
-      }
-    }
-
-    &.brand-pink {
-      background-color: $BRAND_COLOR_PINK;
-      &:after {
-        content: "#{$BRAND_COLOR_PINK}";
-      }
-      &:before {
-        content: "#{BRAND_COLOR_PINK}";
-      }
-    }
-
-    &.brand-dark-blue {
-      background-color: $BRAND_COLOR_DARK_BLUE;
-      &:after {
-        content: "#{$BRAND_COLOR_DARK_BLUE}";
-      }
-      &:before {
-        content: "#{BRAND_COLOR_DARK_BLUE}";
-      }
-    }
-
-    &.brand-gray {
-      background-color: $BRAND_COLOR_GRAY;
-      &:after {
-        content: "#{$BRAND_COLOR_GRAY}";
-      }
-      &:before {
-        content: "#{BRAND_COLOR_GRAY}";
-      }
-    }
-  }
-
   p[class^="font-"] {
-    margin: 10px;
-    font-size: 16px;
+    font-size: 20px;
     pre {
       margin-right: 10px;
       display: inline;
@@ -164,5 +175,8 @@ section.story {
   }
   .font-900 {
     font-weight: 900;
+  }
+
+  .icons-grid {
   }
 }

@@ -9,7 +9,6 @@ $AVATAR_SIZE: $BASE * 10;
   min-width: $AVATAR_SIZE;
   min-height: $AVATAR_SIZE;
   position: relative;
-  margin: $BASE;
   & > .Avatar__image {
     border-radius: $AVATAR_SIZE;
     overflow: hidden;

@@ -1,9 +1,16 @@
 import React from "react";
 import "./text.scss";
 
-const Text = props => (
-  <p className={`Text Text--level-${props.level} ${props.center ? "Text--center" : ""}`}>{props.children}</p>
-);
+import cn from "classnames";
+
+const Text = props => {
+  const clazz = cn("Text", `Text--level-${props.level}`, {
+    "Text--center": props.center,
+    "Text--bold": props.bold,
+    "Text--semibold": props.semibold
+  });
+  return <p className={clazz}>{props.children}</p>;
+};
 
 Text.defaultProps = { level: 3 };
 

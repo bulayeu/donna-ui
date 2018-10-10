@@ -843,7 +843,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".Label {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n  display: inline-block;\n  font-size: inherit;\n  font-weight: inherit;\n  width: auto;\n  font-size: 14px; }\n";
+var css = ".Label {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n  display: inline-block;\n  font-size: inherit;\n  font-weight: inherit;\n  width: auto; }\n";
 styleInject(css);
 
 var classCallCheck = function (instance, Constructor) {
@@ -992,8 +992,62 @@ Icon.defaultProps = {
   icon: "placeholder"
 };
 
-var css$2 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  margin: 5px;\n  width: auto;\n  padding: 12px 6px;\n  min-height: 40px; }\n  .Button .Button__content {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .Button .Button__content > .Icon {\n      margin-right: 10px; }\n  .Button.Button--link {\n    padding: 0px;\n    min-height: auto; }\n  .Button.Button--blue {\n    color: #ffffff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n  .Button.Button--gray {\n    color: #b9c0c4;\n    border-color: #b9c0c4;\n    background-color: transparent; }\n  .Button.Button--transparent-blue {\n    color: #32bafa;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-gray {\n    color: #b9c0c4;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--transparent-dark-gray {\n    color: #7A888C;\n    border-color: transparent !important;\n    background-color: transparent !important; }\n  .Button.Button--pink {\n    color: #ffffff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n  .Button.Button--block {\n    width: 100%; }\n  .Button[disabled] {\n    opacity: 0.75;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
+var css$2 = ".Button {\n  box-sizing: border-box;\n  display: inline-block;\n  text-decoration: none;\n  appearance: none;\n  border-radius: 4px;\n  border-width: 1px;\n  border-style: solid;\n  cursor: pointer;\n  width: auto;\n  transition: all 0.2s;\n  border-radius: 4px; }\n  .Button + .Button {\n    margin: 10px; }\n  .Button:focus {\n    outline: 0px; }\n  .Button.Button--sm {\n    height: 32px;\n    padding-left: 12px;\n    padding-right: 12px; }\n    .Button.Button--sm > .Button__content > .Label {\n      line-height: 30px;\n      font-size: 12px;\n      font-weight: 400;\n      text-transform: uppercase;\n      letter-spacing: 0.3px; }\n  .Button.Button--md {\n    height: 40px;\n    padding-left: 15px;\n    padding-right: 15px; }\n    .Button.Button--md > .Button__content > .Label {\n      line-height: 38px;\n      font-size: 16px;\n      font-weight: 400; }\n  .Button.Button--lg {\n    height: 58px;\n    padding-left: 22px;\n    padding-right: 22px; }\n    .Button.Button--lg > .Button__content > .Label {\n      line-height: 56px;\n      font-size: 18px;\n      font-weight: 400;\n      text-transform: uppercase;\n      letter-spacing: 1px; }\n  .Button .Button__content {\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n    .Button .Button__content > .Icon {\n      margin-right: 10px; }\n  .Button.Button--link {\n    padding: 0px;\n    min-height: auto; }\n  .Button.Button--blue {\n    color: #fff;\n    border-color: #32bafa;\n    background-color: #32bafa; }\n    .Button.Button--blue:hover {\n      background-color: rgba(50, 186, 250, 0.75); }\n    .Button.Button--blue:focus {\n      background-color: rgba(50, 186, 250, 0.5); }\n  .Button.Button--outline-gray {\n    color: #93989f;\n    border-color: #93989f;\n    background-color: transparent; }\n  .Button.Button--gray {\n    color: #93989f;\n    border-color: #e0e1e3;\n    background-color: #e0e1e3; }\n    .Button.Button--gray:hover {\n      border-color: #93989f;\n      color: #5a646e; }\n    .Button.Button--gray:focus, .Button.Button--gray:active {\n      color: #5a646e;\n      border-color: #5a646e;\n      background-color: #c9ccd0; }\n  .Button.Button--transparent-blue {\n    color: #32bafa;\n    border-color: transparent;\n    background-color: transparent; }\n    .Button.Button--transparent-blue:hover {\n      background-color: #f9f9f9; }\n    .Button.Button--transparent-blue:focus {\n      background-color: #f2f2f2; }\n  .Button.Button--transparent-gray {\n    color: #93989f;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.Button--transparent-dark-gray {\n    color: #5a646e;\n    border-color: transparent;\n    background-color: transparent; }\n  .Button.Button--pink {\n    color: #fff;\n    border-color: #ed486f;\n    background-color: #ed486f; }\n    .Button.Button--pink:hover, .Button.Button--pink:focus {\n      background-color: #ea2855; }\n  .Button.Button--block {\n    width: 100%; }\n  .Button[disabled] {\n    cursor: not-allowed; }\n  .Button[href]:visited, .Button[href]:focus, .Button[href]:active {\n    text-decoration: none; }\n";
 styleInject(css$2);
+
+var classnames = createCommonjsModule(function (module) {
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ('object' !== 'undefined' && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (typeof undefined === 'function' && typeof undefined.amd === 'object' && undefined.amd) {
+		// register as 'classnames', consistent with npm package name
+		undefined('classnames', [], function () {
+			return classNames;
+		});
+	} else {
+		window.classNames = classNames;
+	}
+}());
+});
 
 var Button = function (_Component) {
   inherits(Button, _Component);
@@ -1053,7 +1107,10 @@ var Button = function (_Component) {
   createClass(Button, [{
     key: "calculcateClasses",
     value: function calculcateClasses() {
-      return "Button Button--" + this.props.type + " " + (this.props.block ? "Button--block" : "") + " " + (this.props.link ? "Button--link" : "");
+      return classnames("Button", "Button--" + this.props.type, "Button--" + this.props.size, {
+        "Button--block": this.props.block,
+        "Button--link": this.props.link
+      });
     }
   }, {
     key: "render",
@@ -1068,14 +1125,22 @@ var Button = function (_Component) {
 var BUTTON_BLUE = "blue";
 var BUTTON_GRAY = "gray";
 var BUTTON_PINK = "pink";
+var BUTTON_OUTLINE_GRAY = "outline-gray";
 var BUTTON_TRANSPARENT_BLUE = "transparent-blue";
 var BUTTON_TRANSPARENT_GRAY = "transparent-gray";
 var BUTTON_TRANSPARENT_DARK_GRAY = "transparent-dark-gray";
 
-var BUTTON_TYPES = [BUTTON_BLUE, BUTTON_GRAY, BUTTON_PINK, BUTTON_TRANSPARENT_BLUE, BUTTON_TRANSPARENT_GRAY, BUTTON_TRANSPARENT_DARK_GRAY];
+var BUTTON_SIZE_SMALL = "sm";
+var BUTTON_TYPE_MEDIUM = "md";
+var BUTTON_TYPE_LARGE = "lg";
+
+var BUTTON_TYPES = [BUTTON_BLUE, BUTTON_GRAY, BUTTON_PINK, BUTTON_OUTLINE_GRAY, BUTTON_TRANSPARENT_BLUE, BUTTON_TRANSPARENT_GRAY, BUTTON_TRANSPARENT_DARK_GRAY];
+
+var BUTTON_SIZES = [BUTTON_SIZE_SMALL, BUTTON_TYPE_MEDIUM, BUTTON_TYPE_LARGE];
 
 Button.propTypes = {
   type: propTypes.oneOf(BUTTON_TYPES),
+  size: propTypes.oneOf(BUTTON_SIZES),
   href: propTypes.string,
   onClick: propTypes.func,
   disabled: propTypes.bool
@@ -1083,6 +1148,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   type: BUTTON_BLUE,
+  size: BUTTON_TYPE_MEDIUM,
   disabled: false
 };
 
@@ -1119,7 +1185,7 @@ IconButton.defaultProps = {
   type: "plain"
 };
 
-var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 47, 58, 0.9);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal > .Modal__window {\n    width: auto;\n    min-width: 20vw;\n    max-width: 80vw;\n    position: relative; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 20px;\n      top: 20px; }\n    .Modal > .Modal__window > .Modal__content {\n      background-color: #ffffff;\n      width: 100%;\n      height: 100%;\n      overflow: hidden;\n      border-radius: 5px; }\n";
+var css$4 = ".Modal {\n  position: fixed;\n  left: 0px;\n  top: 0px;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(35, 46, 59, 0.9);\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .Modal.Modal--transparent > .Modal__window > .Modal__content {\n    background-color: transparent; }\n  .Modal > .Modal__window {\n    width: auto;\n    min-width: 20vw;\n    max-width: 80vw;\n    position: relative; }\n    .Modal > .Modal__window > .IconButton {\n      position: absolute;\n      right: 20px;\n      top: 20px; }\n    .Modal > .Modal__window > .Modal__content {\n      background-color: #fff;\n      width: 100%;\n      height: 100%;\n      overflow: hidden;\n      border-radius: 5px; }\n";
 styleInject(css$4);
 
 var Modal = function (_Component) {
@@ -1142,11 +1208,14 @@ var Modal = function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var clazz = classnames("Modal", "Modal--level-" + this.props.level, {
+        "Modal--transparent": this.props.transparent
+      });
       return React__default.createElement(
         "div",
         { ref: function ref(c) {
             return _this2.modal = c;
-          }, className: "Modal Modal--level-" + 1 },
+          }, className: clazz },
         React__default.createElement(
           "div",
           { className: "Modal__window" },
@@ -1165,10 +1234,11 @@ var Modal = function (_Component) {
 
 
 Modal.defaultProps = {
-  showCloseButton: true
+  showCloseButton: true,
+  level: 1
 };
 
-var css$5 = ".Avatar {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  min-width: 50px;\n  min-height: 50px;\n  position: relative;\n  margin: 5px; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #ed486f; }\n";
+var css$5 = ".Avatar {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  min-width: 50px;\n  min-height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #ed486f; }\n";
 styleInject(css$5);
 
 var Avatar = function (_Component) {
@@ -1194,70 +1264,95 @@ var Avatar = function (_Component) {
   return Avatar;
 }(React.Component);
 
-var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: #000000;\n  width: 100%; }\n  .Header.Header--center {\n    text-align: center; }\n  .Header.Header--left {\n    text-align: left; }\n  .Header.Header--right {\n    text-align: left; }\n\nh1.Header {\n  opacity: 0.25;\n  font-size: 46px;\n  font-weight: 900; }\n\nh2.Header {\n  opacity: 0.25;\n  font-size: 28px;\n  font-weight: 800; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300; }\n\nh4.Header {\n  font-size: 18px;\n  font-weight: 400; }\n";
+var css$6 = ".Header {\n  margin-top: 0px;\n  margin-bottom: 0px;\n  color: #232e3b;\n  width: 100%; }\n  .Header.Header--center {\n    text-align: center; }\n  .Header.Header--left {\n    text-align: left; }\n  .Header.Header--right {\n    text-align: left; }\n\nh1.Header {\n  font-size: 46px;\n  font-weight: 300;\n  line-height: 55px; }\n\nh2.Header {\n  font-size: 32px;\n  font-weight: 300;\n  line-height: 40px;\n  letter-spacing: 0.1px; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300;\n  line-height: 35px;\n  letter-spacing: 0.1px; }\n\nh4.Header {\n  font-size: 22px;\n  font-weight: 400;\n  line-height: 25px;\n  letter-spacing: 0.2px; }\n\nh5.Header {\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 20px;\n  letter-spacing: 0.2px; }\n";
 styleInject(css$6);
 
-var Header = function (_Component) {
-  inherits(Header, _Component);
-
-  function Header() {
-    classCallCheck(this, Header);
-    return possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+var Header = function Header(props) {
+  var header = null;
+  var clazz = classnames("Header", "Header--level-" + props.level, {
+    "Header--center": props.center
+  });
+  switch (props.level) {
+    case 1:
+      header = React__default.createElement(
+        "h1",
+        { className: clazz },
+        props.children
+      );
+      break;
+    case 2:
+      header = React__default.createElement(
+        "h2",
+        { className: clazz },
+        props.children
+      );
+      break;
+    case 3:
+      header = React__default.createElement(
+        "h3",
+        { className: clazz },
+        props.children
+      );
+      break;
+    case 4:
+      header = React__default.createElement(
+        "h4",
+        { className: clazz },
+        props.children
+      );
+      break;
+    case 5:
+      header = React__default.createElement(
+        "h5",
+        { className: clazz },
+        props.children
+      );
+      break;
   }
-
-  createClass(Header, [{
-    key: "render",
-    value: function render() {
-      switch (this.props.level) {
-        case 1:
-          return React__default.createElement(
-            "h1",
-            { className: "Header" },
-            this.props.children
-          );
-        case 2:
-          return React__default.createElement(
-            "h2",
-            { className: "Header" },
-            this.props.children
-          );
-        case 3:
-          return React__default.createElement(
-            "h3",
-            { className: "Header" },
-            this.props.children
-          );
-        case 4:
-          return React__default.createElement(
-            "h4",
-            { className: "Header" },
-            this.props.children
-          );
-      }
-    }
-  }]);
-  return Header;
-}(React.Component);
-
-
-Header.defaultProps = {
-  level: 1
+  return header;
 };
 
-var css$7 = ".Text {\n  margin: 0px; }\n  .Text.Text--center {\n    text-align: center; }\n  .Text.Text--left {\n    text-align: left; }\n  .Text.Text--right {\n    text-align: left; }\n  .Text.Text--level-1 {\n    color: #232f3a;\n    font-size: 16px;\n    line-height: 20px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    color: #232f3a;\n    font-size: 14px;\n    line-height: 18px;\n    font-weight: 800; }\n  .Text.Text--level-3 {\n    color: #232f3a;\n    font-family: \"Proxima Nova\";\n    line-height: 14px;\n    line-height: 18px;\n    font-weight: 400; }\n\n.Text > .Icon {\n  margin-right: 10px;\n  margin-left: 10px; }\n";
+// export default class Header extends Component {
+
+//   render() {
+//     switch (this.props.level) {
+//       case 1:
+//         return <h1 className="Header">{this.props.children}</h1>;
+//       case 2:
+//         return <h2 className="Header">{this.props.children}</h2>;
+//       case 3:
+//         return <h3 className="Header">{this.props.children}</h3>;
+//       case 4:
+//         return <h4 className="Header">{this.props.children}</h4>;
+//       case 5:
+//         return <h5 className="Header">{this.props.children}</h5>;
+//     }
+//   }
+// }
+
+Header.defaultProps = {
+  level: 3
+};
+
+var css$7 = ".Text {\n  margin: 0px; }\n  .Text.Text--center {\n    text-align: center; }\n  .Text.Text--left {\n    text-align: left; }\n  .Text.Text--right {\n    text-align: left; }\n  .Text.Text--level-1 {\n    color: #232e3b;\n    font-size: 16px;\n    line-height: 25px;\n    font-weight: 400; }\n  .Text.Text--level-2 {\n    letter-spacing: 0.1px;\n    color: #232e3b;\n    font-size: 14px;\n    line-height: 20px;\n    font-weight: 400; }\n  .Text.Text--level-3 {\n    letter-spacing: 0.3px;\n    color: #232e3b;\n    font-family: \"Proxima Nova\";\n    font-size: 12px;\n    line-height: 20px;\n    font-weight: 400; }\n  .Text.Text--level-4 {\n    letter-spacing: 0.3px;\n    color: #232e3b;\n    font-family: \"Proxima Nova\";\n    font-size: 11px;\n    line-height: 15px;\n    font-weight: 400; }\n  .Text.Text--bold {\n    font-weight: 800; }\n  .Text.Text--semibold {\n    font-weight: 600; }\n\n.Text > .Icon {\n  margin-right: 10px;\n  margin-left: 10px; }\n";
 styleInject(css$7);
 
 var Text = function Text(props) {
+  var clazz = classnames("Text", "Text--level-" + props.level, {
+    "Text--center": props.center,
+    "Text--bold": props.bold,
+    "Text--semibold": props.semibold
+  });
   return React__default.createElement(
     "p",
-    { className: "Text Text--level-" + props.level + " " + (props.center ? "Text--center" : "") },
+    { className: clazz },
     props.children
   );
 };
 
 Text.defaultProps = { level: 3 };
 
-var css$8 = ".Input {\n  display: inline-block;\n  font-size: 16px;\n  width: 100%;\n  border-bottom: 1px dashed #232f3a; }\n  .Input .Input__field {\n    background-color: transparent;\n    border-radius: 0;\n    border: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    font-family: inherit;\n    font-size: 1em;\n    padding: 0px; }\n  .Input .Input__field:focus {\n    outline: none; }\n  .Input .Input__field:focus::-webkit-input-placeholder {\n    color: red; }\n  .Input .Input__field:focus::-moz-placeholder {\n    color: red;\n    opacity: 1; }\n  .Input .Input__field {\n    display: block;\n    box-sizing: border-box;\n    width: 100%; }\n";
+var css$8 = ".Input {\n  display: inline-block;\n  font-size: 16px;\n  width: 100%;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  border-bottom: 1px dashed #232e3b; }\n  .Input .Input__field {\n    background-color: transparent;\n    border-radius: 0;\n    border: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    font-family: inherit;\n    font-size: 1em;\n    padding: 0px;\n    font-weight: 600; }\n  .Input .Input__field:focus {\n    outline: none; }\n  .Input .Input__field {\n    display: block;\n    box-sizing: border-box;\n    width: 100%;\n    padding-top: 4px;\n    padding-bottom: 4px; }\n  .Input .Input__label {\n    color: #93989f;\n    pointer-events: none;\n    transition: 0.2s all;\n    transform: translateY(22px); }\n  .Input.Input--focus .Input__label, .Input.Input--has-value .Input__label {\n    color: #232e3b;\n    transform: translateY(0px); }\n";
 styleInject(css$8);
 
 var Input = function (_Component) {
@@ -1269,19 +1364,38 @@ var Input = function (_Component) {
     var _this = possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
     _this.handleChange = function (ev) {
-      _this.setState({ value: ev.target.value });
+      var value = ev.target.value;
+      var hasValue = value && value !== "";
+      _this.setState({ value: value, hasValue: hasValue });
+      _this.props.onChange(value);
     };
 
-    _this.state = { value: _this.props.initValue || "" };
+    _this.onFocus = function () {
+      _this.setState({ focus: true });
+    };
+
+    _this.onBlur = function () {
+      _this.setState({ focus: false });
+    };
+
+    _this.state = {
+      value: _this.props.initValue,
+      hasValue: !!_this.props.initValue
+    };
     return _this;
   }
 
   createClass(Input, [{
     key: "render",
     value: function render() {
+      var clazz = classnames("Input", {
+        "Input--block": this.props.block,
+        "Input--focus": this.state.focus,
+        "Input--has-value": this.state.hasValue
+      });
       return React__default.createElement(
         "div",
-        { className: "Input " + (this.props.block ? "Input--block" : "") },
+        { style: this.props.style, className: clazz },
         React__default.createElement(
           "div",
           { className: "Input__label" },
@@ -1292,6 +1406,8 @@ var Input = function (_Component) {
           )
         ),
         React__default.createElement("input", {
+          onBlur: this.onBlur,
+          onFocus: this.onFocus,
           className: "Input__field",
           type: "text",
           value: this.state.value,
@@ -1303,7 +1419,12 @@ var Input = function (_Component) {
   return Input;
 }(React.Component);
 
-var css$9 = ".Textarea {\n  display: inline-block;\n  font-size: 16px;\n  width: 100%; }\n  .Textarea .Textarea__field {\n    width: 100%;\n    padding: 0px;\n    resize: none;\n    background-color: transparent;\n    border-radius: 0;\n    border: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    font-family: inherit;\n    font-size: 1em;\n    border-bottom: 1px dashed #232f3a;\n    max-height: 100px; }\n  .Textarea .Textarea__field:focus {\n    outline: none; }\n";
+
+Input.defaultProps = {
+  onChange: function onChange() {}
+};
+
+var css$9 = ".Textarea {\n  display: inline-block;\n  font-size: 16px;\n  width: 100%;\n  margin-top: 10px;\n  margin-bottom: 10px; }\n  .Textarea .Textarea__field {\n    width: 100%;\n    padding: 0px;\n    resize: none;\n    background-color: transparent;\n    border-radius: 0;\n    border: none;\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    font-family: inherit;\n    font-size: 1em;\n    border-bottom: 1px dashed #232e3b;\n    max-height: 200px;\n    padding-top: 4px;\n    padding-bottom: 4px; }\n  .Textarea .Textarea__field:focus {\n    outline: none; }\n  .Textarea .Textarea__label {\n    color: #93989f;\n    pointer-events: none;\n    transition: 0.2s all;\n    transform: translateY(22px); }\n  .Textarea.Textarea--focus .Textarea__label, .Textarea.Textarea--has-value .Textarea__label {\n    color: #232e3b;\n    transform: translateY(0px); }\n";
 styleInject(css$9);
 
 var autosize = createCommonjsModule(function (module, exports) {
@@ -1599,10 +1720,24 @@ var Textarea = function (_Component) {
     var _this = possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
 
     _this.handleChange = function (ev) {
-      _this.setState({ value: ev.target.value });
+      var value = ev.target.value;
+      var hasValue = value && value !== "";
+      _this.setState({ value: value, hasValue: hasValue });
+      _this.props.onChange(value);
     };
 
-    _this.state = { value: _this.props.initValue || "" };
+    _this.onFocus = function () {
+      _this.setState({ focus: true });
+    };
+
+    _this.onBlur = function () {
+      _this.setState({ focus: false });
+    };
+
+    _this.state = {
+      value: _this.props.initValue,
+      hasValue: !!_this.props.initValue
+    };
     return _this;
   }
 
@@ -1621,9 +1756,14 @@ var Textarea = function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      var clazz = classnames("Textarea", {
+        "Textarea--block": this.props.block,
+        "Textarea--focus": this.state.focus,
+        "Textarea--has-value": this.state.hasValue
+      });
       return React__default.createElement(
         "div",
-        { className: "Textarea " + (this.props.block ? "Textarea--block" : "") },
+        { style: this.props.style, className: clazz },
         React__default.createElement(
           "div",
           { className: "Textarea__label" },
@@ -1634,6 +1774,8 @@ var Textarea = function (_Component) {
           )
         ),
         React__default.createElement("textarea", {
+          onFocus: this.onFocus,
+          onBlur: this.onBlur,
           ref: function ref(c) {
             return _this2.textarea = c;
           },
@@ -1649,7 +1791,12 @@ var Textarea = function (_Component) {
   return Textarea;
 }(React.Component);
 
-var css$10 = ".Block {\n  display: flex; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  width: 100%; }\n\n.Column {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center; }\n";
+
+Textarea.defaultProps = {
+  onChange: function onChange() {}
+};
+
+var css$10 = ".Block {\n  display: flex; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  width: 100%; }\n\n.Column {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center; }\n  .Column > div {\n    width: 100%; }\n";
 styleInject(css$10);
 
 var Block = function Block(props) {
@@ -1684,62 +1831,8 @@ var Column = function Column(props) {
 
 var Layout = { Block: Block, Row: Row, Column: Column };
 
-var css$11 = ".SocialCheckbox {\n  display: inline-block;\n  height: 60px;\n  overflow: hidden;\n  cursor: pointer;\n  width: auto; }\n  .SocialCheckbox .SocialCheckbox__content {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between; }\n    .SocialCheckbox .SocialCheckbox__content > .Icon {\n      visibility: hidden; }\n    .SocialCheckbox .SocialCheckbox__content > .Label {\n      white-space: nowrap; }\n    .SocialCheckbox .SocialCheckbox__content > * {\n      margin-right: 10px;\n      user-select: none; }\n  .SocialCheckbox.SocialCheckbox--selected .SocialCheckbox__content > .Icon {\n    visibility: visible; }\n";
+var css$11 = ".SocialCheckbox {\n  display: inline-block;\n  overflow: hidden;\n  cursor: pointer;\n  width: auto; }\n  .SocialCheckbox .SocialCheckbox__content {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between; }\n    .SocialCheckbox .SocialCheckbox__content > .Icon {\n      visibility: hidden; }\n    .SocialCheckbox .SocialCheckbox__content > .Label {\n      white-space: nowrap; }\n    .SocialCheckbox .SocialCheckbox__content > * {\n      margin-right: 10px;\n      user-select: none; }\n  .SocialCheckbox.SocialCheckbox--selected .SocialCheckbox__content > .Icon {\n    visibility: visible; }\n";
 styleInject(css$11);
-
-var classnames = createCommonjsModule(function (module) {
-/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if ('object' !== 'undefined' && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (typeof undefined === 'function' && typeof undefined.amd === 'object' && undefined.amd) {
-		// register as 'classnames', consistent with npm package name
-		undefined('classnames', [], function () {
-			return classNames;
-		});
-	} else {
-		window.classNames = classNames;
-	}
-}());
-});
 
 var SocialCheckbox = function (_Component) {
   inherits(SocialCheckbox, _Component);

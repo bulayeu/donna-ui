@@ -4,6 +4,8 @@
   display: inline-block;
   font-size: 16px;
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   .Input__field {
     background-color: transparent;
@@ -16,25 +18,34 @@
     font-family: inherit;
     font-size: 1em;
     padding: 0px;
+    font-weight: 600;
   }
 
   .Input__field:focus {
     outline: none;
   }
 
-  .Input__field:focus::-webkit-input-placeholder {
-    color: red;
-  }
-
-  .Input__field:focus::-moz-placeholder {
-    color: red;
-    opacity: 1;
-  }
-
   .Input__field {
     display: block;
     box-sizing: border-box;
     width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .Input__label {
+    color: $BRAND_COLOR_GRAY;
+    pointer-events: none;
+    transition: 0.2s all;
+    transform: translateY(22px);
+  }
+
+  &.Input--focus,
+  &.Input--has-value {
+    .Input__label {
+      color: $BRAND_COLOR_DARK_BLUE;
+      transform: translateY(0px);
+    }
   }
 
   border-bottom: 1px dashed $BRAND_COLOR_DARK_BLUE;

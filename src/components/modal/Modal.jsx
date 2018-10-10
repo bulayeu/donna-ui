@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import "./modal.scss";
 
+import cn from "classnames";
+
 import IconButton from "../icon-button/IconButton.jsx";
 
 export default class Modal extends Component {
@@ -14,8 +16,11 @@ export default class Modal extends Component {
   };
 
   render() {
+    const clazz = cn("Modal", `Modal--level-${this.props.level}`, {
+      "Modal--transparent": this.props.transparent
+    });
     return (
-      <div ref={c => (this.modal = c)} className={`Modal Modal--level-${1}`}>
+      <div ref={c => (this.modal = c)} className={clazz}>
         <div className="Modal__window">
           {this.props.showCloseButton && (
             <IconButton onClick={this.close} icon="close" />
@@ -28,5 +33,6 @@ export default class Modal extends Component {
 }
 
 Modal.defaultProps = {
-  showCloseButton: true
+  showCloseButton: true,
+  level: 1
 };

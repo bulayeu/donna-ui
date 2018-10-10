@@ -9,17 +9,61 @@
   border-width: 1px;
   border-style: solid;
   cursor: pointer;
-  margin: $BASE;
   width: auto;
-  padding: 12px 6px;
-  min-height: $BASE * 8;
+  transition: all 0.2s;
+  border-radius: 4px;
+
+  & + .Button {
+    margin: 10px;
+  }
+
+  &:focus {
+    outline: 0px;
+  }
+
+  &.Button--sm {
+    height: 32px;
+    padding-left: 12px;
+    padding-right: 12px;
+    & > .Button__content > .Label {
+      line-height: 30px;
+      font-size: 12px;
+      font-weight: $FONT_WEIGHT_REGULAR;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  &.Button--md {
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    & > .Button__content > .Label {
+      line-height: 38px;
+      font-size: 16px;
+      font-weight: $FONT_WEIGHT_REGULAR;
+    }
+  }
+
+  &.Button--lg {
+    height: 58px;
+    padding-left: 22px;
+    padding-right: 22px;
+    & > .Button__content > .Label {
+      line-height: 56px;
+      font-size: 18px;
+      font-weight: $FONT_WEIGHT_REGULAR;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
 
   .Button__content {
     display: flex;
     justify-content: center;
     align-items: center;
     & > .Icon {
-      margin-right: $BASE*2;
+      margin-right: $BASE * 2;
     }
   }
 
@@ -32,36 +76,68 @@
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_BLUE;
     background-color: $BRAND_COLOR_BLUE;
+    &:hover {
+      background-color: $BRAND_COLOR_BLUE_75;
+    }
+    &:focus {
+      background-color: $BRAND_COLOR_BLUE_50;
+    }
+  }
+
+  &.Button--outline-gray {
+    color: $BRAND_COLOR_DARK_BLUE_50;
+    border-color: $BRAND_COLOR_DARK_BLUE_50;
+    background-color: transparent;
   }
 
   &.Button--gray {
-    color: $BRAND_COLOR_GRAY;
-    border-color: $BRAND_COLOR_GRAY;
-    background-color: transparent;
+    color: $BRAND_COLOR_DARK_BLUE_50;
+    border-color: $BRAND_COLOR_DARK_BLUE_15;
+    background-color: $BRAND_COLOR_DARK_BLUE_15;
+    &:hover {
+      border-color: $BRAND_COLOR_DARK_BLUE_50;
+      color: $BRAND_COLOR_DARK_BLUE_75;
+    }
+    &:focus,
+    &:active {
+      color: $BRAND_COLOR_DARK_BLUE_75;
+      border-color: $BRAND_COLOR_DARK_BLUE_75;
+      background-color: $BRAND_COLOR_DARK_BLUE_25;
+    }
   }
 
   &.Button--transparent-blue {
     color: $BRAND_COLOR_BLUE;
-    border-color: transparent !important;
-    background-color: transparent !important;
+    border-color: transparent;
+    background-color: transparent;
+    &:hover {
+      background-color: darken($BRAND_COLOR_WHITE, 2.5%);
+    }
+    &:focus {
+      background-color: darken($BRAND_COLOR_WHITE, 5%);
+    }
   }
 
   &.Button--transparent-gray {
     color: $BRAND_COLOR_GRAY;
-    border-color: transparent !important;
-    background-color: transparent !important;
+    border-color: transparent;
+    background-color: transparent;
   }
 
   &.Button--transparent-dark-gray {
     color: $BRAND_COLOR_DARK_GRAY;
-    border-color: transparent !important;
-    background-color: transparent !important;
+    border-color: transparent;
+    background-color: transparent;
   }
 
   &.Button--pink {
     color: $BRAND_COLOR_WHITE;
     border-color: $BRAND_COLOR_PINK;
     background-color: $BRAND_COLOR_PINK;
+    &:hover,
+    &:focus {
+      background-color: $BRAND_COLOR_RED;
+    }
   }
 
   &.Button--block {
@@ -69,9 +145,7 @@
   }
 
   &[disabled] {
-    opacity: 0.75;
     cursor: not-allowed;
-    pointer-events: none;
   }
   &[href] {
     &:visited,

@@ -4,9 +4,8 @@ $TEXT_COLOR: $BRAND_COLOR_DARK_BLUE;
 
 $FONT_LEVEL_1: 16px;
 $FONT_LEVEL_2: 14px;
-$FONT_LEVEL_3: 14px;
-
-$LINE_HEIGHT_ADD: 4px;
+$FONT_LEVEL_3: 12px;
+$FONT_LEVEL_4: 11px;
 
 .Text {
   margin: 0px;
@@ -22,21 +21,37 @@ $LINE_HEIGHT_ADD: 4px;
   &.Text--level-1 {
     color: $TEXT_COLOR;
     font-size: $FONT_LEVEL_1;
-    line-height: $FONT_LEVEL_1 + $LINE_HEIGHT_ADD;
+    line-height: $BASE * 5;
     font-weight: $FONT_WEIGHT_REGULAR;
   }
   &.Text--level-2 {
+    letter-spacing: 0.1px;
     color: $TEXT_COLOR;
     font-size: $FONT_LEVEL_2;
-    line-height: $FONT_LEVEL_2 + $LINE_HEIGHT_ADD;
-    font-weight: $FONT_WEIGHT_BOLD;
+    line-height: $BASE * 4;
+    font-weight: $FONT_WEIGHT_REGULAR;
   }
   &.Text--level-3 {
-    color: #232f3a;
+    letter-spacing: 0.3px;
+    color: $TEXT_COLOR;
     font-family: "Proxima Nova";
-    line-height: $FONT_LEVEL_3;
-    line-height: $FONT_LEVEL_3 + $LINE_HEIGHT_ADD;
+    font-size: $FONT_LEVEL_3;
+    line-height: $BASE * 4;
     font-weight: $FONT_WEIGHT_REGULAR;
+  }
+  &.Text--level-4 {
+    letter-spacing: 0.3px;
+    color: $TEXT_COLOR;
+    font-family: "Proxima Nova";
+    font-size: $FONT_LEVEL_4;
+    line-height: $BASE * 3;
+    font-weight: $FONT_WEIGHT_REGULAR;
+  }
+  &.Text--bold {
+    font-weight: $FONT_WEIGHT_BOLD;
+  }
+  &.Text--semibold {
+    font-weight: $FONT_WEIGHT_SEMIBOLD;
   }
 }
 
