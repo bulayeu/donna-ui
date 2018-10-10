@@ -19,10 +19,8 @@
     "classnames": "^2.2.6",
     "clone": "^2.1.1",
     "prop-types": "^15.6.0",
-    "rc-tabs": "^9.4.6",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-pose": "^3.3.6"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.1.0",
