@@ -15,29 +15,27 @@ const buttonTypes = [
   "transparent-dark-gray"
 ];
 
+const basicButtons = ["blue", "gray", "outline-gray"];
+
 storiesOf("Button", module)
   .add("buttons box", () => (
     <section className="story">
       <div className="buttons">
-        <Header>Blue</Header>
-        {["sm", "md", "lg"].map(i => (
-          <Button size={i}>Button</Button>
-        ))}
-        <Header>Gray</Header>
-        {["sm", "md", "lg"].map(i => (
-          <Button type="gray" size={i}>
+        <Header>Small</Header>
+        {basicButtons.map(i => (
+          <Button type={i} size="sm">
             Button
           </Button>
         ))}
-        <Header>Pink</Header>
-        {["sm", "md", "lg"].map(i => (
-          <Button type="pink" size={i}>
+        <Header>Medium</Header>
+        {basicButtons.map(i => (
+          <Button type={i} size="md">
             Button
           </Button>
         ))}
-        <Header>Outline Gray</Header>
-        {["sm", "md", "lg"].map(i => (
-          <Button type="outline-gray" size={i}>
+        <Header>Large</Header>
+        {basicButtons.map(i => (
+          <Button type={i} size="lg">
             Button
           </Button>
         ))}

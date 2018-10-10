@@ -19,7 +19,6 @@ export default class WellDone extends React.Component {
                   Facebook will notify you once it is ready
                 </Text>
               </Block>
-
               <Block w={200}>
                 <Button block>OK</Button>
               </Block>
