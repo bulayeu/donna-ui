@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import "./modal.scss";
 
 import cn from "classnames";
@@ -7,23 +6,34 @@ import cn from "classnames";
 import IconButton from "../icon-button/IconButton.jsx";
 
 export default class Modal extends Component {
+  state = {
+    open: false
+  };
+
   constructor(props) {
     super(props);
   }
 
   close = () => {
-    ReactDOM.unmountComponentAtNode(this.modal.parentNode);
+    this.setState({
+      open: false
+    });
   };
 
+  componentDidMount() {
+    this.setState({ open: true });
+  }
+
   render() {
-    const clazz = cn("Modal", `Modal--level-${this.props.level}`, {
-      "Modal--transparent": this.props.transparent
+    const clazz = cn("Modal", {
+      "Modal--transparent": this.props.transparent,
+      "Modal--open": this.state.open
     });
     return (
-      <div ref={c => (this.modal = c)} className={clazz}>
+      <div className={clazz}>
         <div className="Modal__window">
           {this.props.showCloseButton && (
-            <IconButton onClick={this.close} icon="close" />
+            <IconButton onClick={this.close} size="md" icon="close" />
           )}
           <div className="Modal__content">{this.props.children}</div>
         </div>
@@ -33,6 +43,5 @@ export default class Modal extends Component {
 }
 
 Modal.defaultProps = {
-  showCloseButton: true,
-  level: 1
+  showCloseButton: true
 };

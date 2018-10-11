@@ -41,7 +41,7 @@ export default class Tabs extends Component {
       "Tab__nav--active": index === this.state.selectedIndex
     });
     return (
-      <div onClick={this.openTab(index)} className={clazz}>
+      <div key={index} onClick={this.openTab(index)} className={clazz}>
         <Header level={5}>{tab.title || "Unknown"}</Header>
       </div>
     );

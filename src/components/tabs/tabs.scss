@@ -7,10 +7,16 @@
     height: auto;
     width: 100%;
     .Tab__nav {
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
       margin-right: $BASE * 8;
       width: auto;
       cursor: pointer;
+      &:hover {
+        border-bottom: 2px solid $BRAND_COLOR_BLUE;
+      }
       & > .Header {
+        transition: all 0.2s;
         color: $BRAND_COLOR_DARK_BLUE_50;
         width: auto;
       }
@@ -18,7 +24,7 @@
         & > .Header {
           color: $BRAND_COLOR_DARK_BLUE;
         }
-        border-bottom: 1px solid $BRAND_COLOR_BLUE;
+        border-bottom: 2px solid $BRAND_COLOR_BLUE;
       }
     }
   }

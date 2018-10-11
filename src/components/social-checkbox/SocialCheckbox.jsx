@@ -10,10 +10,9 @@ import cn from "classnames";
 export default class SocialCheckbox extends Component {
   constructor(props) {
     super(props);
-    const state = {
+    this.state = {
       selected: this.props.selected
     };
-    this.state = state;
   }
 
   select = () => {
@@ -24,7 +23,8 @@ export default class SocialCheckbox extends Component {
 
   render() {
     const clazz = cn("SocialCheckbox", {
-      "SocialCheckbox--selected": this.state.selected
+      "SocialCheckbox--selected": this.state.selected,
+      "SocialCheckbox--block": this.props.block
     });
     return (
       <div className={clazz} onClick={this.select}>

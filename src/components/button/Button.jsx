@@ -50,7 +50,7 @@ export default class Button extends Component {
   };
 
   renderIcon = () => {
-    return this.props.icon ? <Icon icon={this.props.icon} /> : null;
+    return this.props.icon ? <Icon size="sm" icon={this.props.icon} /> : null;
   };
 
   renderLabel = () => <Label>{this.props.children}</Label>;

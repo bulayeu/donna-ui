@@ -10,13 +10,12 @@ import {
 const { Row, Block, Column } = Layout;
 
 export default class PostToFacebook extends React.Component {
-  state = {
-    title: "",
-    text: ""
-  };
-
   constructor(props) {
     super(props);
+    this.state = {
+      title: "",
+      text: ""
+    };
   }
 
   onTextChange = text => {
@@ -30,7 +29,7 @@ export default class PostToFacebook extends React.Component {
   onNext = () => {
     const title = this.state.title;
     const text = this.state.text;
-    this.props.onClick({ title, text });
+    this.props.onNext({ title, text });
   };
 
   render() {
@@ -38,14 +37,16 @@ export default class PostToFacebook extends React.Component {
       <Modal>
         <Row>
           <Block>
-            <video controls height="520" postr={this.props.poster}>
+            <video controls height="400" poster={this.props.poster}>
               <source src={this.props.video} type="video/mp4" />
             </video>
           </Block>
           <Block pad={30} w={320}>
             <Column>
               <div>
-                <Header level={3}>Post to Facebook</Header>
+                <Header no-margin level={3}>
+                  Post to Facebook
+                </Header>
                 <Input
                   block
                   placeholder="TITLE"

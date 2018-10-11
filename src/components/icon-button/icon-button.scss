@@ -16,6 +16,14 @@
   justify-content: center;
   align-items: center;
 
+  transform: scale(1);
+
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   &.IconButton--round {
     width: $BASE * 10;
     height: $BASE * 10;

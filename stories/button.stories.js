@@ -76,11 +76,11 @@ storiesOf("Button", module)
       Some info    
     `)(() => (
       <section className="story">
-        <Button icon="edit" type="transparent-blue">
+        <Button icon="avatar" type="transparent-blue">
           Button with Icon
         </Button>
 
-        <Button icon="lock" type="transparent-gray">
+        <Button icon="close" type="transparent-gray">
           Button with Icon
         </Button>
 

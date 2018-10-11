@@ -3,7 +3,10 @@ import "./layout.scss";
 
 const Block = props => {
   const style = {};
-  if (props.w) style.width = `${props.w}px`;
+  if (props.w) {
+    style.width = `${props.w}px`;
+    style.miWidth = `${props.w}px`;
+  }
   if (props.h) style.height = `${props.h}px`;
   if (props.pad) style.padding = `${props.pad}px`;
   return (
@@ -14,10 +17,6 @@ const Block = props => {
       {props.children}
     </div>
   );
-};
-
-const Container = props => {
-  return <div className="Container">{props.children}</div>;
 };
 
 const Row = props => {

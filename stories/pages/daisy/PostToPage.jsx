@@ -11,129 +11,119 @@ import {
 
 const { Column, Block, Grid } = Layout;
 
-const pages = [
-  {
-    id: "1",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "3",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "4",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "7",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "9",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "10",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "1",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "3",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "4",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "7",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "9",
-    url: "",
-    name: "Hello There"
-  },
-  {
-    id: "10",
-    url: "",
-    name: "Hello There"
-  }
-];
+const data1 = [
+    {
+      "id": "5bbf375ef871157d5d9b8e42",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "COMVERGES"
+    },
+    {
+      "id": "5bbf375e1788802549038466",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "ANDRYX"
+    },
+    {
+      "id": "5bbf375eec82fbb26a6bf40d",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "EPLODE"
+    },
+    {
+      "id": "5bbf375eb925eb475de3e16c",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "TWIGGERY"
+    },
+    {
+      "id": "5bbf375ea3d1ccd72acb423d",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "SIGNITY"
+    },
+    {
+      "id": "5bbf375edcbbefe4b51ac3c7",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "VORTEXACO"
+    },
+    {
+      "id": "5bbf375eb4a2b85d690371b0",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "ECRATER"
+    },
+    {
+      "id": "5bbf375e610786acd871b615",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "FLOTONIC"
+    },
+    {
+      "id": "5bbf375e540352e2d03dcb06",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "SHEPARD"
+    },
+    {
+      "id": "5bbf375e6a7ae9199408c126",
+      "thumbnail": "https://cdn.dribbble.com/users/182545/screenshots/1514859/art02_1x.png",
+      "title": "SOLAREN"
+    }
+  ]
 
 const pages2 = [
   {
     id: "90s",
     url: "",
-    name: "Hello There 2"
+    title: "Hello There 2"
   },
   {
     id: "100",
     url: "",
-    name: "Hello There 2"
+    title: "Hello There 2"
   },
   {
     id: "110",
     url: "",
-    name: "Hello There 2"
+    title: "Hello There 2"
   },
   {
     id: "120",
     url: "",
-    name: "Hello There 2"
+    title: "Hello There 2"
   },
   {
     id: "130",
     url: "",
-    name: "Hello There 2"
+    title: "Hello There 2"
   },
   {
     id: "140",
     url: "",
-    name: "Hello There 2"
+    title: "Hello There 2"
   },
   {
     id: "150",
     url: "",
-    name: "Hello There 2"
+    title: "Hello There 2"
   },
   {
     id: "160",
     url: "",
-    name: "Hello There"
+    title: "Hello There"
   },
   {
     id: "170",
     url: "",
-    name: "Hello There"
+    title: "Hello There"
   },
   {
     id: "180",
     url: "",
-    name: "Hello There"
+    title: "Hello There"
   },
   {
     id: "190",
     url: "",
-    name: "Hello There"
+    title: "Hello There"
   },
   {
     id: "200",
     url: "",
-    name: "Hello There"
+    title: "Hello There"
   }
 ];
 
@@ -150,7 +140,7 @@ export default class PostToPage extends Component {
             <Text center level={2}>
               You may choose more then one
             </Text>
-            {this.commonTabPages(pages)}
+            {this.commonTabPages(data1)}
           </Column>
         </Block>
       )
@@ -191,13 +181,12 @@ export default class PostToPage extends Component {
         <Grid>
           {pages.map(page => {
             return (
-              <div>
-                <SocialCheckbox
-                  key={page.id}
-                  label={page.name}
-                  onClick={this.onSocialCheckboxClick(page)}
-                />
-              </div>
+              <SocialCheckbox
+                block
+                key={page.id}
+                label={page.name}
+                onClick={this.onSocialCheckboxClick(page)}
+              />
             );
           })}
         </Grid>
@@ -208,11 +197,11 @@ export default class PostToPage extends Component {
   render() {
     return (
       <Modal>
-        <Block w={800} pad={40} h={520}>
+        <Block w={710} pad={40} h={520}>
           <Column>
             <Tabs tabs={[this.commonTab(), this.adTab()]} />
             <Block w={260}>
-              <Button block>Publish Now</Button>
+              <Button block onClick={this.props.onPublish}>Publish Now</Button>
             </Block>
           </Column>
         </Block>

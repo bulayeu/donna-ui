@@ -11,12 +11,13 @@ export default class IconButton extends Component {
         disabled={this.props.disabled}
         className={`IconButton IconButton--${this.props.type}`}
       >
-        <Icon icon={this.props.icon} />
+        <Icon icon={this.props.icon} size={this.props.size} />
       </div>
     );
   }
 }
 
 IconButton.defaultProps = {
-  type: "plain"
+  type: "plain",
+  size: "md"
 };
