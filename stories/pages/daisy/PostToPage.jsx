@@ -211,7 +211,7 @@ export default class PostToPage extends Component {
         <Block w={800} pad={40} h={520}>
           <Column>
             <Tabs tabs={[this.commonTab(), this.adTab()]} />
-            <Block w={280}>
+            <Block w={260}>
               <Button block>Publish Now</Button>
             </Block>
           </Column>
