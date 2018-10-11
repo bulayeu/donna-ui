@@ -15,6 +15,7 @@ const { Row, Block, Column } = Layout;
 
 import PostToFacebookPage from "./pages/PostToFacebookPage.jsx";
 import WellDone from "./pages/daisy/WellDone.jsx";
+import PostToPage from "./pages/daisy/PostToPage";
 
 storiesOf("Demo", module)
   .add("screen_2", () => {
@@ -150,4 +151,8 @@ storiesOf("Demo", module)
   })
   .add("Well Done!", () => {
     return <WellDone />;
+  })
+  .add("Publish Now!", () => {
+    return <PostToPage />;
   });
+

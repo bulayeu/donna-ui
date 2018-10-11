@@ -17,7 +17,7 @@ const Block = props => {
 };
 
 const Container = props => {
-  return <div className="Container">{props.children}</div>
+  return <div className="Container">{props.children}</div>;
 };
 
 const Row = props => {
@@ -27,6 +27,16 @@ const Column = props => {
   return <div className="Column">{props.children}</div>;
 };
 
-const Layout = { Block, Row, Column };
+const Grid = props => {
+  return (
+    <div className={`Grid Grid--size-${props.size}`}>{props.children}</div>
+  );
+};
+
+Grid.defaultProps = {
+  size: 2
+};
+
+const Layout = { Block, Row, Column, Grid };
 
 export default Layout;

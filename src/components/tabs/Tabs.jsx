@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./tabs.scss";
 
-// export default TabsWrapper;
+import cn from "classnames";
+
+import Header from "../typography/header/Header.jsx";
 
 export default class Tabs extends Component {
   state = {
@@ -19,7 +21,9 @@ export default class Tabs extends Component {
   renderTabContent = () => {
     return (
       <div className="Tab__content">
-        {this.props.tabs[this.state.selectedIndex].content}
+        <div className="Tab__content-item">
+          {this.props.tabs[this.state.selectedIndex].content}
+        </div>
       </div>
     );
   };
@@ -33,7 +37,14 @@ export default class Tabs extends Component {
   };
 
   renderTabBarItem = (tab, index) => {
-    return <span onClick={this.openTab(index)}>{tab.title || "Unknown"}</span>;
+    const clazz = cn("Tab__nav", {
+      "Tab__nav--active": index === this.state.selectedIndex
+    });
+    return (
+      <div onClick={this.openTab(index)} className={clazz}>
+        <Header level={5}>{tab.title || "Unknown"}</Header>
+      </div>
+    );
   };
 
   render() {

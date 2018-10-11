@@ -1219,31 +1219,17 @@ Modal.defaultProps = {
   level: 1
 };
 
-var css$5 = ".Avatar {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  min-width: 50px;\n  min-height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat; }\n  .Avatar .Icon {\n    padding: 5px;\n    border-radius: 50px;\n    border: 1px solid #000;\n    overflow: hidden; }\n";
+var css$5 = ".Avatar {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  min-width: 50px;\n  min-height: 50px;\n  position: relative; }\n  .Avatar > .Avatar__image {\n    border-radius: 50px;\n    overflow: hidden;\n    position: absolute;\n    left: 0px;\n    top: 0px;\n    width: 100%;\n    height: 100%;\n    background-position: center center;\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-color: #ffda3b; }\n";
 styleInject(css$5);
 
-var Avatar = function (_Component) {
-  inherits(Avatar, _Component);
-
-  function Avatar() {
-    classCallCheck(this, Avatar);
-    return possibleConstructorReturn(this, (Avatar.__proto__ || Object.getPrototypeOf(Avatar)).apply(this, arguments));
-  }
-
-  createClass(Avatar, [{
-    key: "render",
-    value: function render() {
-      var url = this.props.url;
-      var style = { backgroundImage: "url(" + url + ")" };
-      return React__default.createElement(
-        "div",
-        { className: "Avatar " },
-        url ? React__default.createElement("div", { style: style, className: "Avatar__image" }) : React__default.createElement(Icon, { icon: "avatar", size: "md" })
-      );
-    }
-  }]);
-  return Avatar;
-}(React.Component);
+var Avatar = function Avatar(props) {
+  var style = { backgroundImage: "url(" + props.url + ")" };
+  return React__default.createElement(
+    "div",
+    { className: "Avatar " },
+    React__default.createElement("div", { style: style, className: "Avatar__image" })
+  );
+};
 
 var css$6 = ".Header {\n  margin: 0px;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  color: #232e3b;\n  width: 100%; }\n  .Header.Header--center {\n    text-align: center; }\n  .Header.Header--left {\n    text-align: left; }\n  .Header.Header--right {\n    text-align: left; }\n  .Header.Header--no-margin {\n    margin-top: 0;\n    margin-bottom: 0; }\n\nh1.Header {\n  font-size: 46px;\n  font-weight: 300;\n  line-height: 55px; }\n\nh2.Header {\n  font-size: 32px;\n  font-weight: 300;\n  line-height: 40px;\n  letter-spacing: 0.1px; }\n\nh3.Header {\n  font-size: 28px;\n  font-weight: 300;\n  line-height: 35px;\n  letter-spacing: 0.1px; }\n\nh4.Header {\n  font-size: 22px;\n  font-weight: 400;\n  line-height: 25px;\n  letter-spacing: 0.2px; }\n\nh5.Header {\n  font-size: 18px;\n  font-weight: 400;\n  line-height: 20px;\n  letter-spacing: 0.2px; }\n";
 styleInject(css$6);
@@ -1293,24 +1279,6 @@ var Header = function Header(props) {
   }
   return header;
 };
-
-// export default class Header extends Component {
-
-//   render() {
-//     switch (this.props.level) {
-//       case 1:
-//         return <h1 className="Header">{this.props.children}</h1>;
-//       case 2:
-//         return <h2 className="Header">{this.props.children}</h2>;
-//       case 3:
-//         return <h3 className="Header">{this.props.children}</h3>;
-//       case 4:
-//         return <h4 className="Header">{this.props.children}</h4>;
-//       case 5:
-//         return <h5 className="Header">{this.props.children}</h5>;
-//     }
-//   }
-// }
 
 Header.defaultProps = {
   level: 3
@@ -1779,10 +1747,8 @@ Textarea.defaultProps = {
   onChange: function onChange() {}
 };
 
-var css$10 = "@import url(rc-tabs/assets/index.css);\n";
+var css$10 = ".Tabs .Tab__bar {\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  width: 100%; }\n  .Tabs .Tab__bar .Tab__nav {\n    margin-right: 40px;\n    width: auto;\n    cursor: pointer; }\n    .Tabs .Tab__bar .Tab__nav > .Header {\n      color: #93989f;\n      width: auto; }\n    .Tabs .Tab__bar .Tab__nav.Tab__nav--active {\n      border-bottom: 1px solid #32bafa; }\n      .Tabs .Tab__bar .Tab__nav.Tab__nav--active > .Header {\n        color: #232e3b; }\n\n.Tabs .Tab__content {\n  padding-top: 10px; }\n";
 styleInject(css$10);
-
-// export default TabsWrapper;
 
 var Tabs = function (_Component) {
   inherits(Tabs, _Component);
@@ -1806,7 +1772,11 @@ var Tabs = function (_Component) {
       return React__default.createElement(
         "div",
         { className: "Tab__content" },
-        _this.props.tabs[_this.state.selectedIndex].content
+        React__default.createElement(
+          "div",
+          { className: "Tab__content-item" },
+          _this.props.tabs[_this.state.selectedIndex].content
+        )
       );
     };
 
@@ -1819,10 +1789,17 @@ var Tabs = function (_Component) {
     };
 
     _this.renderTabBarItem = function (tab, index) {
+      var clazz = classnames("Tab__nav", {
+        "Tab__nav--active": index === _this.state.selectedIndex
+      });
       return React__default.createElement(
-        "span",
-        { onClick: _this.openTab(index) },
-        tab.title || "Unknown"
+        "div",
+        { onClick: _this.openTab(index), className: clazz },
+        React__default.createElement(
+          Header,
+          { level: 5 },
+          tab.title || "Unknown"
+        )
       );
     };
 
@@ -1843,7 +1820,7 @@ var Tabs = function (_Component) {
   return Tabs;
 }(React.Component);
 
-var css$11 = ".Block {\n  display: flex; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  width: 100%; }\n\n.Column {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center; }\n  .Column > div {\n    width: 100%; }\n";
+var css$11 = ".Block {\n  display: flex; }\n  .Block.Block--center {\n    justify-content: center;\n    align-items: center; }\n\n.Row {\n  display: flex;\n  flex-direction: row;\n  height: auto;\n  width: 100%; }\n\n.Grid {\n  gap: 10px;\n  display: grid;\n  column-gap: 40px; }\n  .Grid.Grid--size-2 {\n    grid-template-columns: 1fr 1fr; }\n  .Grid.Grid--size-3 {\n    grid-template-columns: 1fr 1fr 1fr; }\n  .Grid.Grid--size-4 {\n    grid-template-columns: 1fr 1fr 1fr 1fr; }\n\n.Column {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center; }\n  .Column > div {\n    width: 100%; }\n";
 styleInject(css$11);
 
 var Block = function Block(props) {
@@ -1876,7 +1853,19 @@ var Column = function Column(props) {
   );
 };
 
-var Layout = { Block: Block, Row: Row, Column: Column };
+var Grid = function Grid(props) {
+  return React__default.createElement(
+    "div",
+    { className: "Grid Grid--size-" + props.size },
+    props.children
+  );
+};
+
+Grid.defaultProps = {
+  size: 2
+};
+
+var Layout = { Block: Block, Row: Row, Column: Column, Grid: Grid };
 
 var css$12 = ".SocialCheckbox {\n  display: inline-block;\n  overflow: hidden;\n  cursor: pointer;\n  width: auto; }\n  .SocialCheckbox .SocialCheckbox__content {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between; }\n    .SocialCheckbox .SocialCheckbox__content > .Icon {\n      visibility: hidden; }\n    .SocialCheckbox .SocialCheckbox__content > .Label {\n      white-space: nowrap; }\n    .SocialCheckbox .SocialCheckbox__content > * {\n      margin-right: 10px;\n      user-select: none; }\n  .SocialCheckbox.SocialCheckbox--selected .SocialCheckbox__content > .Icon {\n    visibility: visible; }\n";
 styleInject(css$12);
@@ -1890,7 +1879,9 @@ var SocialCheckbox = function (_Component) {
     var _this = possibleConstructorReturn(this, (SocialCheckbox.__proto__ || Object.getPrototypeOf(SocialCheckbox)).call(this, props));
 
     _this.select = function () {
-      _this.setState({ selected: !_this.state.selected });
+      var selected = !_this.state.selected;
+      _this.setState({ selected: selected });
+      _this.props.onClick(selected);
     };
 
     var state = {

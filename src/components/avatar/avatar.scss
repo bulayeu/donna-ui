@@ -20,11 +20,6 @@ $AVATAR_SIZE: $BASE * 10;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-  }
-  & .Icon {
-    padding: 5px;
-    border-radius: $AVATAR_SIZE;
-    border: 1px solid #000;
-    overflow: hidden;
+    background-color: $BRAND_COLOR_YELLOW;
   }
 }

@@ -17,7 +17,9 @@ export default class SocialCheckbox extends Component {
   }
 
   select = () => {
-    this.setState({ selected: !this.state.selected });
+    const selected = !this.state.selected;
+    this.setState({ selected });
+    this.props.onClick(selected);
   };
 
   render() {

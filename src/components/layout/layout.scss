@@ -15,6 +15,21 @@
   width: 100%;
 }
 
+.Grid {
+  gap: $BASE*2;
+  display: grid;
+  column-gap: 40px;
+  &.Grid--size-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  &.Grid--size-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &.Grid--size-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .Column {
   width: 100%;
   display: flex;

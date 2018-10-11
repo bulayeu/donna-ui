@@ -1,1 +1,28 @@
-@import "rc-tabs/assets/index.css";
+@import "../vars.scss";
+
+.Tabs {
+  .Tab__bar {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    .Tab__nav {
+      margin-right: $BASE * 8;
+      width: auto;
+      cursor: pointer;
+      & > .Header {
+        color: $BRAND_COLOR_DARK_BLUE_50;
+        width: auto;
+      }
+      &.Tab__nav--active {
+        & > .Header {
+          color: $BRAND_COLOR_DARK_BLUE;
+        }
+        border-bottom: 1px solid $BRAND_COLOR_BLUE;
+      }
+    }
+  }
+  .Tab__content {
+    padding-top: 10px;
+  }
+}
