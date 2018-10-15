@@ -189,7 +189,7 @@ export default class PostToPage extends Component {
     return (
       <Block w={520} center>
         <ScrollBlock>
-          <div style={{padding: "0px 20px", height: "180px"}}>
+          <div style={{ padding: "0px 20px", height: "180px" }}>
             <Grid>
               {pages.map(page => {
                 return (
