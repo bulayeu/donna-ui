@@ -2,7 +2,7 @@
 
 .Input {
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: $BASE * 2;
   margin-bottom: $BASE * 2;
 
@@ -34,6 +34,7 @@
     width: 100%;
     padding-top: 4px;
     padding-bottom: 4px;
+    line-height: 20px;
   }
 
   .Input__label {

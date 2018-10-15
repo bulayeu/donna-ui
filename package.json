@@ -18,9 +18,11 @@
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "clone": "^2.1.1",
+    "perfect-scrollbar": "^1.4.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-perfect-scrollbar": "^1.2.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.1.0",

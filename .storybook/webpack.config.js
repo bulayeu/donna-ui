@@ -8,5 +8,12 @@ module.exports = (storybookBaseConfig, configType) => {
 		include: path.resolve(__dirname, '../')
 	});
 
+	storybookBaseConfig.module.rules.push({
+		test: /\.css$/,
+		loaders: ["style-loader", "css-loader"],
+		include: path.resolve(__dirname, '../')
+	});
+
+
 	return storybookBaseConfig;
 };

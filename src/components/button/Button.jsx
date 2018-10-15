@@ -14,7 +14,8 @@ export default class Button extends Component {
       `Button--${this.props.size}`,
       {
         "Button--block": this.props.block,
-        "Button--link": this.props.link
+        "Button--link": this.props.link,
+        "Button--bold": this.props.bold
       }
     );
   }

@@ -2,7 +2,7 @@
 
 .Textarea {
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: $BASE * 2;
   margin-bottom: $BASE * 2;
 
@@ -11,6 +11,7 @@
   }
 
   .Textarea__field {
+    line-height: 20px;
     width: 100%;
     padding: 0px;
     resize: none;

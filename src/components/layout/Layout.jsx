@@ -1,6 +1,9 @@
 import React from "react";
 import "./layout.scss";
 
+import PerfectScrollbar from "react-perfect-scrollbar";
+import 'react-perfect-scrollbar/dist/css/styles.css';
+
 const Block = props => {
   const style = {};
   if (props.w) {
@@ -32,10 +35,14 @@ const Grid = props => {
   );
 };
 
+const ScrollBlock = props => {
+  return <div className="ScrollBlock"><PerfectScrollbar>{props.children}</PerfectScrollbar></div>
+};
+
 Grid.defaultProps = {
   size: 2
 };
 
-const Layout = { Block, Row, Column, Grid };
+const Layout = { Block, Row, Column, Grid, ScrollBlock };
 
 export default Layout;

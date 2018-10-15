@@ -27,7 +27,7 @@ export default class SocialCheckbox extends Component {
       "SocialCheckbox--block": this.props.block
     });
     return (
-      <div className={clazz} onClick={this.select}>
+      <div role="button" className={clazz} onClick={this.select}>
         <div className="SocialCheckbox__content">
           <Avatar url={this.props.avatar} />
           <Label>{this.props.label}</Label>

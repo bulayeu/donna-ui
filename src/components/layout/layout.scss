@@ -1,6 +1,7 @@
 @import "../vars.scss";
 
 .Block {
+  transition: all 0.2s;
   display: flex;
   &.Block--center {
     justify-content: center;
@@ -16,7 +17,7 @@
 }
 
 .Grid {
-  gap: $BASE*2;
+  gap: $BASE * 2;
   display: grid;
   column-gap: 40px;
   &.Grid--size-2 {
@@ -39,5 +40,40 @@
   align-items: center;
   & > div {
     width: 100%;
+  }
+}
+
+.ScrollBlock {
+  .scrollbar-container {
+    .ps__rail-y,
+    .ps__thumb-y {
+      opacity: 1;
+      width: 8px;
+    }
+    .ps__rail-y > .ps__thumb-y {
+      right: 0px;
+      background-color: $BRAND_COLOR_DARK_BLUE_5;
+    }
+    &:hover {
+      .ps__rail-y > .ps__thumb-y {
+        background-color: $BRAND_COLOR_DARK_BLUE_25;
+      }
+    }
+    .ps__rail-y {
+      width: 8px;
+      opacity: 1;
+      border-radius: 10px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      &:hover {
+        width: 8px;
+        opacity: 1;
+        background-color: $BRAND_COLOR_DARK_BLUE_5;
+        .ps__thumb-y {
+          width: 8px;
+          background-color: $BRAND_COLOR_DARK_BLUE_50;
+        }
+      }
+    }
   }
 }
