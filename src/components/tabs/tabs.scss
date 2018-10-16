@@ -29,6 +29,15 @@
     }
   }
   .Tab__content {
+    transition: all 0.2s;
     padding-top: 10px;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  &.Tabs--switch {
+    .Tab__content {
+      opacity: 0;
+      transform: translateY(20px);
+    }
   }
 }

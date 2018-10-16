@@ -35,6 +35,6 @@ const tabs = [
 
 storiesOf("Tabs", module).add("tab", () => (
   <section className="story">
-    <Tabs tabs={tabs} />
+    <Tabs tabOpened={(tab) => {console.log(tab)}} tabs={tabs} />
   </section>
 ));

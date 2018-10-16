@@ -40,10 +40,12 @@ export default class Input extends Component {
           <Label>{this.props.placeholder}</Label>
         </div>
         <input
+          type="text" 
           onBlur={this.onBlur}
           onFocus={this.onFocus}
           className="Input__field"
           type="text"
+          ref={c => (this.input = c)}
           value={this.state.value}
           onChange={this.handleChange}
         />
@@ -53,5 +55,6 @@ export default class Input extends Component {
 }
 
 Input.defaultProps = {
-  onChange: () => {}
+  onChange: () => {},
+  initValue: ""
 };

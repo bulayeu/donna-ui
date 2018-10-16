@@ -14,8 +14,18 @@ export default class Tabs extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.tabOpened(this.props.tabs[this.state.selectedIndex]);
+  }
+
   openTab = selectedIndex => () => {
-    this.setState({ selectedIndex });
+    this.tabs.classList.add("Tabs--switch");
+    setTimeout(() => {
+      this.setState({ selectedIndex }, () => {
+        this.tabs.classList.remove("Tabs--switch");
+        this.props.tabOpened(this.props.tabs[this.state.selectedIndex]);
+      });
+    }, 200);
   };
 
   renderTabContent = () => {
@@ -49,10 +59,14 @@ export default class Tabs extends Component {
 
   render() {
     return (
-      <div className="Tabs">
+      <div ref={c => (this.tabs = c)} className="Tabs">
         {this.renderTabBar()}
         {this.renderTabContent()}
       </div>
     );
   }
 }
+
+Tabs.defaultProps = {
+  tabOpened: () => {}
+};

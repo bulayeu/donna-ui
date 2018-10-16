@@ -18,7 +18,9 @@
       transform: scale(0.5);
     }
     & > .Label {
+      width: 100%;
       white-space: nowrap;
+      text-align: left;
     }
     & > * {
       margin-right: 10px;

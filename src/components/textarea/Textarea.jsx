@@ -66,5 +66,6 @@ export default class Textarea extends Component {
 }
 
 Textarea.defaultProps = {
-  onChange: () => {}
+  onChange: () => {},
+  initValue: ""
 };
