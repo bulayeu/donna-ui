@@ -1884,7 +1884,11 @@ var Tabs = function (_Component) {
       });
       return React__default.createElement(
         "div",
-        { key: index, onClick: _this.openTab(index), className: clazz },
+        {
+          key: "tab_" + tab.title + "_" + index,
+          onClick: _this.openTab(index),
+          className: clazz
+        },
         React__default.createElement(
           Header,
           { level: 5 },
