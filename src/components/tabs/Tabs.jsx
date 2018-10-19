@@ -20,7 +20,6 @@ export default class Tabs extends Component {
 
   openTab = selectedIndex => () => {
     this.tabs.classList.add("Tabs--switch");
-    console.log(selectedIndex);
     this.props.tabOpened(this.props.tabs[this.state.selectedIndex]);
     setTimeout(() => {
       this.setState({ selectedIndex }, () => {
