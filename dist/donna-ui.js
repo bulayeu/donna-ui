@@ -1849,10 +1849,11 @@ var Tabs = function (_Component) {
     _this.openTab = function (selectedIndex) {
       return function () {
         _this.tabs.classList.add("Tabs--switch");
+        console.log(selectedIndex);
+        _this.props.tabOpened(_this.props.tabs[_this.state.selectedIndex]);
         setTimeout(function () {
           _this.setState({ selectedIndex: selectedIndex }, function () {
             _this.tabs.classList.remove("Tabs--switch");
-            _this.props.tabOpened(_this.props.tabs[_this.state.selectedIndex]);
           });
         }, 200);
       };
