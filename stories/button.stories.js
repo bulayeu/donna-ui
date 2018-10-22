@@ -2,7 +2,7 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 
-import { Button, IconButton, Icon, Header } from "../dist/donna-ui";
+import { Button, IconButton, Header, Layout } from "../dist/donna-ui";
 import { withInfo } from "@storybook/addon-info";
 
 const buttonTypes = [
@@ -84,11 +84,11 @@ storiesOf("Button", module)
           Button with Icon
         </Button>
 
-        <Button icon="lock" type="transparent-dark-gray">
+        <Button icon="selected" type="transparent-dark-gray">
           Button with Icon
         </Button>
 
-        <Button icon="plus">Button with Icon</Button>
+        <Button icon="pen">Button with Icon</Button>
       </section>
     ))
   )
@@ -98,9 +98,12 @@ storiesOf("Button", module)
       Some info    
     `)(() => (
       <section className="story">
-        <IconButton icon="facebook" />
-        <IconButton icon="close" />
-        <IconButton type="round" icon="close" />
+        <Layout.Grid size={6}>
+          <IconButton type="round" icon="facebook" />
+          <IconButton type="round" icon="pen" />
+          <IconButton type="round" icon="close" />
+          <IconButton icon="facebook" />
+        </Layout.Grid>
       </section>
     ))
   );

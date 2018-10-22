@@ -905,8 +905,62 @@ Icon.defaultProps = {
   size: "sm"
 };
 
-var css$1 = ".IconButton{display:inline-block;text-decoration:none;appearance:none;cursor:pointer;width:auto;height:auto;padding:0;margin:0;border:0;background-color:transparent;display:flex;justify-content:center;align-items:center;transform:scale(1);transition:all .2s}.IconButton:hover{transform:scale(1.1)}.IconButton.IconButton--round{width:50px;height:50px;background-color:#ed486f;border-radius:50px;position:relative}.IconButton.IconButton--round>.Icon{width:auto;height:auto}.IconButton.IconButton--plain{float:left}";
+var css$1 = ".IconButton{display:inline-block;text-decoration:none;appearance:none;cursor:pointer;width:auto;height:auto;padding:0;margin:0;border:0;background-color:transparent;display:flex;justify-content:center;align-items:center;transform:scale(1);transition:all .2s}.IconButton:hover{transform:scale(1.1)}.IconButton.IconButton--round{width:50px;height:50px;background-color:transparent;border:1px solid #232e3b;border-radius:50px;position:relative}.IconButton.IconButton--round>.Icon{width:auto;height:auto}.IconButton.IconButton--plain{float:left}";
 styleInject(css$1);
+
+var classnames = createCommonjsModule(function (module) {
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ('object' !== 'undefined' && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (typeof undefined === 'function' && typeof undefined.amd === 'object' && undefined.amd) {
+		// register as 'classnames', consistent with npm package name
+		undefined('classnames', [], function () {
+			return classNames;
+		});
+	} else {
+		window.classNames = classNames;
+	}
+}());
+});
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -982,6 +1036,9 @@ var IconButton = function (_Component) {
   createClass(IconButton, [{
     key: "render",
     value: function render() {
+      var clazz = classnames("IconButton", "IconButton--" + this.props.type, {
+        "IconButton--round": this.props.round
+      });
       return React__default.createElement(
         "div",
         {
@@ -1017,60 +1074,6 @@ var Avatar = function Avatar(props) {
 
 var css$3 = ".Header{margin:0;margin-top:10px;margin-bottom:10px;color:#232e3b;width:100%}.Header.Header--center{text-align:center}.Header.Header--left,.Header.Header--right{text-align:left}.Header.Header--no-margin{margin-top:0;margin-bottom:0}h1.Header{font-size:46px;font-weight:300;line-height:55px}h2.Header{font-size:32px;line-height:40px}h2.Header,h3.Header{font-weight:300;letter-spacing:.1px}h3.Header{font-size:28px;line-height:35px}h4.Header{font-size:22px;line-height:25px}h4.Header,h5.Header{font-weight:400;letter-spacing:.2px}h5.Header{font-size:18px;line-height:20px}";
 styleInject(css$3);
-
-var classnames = createCommonjsModule(function (module) {
-/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if ('object' !== 'undefined' && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (typeof undefined === 'function' && typeof undefined.amd === 'object' && undefined.amd) {
-		// register as 'classnames', consistent with npm package name
-		undefined('classnames', [], function () {
-			return classNames;
-		});
-	} else {
-		window.classNames = classNames;
-	}
-}());
-});
 
 var Header = function Header(props) {
   var header = null;
@@ -1848,6 +1851,7 @@ var Tabs = function (_Component) {
 
     _this.openTab = function (selectedIndex) {
       return function () {
+        if (_this.state.selectedIndex === selectedIndex) return;
         _this.tabs.classList.add("Tabs--switch");
         _this.props.tabOpened(_this.props.tabs[_this.state.selectedIndex]);
         setTimeout(function () {

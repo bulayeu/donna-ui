@@ -27,7 +27,8 @@
   &.IconButton--round {
     width: $BASE * 10;
     height: $BASE * 10;
-    background-color: $BRAND_COLOR_PINK;
+    background-color: transparent;
+    border: 1px solid $BRAND_COLOR_DARK_BLUE;
     border-radius: 50px;
     position: relative;
     & > .Icon {

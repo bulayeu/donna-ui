@@ -10,7 +10,7 @@ const social_icons = [
   "twitter"
 ];
 
-const small_icons = ["close", "avatar"];
+const small_icons = ["close", "pen", "avatar", "add", "alert", "selected"];
 
 const Grid = Layout.Grid;
 
