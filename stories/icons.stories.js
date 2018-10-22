@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { Icon, Avatar } from "../dist/donna-ui";
+import { Icon, Header, Layout } from "../dist/donna-ui";
 
 const social_icons = [
   "facebook",
@@ -12,31 +12,39 @@ const social_icons = [
 
 const small_icons = ["close", "avatar"];
 
-const iconsTable = icons => {
+const Grid = Layout.Grid;
+
+const iconsTable = (icons, size) => {
   return (
-    <table className="icons-table">
-      <thead>
-        <th>Icon name</th>
-        <th>Icon image</th>
-      </thead>
-      {icons.map(i => (
-        <tr>
-          <td>{i}</td>
-          <td>
-            <Icon icon={i} />
-          </td>
-        </tr>
-      ))}
-    </table>
+    <Grid size={6}>
+      {icons.map(icon => [
+        <div>{icon}</div>,
+        <div>
+          <Icon size={size} icon={icon} />
+        </div>
+      ])}
+    </Grid>
   );
 };
 
 const icons = storiesOf("Icons", module)
   .add("social", () => (
-    <section className="story space-between">
-      {iconsTable(social_icons)}
+    <section className="story">
+      <Header>Small icons</Header>
+      {iconsTable(social_icons, "sm")}
+      <Header>Medium icons</Header>
+      {iconsTable(social_icons, "md")}
+      <Header>Large icons</Header>
+      {iconsTable(social_icons, "lg")}
     </section>
   ))
   .add("icons", () => (
-    <section className="story space-between">{iconsTable(small_icons)}</section>
+    <section className="story">
+      <Header>Small icons</Header>
+      {iconsTable(small_icons, "sm")}
+      <Header>Medium icons</Header>
+      {iconsTable(small_icons, "md")}
+      <Header>Large icons</Header>
+      {iconsTable(small_icons, "lg")}
+    </section>
   ));

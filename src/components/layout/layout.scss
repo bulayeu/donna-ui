@@ -20,6 +20,9 @@
   gap: $BASE * 2;
   display: grid;
   column-gap: 40px;
+  &.Grid--size-1 {
+    grid-template-columns: 1fr;
+  }
   &.Grid--size-2 {
     grid-template-columns: 1fr 1fr;
   }
@@ -28,6 +31,12 @@
   }
   &.Grid--size-4 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  &.Grid--size-5 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  &.Grid--size-6 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
 

@@ -16,6 +16,7 @@ storiesOf("Typography", module)
           </Text>
         );
       })}
+      <hr></hr>
       {[...Array(4).keys()].map(lvl => {
         const level = lvl + 1;
         return (
@@ -24,6 +25,7 @@ storiesOf("Typography", module)
           </Text>
         );
       })}
+      <hr></hr>
       {[...Array(4).keys()].map(lvl => {
         const level = lvl + 1;
         return (
