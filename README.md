@@ -33,5 +33,7 @@ Watch docs only
 Use as dependency
 
 ```"donna-ui": "git+https://github.com/bulayeu/donna-ui.git"```
+
 ```npm install --save https://github.com/bulayeu/donna-ui```
+
 ```yarn add https://github.com/bulayeu/donna-ui```
