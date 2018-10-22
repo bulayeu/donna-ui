@@ -31,4 +31,7 @@ Watch docs only
 ```npm run watch-docs``` or ```yarn watch-docs```
 
 Use as dependency
-"donna-ui": "git+ssh@github.com:[TODO_ADD_TO_PRIVATE_REPO]'#master",
+
+```"donna-ui": "git+https://github.com/bulayeu/donna-ui.git"```
+```npm install --save https://github.com/bulayeu/donna-ui```
+```yarn add https://github.com/bulayeu/donna-ui```
