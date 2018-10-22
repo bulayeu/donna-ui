@@ -4,13 +4,13 @@ Documentation and usage (https://bulayeu.github.io/donna-ui/)
 
 Init
 
-```npm install``` Or ```yarn```
+```npm install``` or ```yarn```
 
 And start development 
 
 ```npm run dev``` or ```yarn dev```
 
-Create docs and library build
+Generate static version for github pages and library version
 
 ```npm run build``` or ```yarn build```
 
