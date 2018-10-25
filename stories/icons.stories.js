@@ -2,6 +2,10 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Icon, Header, Layout } from "../dist/donna-ui";
 
+// import assets from "../src/components/icon/icons.js";
+
+// const assetsNames = Object.keys(assets);
+
 const social_icons = [
   "facebook",
   "instagram",
@@ -10,19 +14,28 @@ const social_icons = [
   "twitter"
 ];
 
-const small_icons = ["close", "pen", "avatar", "add", "alert", "selected"];
+const small_icons = [
+  "close",
+  "pen",
+  "avatar",
+  "add",
+  "alert",
+  "selected",
+  "arrow",
+  "arrow_back"
+];
 
 const Grid = Layout.Grid;
 
 const iconsTable = (icons, size) => {
   return (
     <Grid size={6}>
-      {icons.map(icon => [
-        <div>{icon}</div>,
-        <div>
+      {icons.map(icon => (
+        <Grid size={2}>
+          <div>{icon}</div>
           <Icon size={size} icon={icon} />
-        </div>
-      ])}
+        </Grid>
+      ))}
     </Grid>
   );
 };

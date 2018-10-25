@@ -14,6 +14,8 @@ import avatar from "../../assets/icon/avatar.svg";
 import add from "../../assets/icon/add.svg";
 import alert from "../../assets/icon/alert.svg";
 import selected from "../../assets/icon/selected.svg";
+import arrow from "../../assets/icon/arrow.svg";
+import arrow_back from "../../assets/icon/arrow_back.svg";
 
 const icons = {
     facebook,
@@ -26,7 +28,9 @@ const icons = {
     avatar,
     add,
     alert,
-    selected
+    selected,
+    arrow,
+    arrow_back
 };
 
 export default icons;

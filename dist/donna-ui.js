@@ -872,6 +872,10 @@ var alert = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F20
 
 var selected = "data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%20%20%20%20%20%20%20%20%3Ctitle%3E5BF3CFC8-3A1E-41C6-838B-72E9AAD3EC5C%3C%2Ftitle%3E%20%20%20%20%3Cdesc%3ECreated%20with%20sketchtool.%3C%2Fdesc%3E%20%20%20%20%3Cdefs%3E%3C%2Fdefs%3E%20%20%20%20%3Cg%20id%3D%22photo-editor%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%20%20%20%20%20%20%20%20%3Cg%20id%3D%22ICONS%22%20transform%3D%22translate%28-798.000000%2C%20-240.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22selected%22%20transform%3D%22translate%28798.000000%2C%20240.000000%29%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20id%3D%22Oval-6%22%20fill%3D%22%2332BAFA%22%20cx%3D%226%22%20cy%3D%226%22%20r%3D%226%22%3E%3C%2Fcircle%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolyline%20id%3D%22Shape%22%20stroke%3D%22%23FFFFFF%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20points%3D%229%204%204.875%208.5%203%206.45454545%22%3E%3C%2Fpolyline%3E%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%20%20%20%20%3C%2Fg%3E%20%20%20%20%3C%2Fg%3E%3C%2Fsvg%3E";
 
+var arrow = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020.49%2010.167%22%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill%3Anone%3Bstroke%3A%23252e3b%3Bstroke-linecap%3Around%3Bstroke-miterlimit%3A10%3Bstroke-width%3A1.3px%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20transform%3D%22translate%28-7.108%20-13.125%29%22%3E%3Cg%20transform%3D%22translate%287%2012.833%29%22%3E%3Cpath%20class%3D%22a%22%20d%3D%22M18.242%2C0H0%22%20transform%3D%22translate%280.758%205.432%29%22%2F%3E%3Cpath%20class%3D%22a%22%20d%3D%22M.047%2C8.867l4.46-4.41L0%2C0%22%20transform%3D%22translate%2815.167%200.942%29%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+
+var arrow_back = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%206.844%2014.06%22%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill%3Anone%3Bstroke%3A%23252e3b%3Bstroke-linecap%3Around%3Bstroke-linejoin%3Around%3Bstroke-miterlimit%3A10%3Bstroke-width%3A1.3px%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20transform%3D%22translate%28-13.35%20-11.651%29%22%3E%3Cpath%20class%3D%22a%22%20d%3D%22M5.544%2C0%2C0%2C6.348%2C5.544%2C12.76%22%20transform%3D%22translate%2814%2012.301%29%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+
 // SOCIAL ICONS
 
 var icons = {
@@ -885,7 +889,9 @@ var icons = {
     avatar: avatar,
     add: add,
     alert: alert,
-    selected: selected
+    selected: selected,
+    arrow: arrow,
+    arrow_back: arrow_back
 };
 
 var Icon = function Icon(props) {
