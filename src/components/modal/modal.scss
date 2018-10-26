@@ -17,6 +17,7 @@
   opacity: 0;
 
   &.Modal--open {
+    pointer-events: auto;
     z-index: 99999 !important;
     position: fixed;
     opacity: 1;

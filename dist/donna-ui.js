@@ -1794,7 +1794,7 @@ var SocialCheckbox = function (_Component) {
   return SocialCheckbox;
 }(React.Component);
 
-var css$10 = ".Modal{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:all .2s;visibility:hidden;pointer-events:none;opacity:0}.Modal.Modal--open{z-index:1!important;position:fixed;opacity:1;visibility:visible}.Modal.Modal--transparent>.Modal__window>.Modal__content{background-color:transparent}.Modal>.Modal__window{width:auto;position:relative}.Modal>.Modal__window>.IconButton{position:absolute;right:20px;top:20px}.Modal>.Modal__window>.Modal__content{background-color:#fff;width:100%;height:100%;overflow:hidden;border-radius:5px}";
+var css$10 = ".Modal{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:all .2s;visibility:hidden;pointer-events:none;opacity:0}.Modal.Modal--open{pointer-events:auto;z-index:1!important;position:fixed;opacity:1;visibility:visible}.Modal.Modal--transparent>.Modal__window>.Modal__content{background-color:transparent}.Modal>.Modal__window{width:auto;position:relative}.Modal>.Modal__window>.IconButton{position:absolute;right:20px;top:20px}.Modal>.Modal__window>.Modal__content{background-color:#fff;width:100%;height:100%;overflow:hidden;border-radius:5px}";
 styleInject(css$10);
 
 var Modal = function (_Component) {
