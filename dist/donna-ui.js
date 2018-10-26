@@ -1357,7 +1357,7 @@ Input.defaultProps = {
   initValue: ""
 };
 
-var css$8 = ".Textarea{display:inline-block;font-size:14px;margin-top:10px;margin-bottom:10px}.Textarea.Textarea--block{width:100%}.Textarea .Textarea__field{line-height:20px;width:100%;padding:0;resize:none;background-color:transparent;border-radius:0;border:none;-webkit-appearance:none;-moz-appearance:none;font-family:inherit;font-size:1em;border-bottom:1px dashed #232e3b;max-height:100px;padding-top:4px;padding-bottom:4px}.Textarea .Textarea__field:focus{outline:none}.Textarea .Textarea__label{color:#93989f;pointer-events:none;transition:all .2s;transform:translateY(22px)}.Textarea.Textarea--focus .Textarea__label,.Textarea.Textarea--has-value .Textarea__label{color:#232e3b;transform:translateY(0)}";
+var css$8 = ".Textarea{display:inline-block;font-size:14px;margin-top:10px;margin-bottom:10px;position:relative}.Textarea.Textarea--block{width:100%}.Textarea .Textarea__field{line-height:20px;width:100%;padding:0;resize:none;background-color:transparent;border-radius:0;border:none;-webkit-appearance:none;-moz-appearance:none;font-family:inherit;font-size:1em;border-bottom:1px dashed #232e3b;max-height:100px;padding-top:4px;padding-bottom:4px}.Textarea .Textarea__field:focus{outline:none}.Textarea .Textarea__label{color:#93989f;pointer-events:none;transition:all .2s;transform:translateY(22px)}.Textarea.Textarea--focus .Textarea__label,.Textarea.Textarea--has-value .Textarea__label{color:#232e3b;transform:translateY(0)}.Textarea .Textarea__indicator{position:absolute;bottom:-15px;right:0;font-size:12px;color:#e0e1e3;opacity:0;visibility:hidden;pointer-events:none;transition:all .2s;user-select:none;transform:scale(1)}.Textarea.Textarea--show-indicator .Textarea__indicator{opacity:1;visibility:visible}.Textarea.Textarea--show-indicator.Textarea--highlight-indicator .Textarea__indicator{color:#ea2855}";
 styleInject(css$8);
 
 var autosize = createCommonjsModule(function (module, exports) {
@@ -1654,17 +1654,21 @@ var Textarea = function (_Component) {
 
     _this.handleChange = function (ev) {
       var value = ev.target.value;
-      var hasValue = value && value !== "";
-      _this.setState({ value: value, hasValue: hasValue });
-      _this.props.onChange(value);
+      if (_this.props.max && value.length > _this.props.max) {
+        _this.setState({ highlightIndicator: true });
+      } else {
+        var hasValue = value && value !== "";
+        _this.setState({ value: value, hasValue: hasValue, highlightIndicator: false });
+        _this.props.onChange(value);
+      }
     };
 
     _this.onFocus = function () {
-      _this.setState({ focus: true });
+      _this.setState({ focus: true, highlightIndicator: false });
     };
 
     _this.onBlur = function () {
-      _this.setState({ focus: false });
+      _this.setState({ focus: false, highlightIndicator: false });
     };
 
     _this.state = {
@@ -1692,7 +1696,9 @@ var Textarea = function (_Component) {
       var clazz = classnames("Textarea", {
         "Textarea--block": this.props.block,
         "Textarea--focus": this.state.focus,
-        "Textarea--has-value": this.state.hasValue
+        "Textarea--has-value": this.state.hasValue,
+        "Textarea--show-indicator": this.props.max && this.props.max / this.state.value.length < 2,
+        "Textarea--highlight-indicator": this.state.highlightIndicator
       });
       return React__default.createElement(
         "div",
@@ -1717,7 +1723,14 @@ var Textarea = function (_Component) {
           type: "text",
           onChange: this.handleChange,
           rows: "1"
-        })
+        }),
+        React__default.createElement(
+          "div",
+          { className: "Textarea__indicator" },
+          this.state.value.length,
+          " / ",
+          this.props.max
+        )
       );
     }
   }]);
@@ -1727,7 +1740,8 @@ var Textarea = function (_Component) {
 
 Textarea.defaultProps = {
   onChange: function onChange() {},
-  initValue: ""
+  initValue: "",
+  max: 0
 };
 
 var css$9 = ".SocialCheckbox{display:inline-block;overflow:hidden;cursor:pointer;width:auto}.SocialCheckbox .SocialCheckbox--block{width:100%}.SocialCheckbox .SocialCheckbox__content{display:flex;flex-direction:row;align-items:center;justify-content:space-between}.SocialCheckbox .SocialCheckbox__content>.Icon{transition:all .2s;visibility:hidden;opacity:0;transform:scale(.5)}.SocialCheckbox .SocialCheckbox__content>.Label{width:100%;white-space:nowrap;text-align:left}.SocialCheckbox .SocialCheckbox__content>*{margin-right:10px;user-select:none}.SocialCheckbox.SocialCheckbox--selected .SocialCheckbox__content>.Icon{visibility:visible;opacity:1;transform:scale(1)}";
@@ -1780,7 +1794,7 @@ var SocialCheckbox = function (_Component) {
   return SocialCheckbox;
 }(React.Component);
 
-var css$10 = ".Modal{z-index:1;position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:all .2s;visibility:hidden;opacity:0}.Modal.Modal--open{opacity:1;visibility:visible}.Modal.Modal--transparent>.Modal__window>.Modal__content{background-color:transparent}.Modal>.Modal__window{width:auto;position:relative}.Modal>.Modal__window>.IconButton{position:absolute;right:20px;top:20px}.Modal>.Modal__window>.Modal__content{background-color:#fff;width:100%;height:100%;overflow:hidden;border-radius:5px}";
+var css$10 = ".Modal{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:all .2s;visibility:hidden;opacity:0}.Modal.Modal--open{z-index:1!important;position:fixed;opacity:1;visibility:visible}.Modal.Modal--transparent>.Modal__window>.Modal__content{background-color:transparent}.Modal>.Modal__window{width:auto;position:relative}.Modal>.Modal__window>.IconButton{position:absolute;right:20px;top:20px}.Modal>.Modal__window>.Modal__content{background-color:#fff;width:100%;height:100%;overflow:hidden;border-radius:5px}";
 styleInject(css$10);
 
 var Modal = function (_Component) {
@@ -3527,7 +3541,7 @@ API.modal.unmount = function () {
   if (root) ReactDOM.unmountComponentAtNode(root);
 };
 
-var css$14 = "@font-face{font-family:Proxima Nova;src:url(fonts/ProximaNova-Light.otf) format(\"opentype\");font-weight:300;font-style:normal}@font-face{font-family:Proxima Nova;src:url(fonts/ProximaNova-Regular.otf) format(\"opentype\");font-weight:400;font-style:normal}@font-face{font-family:Proxima Nova;src:url(fonts/ProximaNova-Semibold.otf) format(\"opentype\");font-weight:600;font-style:normal}@font-face{font-family:Proxima Nova;src:url(fonts/ProximaNova-Bold.otf) format(\"opentype\");font-weight:700;font-style:normal}@font-face{font-family:Proxima Nova;src:url(fonts/ProximaNova-Extrabold.otf) format(\"opentype\");font-weight:800;font-style:normal}@font-face{font-family:Proxima Nova;src:url(fonts/ProximaNova-Black.otf) format(\"opentype\");font-weight:900;font-style:normal}html{font-size:14px;font-family:Proxima Nova}*,:after,:before{box-sizing:border-box}body,html{margin:0;padding:0}::-webkit-scrollbar-button{display:none;height:13px;border-radius:0;background-color:#aaa}::-webkit-scrollbar-button:hover{background-color:#aaa}::-webkit-scrollbar-thumb{transition:all .2s;background-color:#e0e1e3;box-shadow:none;border-radius:8px}::-webkit-scrollbar-thumb:hover{background-color:#c9ccd0}::-webkit-scrollbar-track{border-radius:8px;background-color:#f6f6f6}::-webkit-scrollbar-track:hover{background-color:#f6f6f6}::-webkit-scrollbar{border-radius:8px;width:8px}";
+var css$14 = "html{font-size:14px;font-family:Proxima Nova}*,:after,:before{box-sizing:border-box}body,html{margin:0;padding:0}::-webkit-scrollbar-button{display:none;height:13px;border-radius:0;background-color:#aaa}::-webkit-scrollbar-button:hover{background-color:#aaa}::-webkit-scrollbar-thumb{transition:all .2s;background-color:#e0e1e3;box-shadow:none;border-radius:8px}::-webkit-scrollbar-thumb:hover{background-color:#c9ccd0}::-webkit-scrollbar-track{border-radius:8px;background-color:#f6f6f6}::-webkit-scrollbar-track:hover{background-color:#f6f6f6}::-webkit-scrollbar{border-radius:8px;width:8px}";
 styleInject(css$14);
 
 var index = {

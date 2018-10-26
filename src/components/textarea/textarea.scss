@@ -5,6 +5,7 @@
   font-size: 14px;
   margin-top: $BASE * 2;
   margin-bottom: $BASE * 2;
+  position: relative;
 
   &.Textarea--block {
     width: 100%;
@@ -44,6 +45,31 @@
     .Textarea__label {
       color: $BRAND_COLOR_DARK_BLUE;
       transform: translateY(0px);
+    }
+  }
+
+  .Textarea__indicator {
+    position: absolute;
+    bottom: -15px;
+    right: 0px;
+    font-size: 12px;
+    color: $BRAND_COLOR_DARK_BLUE_15;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;  
+    transition: all 0.2s;
+    user-select: none;
+    transform: scale(1);
+  }
+  &.Textarea--show-indicator {
+    .Textarea__indicator {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.Textarea--highlight-indicator {
+      .Textarea__indicator {
+        color: $BRAND_COLOR_RED;
+      }
     }
   }
 }

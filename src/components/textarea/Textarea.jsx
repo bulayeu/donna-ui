@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./textarea.scss";
 
 import autosize from "autosize";
@@ -24,26 +24,32 @@ export default class Textarea extends Component {
     autosize.destroy(this.textarea);
   }
 
-  handleChange = ev => {
+  handleChange = (ev) => {
     const value = ev.target.value;
-    const hasValue = value && value !== "";
-    this.setState({ value, hasValue });
-    this.props.onChange(value);
+    if (this.props.max && value.length > this.props.max) {
+      this.setState({highlightIndicator: true});
+    } else {
+      const hasValue = value && value !== "";
+      this.setState({value, hasValue, highlightIndicator: false});
+      this.props.onChange(value);
+    }
   };
 
   onFocus = () => {
-    this.setState({ focus: true });
+    this.setState({focus: true, highlightIndicator: false});
   };
 
   onBlur = () => {
-    this.setState({ focus: false });
+    this.setState({focus: false, highlightIndicator: false});
   };
 
   render() {
     const clazz = cn("Textarea", {
       "Textarea--block": this.props.block,
       "Textarea--focus": this.state.focus,
-      "Textarea--has-value": this.state.hasValue
+      "Textarea--has-value": this.state.hasValue,
+      "Textarea--show-indicator": this.props.max && this.props.max / this.state.value.length < 2,
+      "Textarea--highlight-indicator": this.state.highlightIndicator
     });
     return (
       <div style={this.props.style} className={clazz}>
@@ -53,13 +59,16 @@ export default class Textarea extends Component {
         <textarea
           onFocus={this.onFocus}
           onBlur={this.onBlur}
-          ref={c => (this.textarea = c)}
+          ref={(c) => (this.textarea = c)}
           className="Textarea__field"
           value={this.state.value}
           type="text"
           onChange={this.handleChange}
           rows="1"
         />
+        <div className="Textarea__indicator">
+          {this.state.value.length} / {this.props.max}
+        </div>
       </div>
     );
   }
@@ -67,5 +76,6 @@ export default class Textarea extends Component {
 
 Textarea.defaultProps = {
   onChange: () => {},
-  initValue: ""
+  initValue: "",
+  max: 0
 };

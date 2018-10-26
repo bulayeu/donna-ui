@@ -11,5 +11,6 @@ storiesOf("Inputs", module)
   .add("textarea", () => (
     <section className="story">
       <Textarea initValue="Initial" placeholder="TEXT" />
+      <Textarea max={50} initValue="Initial" placeholder="MAX 50" />
     </section>
   ));
