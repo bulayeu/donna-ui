@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+     <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-254.000000, -186.000000)">
+        <g id="checked" transform="translate(254.000000, 186.000000)">
+            <rect id="Rectangle-20" fill="#32BAFA" x="0" y="0" width="12" height="12" rx="2"></rect>
+            <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="4.81666667 7.48333333 2.7 5.36666667 2 6.06666667 4.81666667 8.9 10 3.71666667 9.3 3"></polygon>
+        </g>
+    </g>
+</svg>

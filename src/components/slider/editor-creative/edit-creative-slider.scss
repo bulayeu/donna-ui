@@ -1,0 +1,56 @@
+.edit-creative-slider {
+
+    height: 70px;
+    width: 70%;
+
+    .promo-slider {
+      margin-top: 15px;
+    }
+
+    .slider-title {
+      color: #858990;
+      font-family: "Proxima Nova";
+      font-size: 16px;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    .percentage-text {
+      color: #D0D0D0;
+      font-family: "Proxima Nova";
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .rc-slider-handle {
+        background: #32BAFA;
+        border: 0 !important;
+        width: 14px;
+        height: 14px;
+        margin-top: -5px;
+      }
+
+      .rc-slider-step {
+        background: #D8D9DC;
+        height: 2px;
+      }
+
+      .rc-slider-dot-active {
+        border-color: #D8D9DC;
+        background: #D8D9DC;
+      }
+
+      .rc-slider-rail {
+        height: 2px;
+        box-shadow: none;
+      }
+
+      .rc-slider-track {
+        background-color: inherit;
+      }
+
+      .rc-slider-handle:focus {
+          box-shadow: none;
+      }
+
+}

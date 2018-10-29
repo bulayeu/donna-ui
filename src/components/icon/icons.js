@@ -14,6 +14,8 @@ import avatar from "../../assets/icon/avatar.svg";
 import add from "../../assets/icon/add.svg";
 import alert from "../../assets/icon/alert.svg";
 import selected from "../../assets/icon/selected.svg";
+import checked from "../../assets/icon/checked.svg";
+import unchecked from "../../assets/icon/unchecked.svg";
 import arrow from "../../assets/icon/arrow.svg";
 import arrow_back from "../../assets/icon/arrow_back.svg";
 
@@ -30,7 +32,9 @@ const icons = {
     alert,
     selected,
     arrow,
-    arrow_back
+    arrow_back,
+    checked,
+    unchecked
 };
 
 export default icons;

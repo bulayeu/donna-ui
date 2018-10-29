@@ -22,7 +22,9 @@ const small_icons = [
   "alert",
   "selected",
   "arrow",
-  "arrow_back"
+  "arrow_back",
+  "checked",
+  "unchecked"
 ];
 
 const Grid = Layout.Grid;
