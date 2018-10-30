@@ -15,6 +15,10 @@ export default class SocialCheckbox extends Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.selected !== this.props.selected) this.setState({ selected: this.props.selected })
+  }
+
   select = () => {
     const selected = !this.state.selected;
     this.setState({ selected });

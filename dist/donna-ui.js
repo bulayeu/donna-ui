@@ -1805,6 +1805,11 @@ var SocialCheckbox = function (_Component) {
   }
 
   createClass(SocialCheckbox, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.selected !== this.props.selected) this.setState({ selected: this.props.selected });
+    }
+  }, {
     key: "render",
     value: function render() {
       var clazz = classnames("SocialCheckbox", {
