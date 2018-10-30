@@ -1916,8 +1916,8 @@ var Tabs = function (_Component) {
       return function () {
         if (_this.state.selectedIndex === selectedIndex) return;
         _this.tabs.classList.add("Tabs--switch");
-        _this.props.tabOpened(_this.props.tabs[selectedIndex]);
-        setTimeout(function () {
+        _this.props.tabOpened(_this.props.tabs[_this.state.selectedIndex]);
+        _this.timeout = setTimeout(function () {
           _this.setState({ selectedIndex: selectedIndex }, function () {
             _this.tabs.classList.remove("Tabs--switch");
           });
@@ -1971,6 +1971,11 @@ var Tabs = function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.tabOpened(this.props.tabs[this.state.selectedIndex]);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearTimeout(this.timeout);
     }
   }, {
     key: "render",

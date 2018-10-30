@@ -18,11 +18,15 @@ export default class Tabs extends Component {
     this.props.tabOpened(this.props.tabs[this.state.selectedIndex]);
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
+  }
+
   openTab = selectedIndex => () => {
     if (this.state.selectedIndex === selectedIndex) return;
     this.tabs.classList.add("Tabs--switch");
-    this.props.tabOpened(this.props.tabs[selectedIndex]);
-    setTimeout(() => {
+    this.props.tabOpened(this.props.tabs[this.state.selectedIndex]);
+    this.timeout = setTimeout(() => {
       this.setState({ selectedIndex }, () => {
         this.tabs.classList.remove("Tabs--switch");
       });
