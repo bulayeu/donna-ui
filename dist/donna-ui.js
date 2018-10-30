@@ -1916,7 +1916,7 @@ var Tabs = function (_Component) {
       return function () {
         if (_this.state.selectedIndex === selectedIndex) return;
         _this.tabs.classList.add("Tabs--switch");
-        _this.props.tabOpened(_this.props.tabs[_this.state.selectedIndex]);
+        _this.props.tabOpened(_this.props.tabs[selectedIndex]);
         _this.timeout = setTimeout(function () {
           _this.setState({ selectedIndex: selectedIndex }, function () {
             _this.tabs.classList.remove("Tabs--switch");
