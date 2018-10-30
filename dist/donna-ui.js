@@ -1859,7 +1859,7 @@ var Modal = function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.setState({ open: true });
-      this.exposeAPI({
+      this.props.exposeAPI({
         close: this.close
       });
     }

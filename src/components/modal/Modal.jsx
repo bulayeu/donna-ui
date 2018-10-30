@@ -22,7 +22,7 @@ export default class Modal extends Component {
 
   componentDidMount() {
     this.setState({open: true});
-    this.exposeAPI({
+    this.props.exposeAPI({
       close: this.close
     });
   }
