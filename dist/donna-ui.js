@@ -1180,7 +1180,7 @@ var Label = function (_Component) {
   return Label;
 }(React.Component);
 
-var css$6 = ".Button{box-sizing:border-box;display:inline-block;text-decoration:none;appearance:none;border-width:1px;border-style:solid;cursor:pointer;width:auto;transition:all .2s;border-radius:4px}.Button+.Button{margin-left:10px}.Button:focus{outline:0}.Button.Button--sm{height:32px;padding-left:12px;padding-right:12px}.Button.Button--sm>.Button__content>.Label{line-height:30px;font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}.Button.Button--md{height:40px;padding-left:15px;padding-right:15px}.Button.Button--md>.Button__content>.Label{line-height:38px;font-size:16px;font-weight:400}.Button.Button--lg{height:58px;padding-left:22px;padding-right:22px}.Button.Button--lg>.Button__content>.Label{line-height:56px;font-size:18px;font-weight:400;text-transform:uppercase;letter-spacing:1px}.Button .Button__content{display:flex;justify-content:center;align-items:center}.Button .Button__content>.Icon{position:relative;top:-2px;margin-right:10px}.Button.Button--link{padding:0;min-height:auto}.Button.Button--blue{color:#fff;border-color:#32bafa;background-color:#32bafa}.Button.Button--blue:focus,.Button.Button--blue:hover{background-color:rgba(50,186,250,.75);border-color:rgba(50,186,250,.75)}.Button.Button--outline-gray{color:#93989f;border-color:#93989f;background-color:transparent}.Button.Button--outline-gray:focus,.Button.Button--outline-gray:hover{background-color:#f6f6f6}.Button.Button--gray{color:#93989f;border-color:#e0e1e3;background-color:#e0e1e3}.Button.Button--gray:focus,.Button.Button--gray:hover{border-color:#5a646e;color:#5a646e}.Button.Button--transparent-blue{color:#32bafa;border-color:transparent;background-color:transparent}.Button.Button--transparent-blue:focus,.Button.Button--transparent-blue:hover{background-color:#f9f9f9}.Button.Button--transparent-gray{color:#93989f;border-color:transparent;background-color:transparent}.Button.Button--transparent-dark-gray{color:#5a646e;border-color:transparent;background-color:transparent}.Button.Button--pink{color:#fff;border-color:#ed486f;background-color:#ed486f}.Button.Button--pink:focus,.Button.Button--pink:hover{background-color:#ea2855}.Button.Button--block{width:100%}.Button[disabled]{cursor:not-allowed}.Button[href]:active,.Button[href]:focus,.Button[href]:visited{text-decoration:none}.Button.Button--bold{font-weight:semibold!important}";
+var css$6 = ".Button{box-sizing:border-box;display:inline-block;text-decoration:none;appearance:none;border-width:1px;border-style:solid;cursor:pointer;width:auto;transition:all .2s;border-radius:4px}.Button+.Button{margin-left:10px}.Button:focus{outline:0}.Button.Button--sm{height:32px;padding-left:12px;padding-right:12px}.Button.Button--sm>.Button__content>.Label{line-height:30px;font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}.Button.Button--md{height:40px;padding-left:15px;padding-right:15px}.Button.Button--md>.Button__content>.Label{line-height:38px;font-size:16px;font-weight:400}.Button.Button--lg{height:58px;padding-left:22px;padding-right:22px}.Button.Button--lg>.Button__content>.Label{line-height:56px;font-size:18px;font-weight:400;text-transform:uppercase;letter-spacing:1px}.Button .Button__content{display:flex;justify-content:center;align-items:center}.Button .Button__content>.Icon{position:relative;top:-2px;margin-right:10px}.Button.Button--link{padding:0;min-height:auto}.Button.Button--blue{color:#fff;border-color:#32bafa;background-color:#32bafa}.Button.Button--blue:focus,.Button.Button--blue:hover{background-color:rgba(50,186,250,.75);border-color:rgba(50,186,250,.75)}.Button.Button--outline-gray{color:#93989f;border-color:#93989f;background-color:transparent}.Button.Button--outline-gray:focus,.Button.Button--outline-gray:hover{background-color:#f6f6f6}.Button.Button--gray{color:#93989f;border-color:#e0e1e3;background-color:#e0e1e3}.Button.Button--gray:focus,.Button.Button--gray:hover{border-color:#5a646e;color:#5a646e}.Button.Button--transparent-blue{color:#32bafa;border-color:transparent;background-color:transparent}.Button.Button--transparent-blue:focus,.Button.Button--transparent-blue:hover{background-color:#f9f9f9}.Button.Button--transparent-gray{color:#93989f;border-color:transparent;background-color:transparent}.Button.Button--transparent-dark-gray{color:#5a646e;border-color:transparent;background-color:transparent}.Button.Button--pink{color:#fff;border-color:#ed486f;background-color:#ed486f}.Button.Button--pink:focus,.Button.Button--pink:hover{background-color:#ea2855}.Button.Button--block{width:100%}.Button[disabled]{cursor:not-allowed}.Button[href]:active,.Button[href]:focus,.Button[href]:visited{text-decoration:none}.Button.Button--bold{font-weight:600!important}";
 styleInject(css$6);
 
 var Button = function (_Component) {
@@ -1859,6 +1859,9 @@ var Modal = function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.setState({ open: true });
+      this.exposeAPI({
+        close: this.close
+      });
     }
   }, {
     key: "render",
@@ -1872,7 +1875,7 @@ var Modal = function (_Component) {
         { className: clazz },
         React__default.createElement(
           "div",
-          { className: "Modal__window" },
+          { className: "Modal__window", style: this.props.style },
           this.props.showCloseButton && React__default.createElement(IconButton, { onClick: this.close, size: "md", icon: "close" }),
           React__default.createElement(
             "div",
@@ -1887,8 +1890,11 @@ var Modal = function (_Component) {
 }(React.Component);
 
 
+var noop = function noop() {};
+
 Modal.defaultProps = {
-  showCloseButton: true
+  showCloseButton: true,
+  exposeAPI: noop
 };
 
 var css$11 = ".Tabs .Tab__bar{display:flex;flex-direction:row;height:auto;width:100%}.Tabs .Tab__bar .Tab__nav{transition:all .2s;border-bottom:2px solid transparent;margin-right:40px;width:auto;cursor:pointer}.Tabs .Tab__bar .Tab__nav:hover{border-bottom:2px solid #32bafa}.Tabs .Tab__bar .Tab__nav>.Header{transition:all .2s;color:#93989f;width:auto}.Tabs .Tab__bar .Tab__nav.Tab__nav--active{border-bottom:2px solid #32bafa}.Tabs .Tab__bar .Tab__nav.Tab__nav--active>.Header{color:#232e3b}.Tabs .Tab__content{transition:all .2s;padding-top:10px;opacity:1;transform:translateY(0)}.Tabs.Tabs--switch .Tab__content{opacity:0;transform:translateY(20px)}";
@@ -6480,7 +6486,7 @@ function getKeyboardValueMutator(e) {
   }
 }
 
-function noop() {}
+function noop$1() {}
 
 function createSlider(Component) {
   var _class, _temp;
@@ -6747,12 +6753,12 @@ function createSlider(Component) {
           {
             ref: this.saveSlider,
             className: sliderClassName,
-            onTouchStart: disabled ? noop : this.onTouchStart,
-            onMouseDown: disabled ? noop : this.onMouseDown,
-            onMouseUp: disabled ? noop : this.onMouseUp,
-            onKeyDown: disabled ? noop : this.onKeyDown,
-            onFocus: disabled ? noop : this.onFocus,
-            onBlur: disabled ? noop : this.onBlur,
+            onTouchStart: disabled ? noop$1 : this.onTouchStart,
+            onMouseDown: disabled ? noop$1 : this.onMouseDown,
+            onMouseUp: disabled ? noop$1 : this.onMouseUp,
+            onKeyDown: disabled ? noop$1 : this.onKeyDown,
+            onFocus: disabled ? noop$1 : this.onFocus,
+            onBlur: disabled ? noop$1 : this.onBlur,
             style: style
           },
           React__default.createElement('div', {
@@ -6777,7 +6783,7 @@ function createSlider(Component) {
           handles,
           React__default.createElement(Marks, {
             className: prefixCls + '-mark',
-            onClickLabel: disabled ? noop : this.onClickMarkLabel,
+            onClickLabel: disabled ? noop$1 : this.onClickMarkLabel,
             vertical: vertical,
             marks: marks,
             included: included,
@@ -6834,9 +6840,9 @@ function createSlider(Component) {
       return React__default.createElement(Handle, _extends$2({}, restProps, { key: index }));
     },
 
-    onBeforeChange: noop,
-    onChange: noop,
-    onAfterChange: noop,
+    onBeforeChange: noop$1,
+    onChange: noop$1,
+    onAfterChange: noop$1,
     included: true,
     disabled: false,
     dots: false,
@@ -10449,7 +10455,7 @@ function getChildrenFromProps(props) {
   return children;
 }
 
-function noop$1() {}
+function noop$2() {}
 
 var Animate = function (_React$Component) {
   _inherits(Animate, _React$Component);
@@ -10689,10 +10695,10 @@ Animate.defaultProps = {
   transitionEnter: true,
   transitionLeave: true,
   transitionAppear: false,
-  onEnd: noop$1,
-  onEnter: noop$1,
-  onLeave: noop$1,
-  onAppear: noop$1
+  onEnd: noop$2,
+  onEnter: noop$2,
+  onLeave: noop$2,
+  onAppear: noop$2
 };
 
 var _initialiseProps = function _initialiseProps() {
@@ -11186,7 +11192,7 @@ var _initialiseProps$1 = function _initialiseProps() {
   };
 };
 
-function noop$2() {}
+function noop$3() {}
 
 function returnEmptyString() {
   return '';
@@ -11627,9 +11633,9 @@ Trigger.defaultProps = {
   prefixCls: 'rc-trigger-popup',
   getPopupClassNameFromAlign: returnEmptyString,
   getDocument: returnDocument,
-  onPopupVisibleChange: noop$2,
-  afterPopupVisibleChange: noop$2,
-  onPopupAlign: noop$2,
+  onPopupVisibleChange: noop$3,
+  afterPopupVisibleChange: noop$3,
+  onPopupAlign: noop$3,
   popupClassName: '',
   mouseEnterDelay: 0,
   mouseLeaveDelay: 0.1,

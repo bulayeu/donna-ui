@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./modal.scss";
 
 import cn from "classnames";
@@ -21,7 +21,10 @@ export default class Modal extends Component {
   };
 
   componentDidMount() {
-    this.setState({ open: true });
+    this.setState({open: true});
+    this.exposeAPI({
+      close: this.close
+    });
   }
 
   render() {
@@ -31,7 +34,7 @@ export default class Modal extends Component {
     });
     return (
       <div className={clazz}>
-        <div className="Modal__window">
+        <div className="Modal__window" style={this.props.style}>
           {this.props.showCloseButton && (
             <IconButton onClick={this.close} size="md" icon="close" />
           )}
@@ -42,6 +45,9 @@ export default class Modal extends Component {
   }
 }
 
+const noop = () => {};
+
 Modal.defaultProps = {
-  showCloseButton: true
+  showCloseButton: true,
+  exposeAPI: noop
 };
