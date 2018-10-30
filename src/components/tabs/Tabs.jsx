@@ -21,7 +21,7 @@ export default class Tabs extends Component {
   openTab = selectedIndex => () => {
     if (this.state.selectedIndex === selectedIndex) return;
     this.tabs.classList.add("Tabs--switch");
-    this.props.tabOpened(this.props.tabs[this.state.selectedIndex]);
+    this.props.tabOpened(this.props.tabs[selectedIndex]);
     setTimeout(() => {
       this.setState({ selectedIndex }, () => {
         this.tabs.classList.remove("Tabs--switch");
