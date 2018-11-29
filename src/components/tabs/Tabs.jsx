@@ -24,13 +24,15 @@ export default class Tabs extends Component {
 
   openTab = selectedIndex => () => {
     if (this.state.selectedIndex === selectedIndex) return;
-    this.tabs.classList.add("Tabs--switch");
-    this.props.tabOpened(this.props.tabs[selectedIndex]);
-    this.timeout = setTimeout(() => {
-      this.setState({ selectedIndex }, () => {
-        this.tabs.classList.remove("Tabs--switch");
-      });
-    }, 200);
+    if (this.props.tabSwitchCondition(this.props.tabs[selectedIndex])) {
+      this.tabs.classList.add("Tabs--switch");
+      this.props.tabOpened(this.props.tabs[selectedIndex]);
+      this.timeout = setTimeout(() => {
+        this.setState({ selectedIndex }, () => {
+          this.tabs.classList.remove("Tabs--switch");
+        });
+      }, 200);
+    }
   };
 
   renderTabContent = () => {
@@ -77,5 +79,6 @@ export default class Tabs extends Component {
 }
 
 Tabs.defaultProps = {
-  tabOpened: () => {}
+  tabOpened: () => {},
+  tabSwitchCondition: () => { return true },
 };

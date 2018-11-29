@@ -15,6 +15,7 @@ export default class Modal extends Component {
   }
 
   close = () => {
+    this.props.onClose();
     this.setState({
       open: false
     });
@@ -49,5 +50,6 @@ const noop = () => {};
 
 Modal.defaultProps = {
   showCloseButton: true,
-  exposeAPI: noop
+  exposeAPI: noop,
+  onClose: noop
 };

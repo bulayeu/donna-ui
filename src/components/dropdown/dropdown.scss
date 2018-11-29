@@ -1,0 +1,99 @@
+.dropdown-component {
+  position: relative;
+  .drop-down-container {
+    color: #252e3b;
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    line-height: 20px;
+    display: inline;
+    padding: 10px 0px 0px 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 11px 0;
+  }
+
+  .drop-down-items {
+    position: absolute;
+    z-index: 100;
+    width: 160px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);
+    margin-top: 5px;
+    padding: 5px 14px 5px 14px;
+    box-sizing: border-box;
+    right: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.4s opacity ease-out;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -20px;
+      height: 20px;
+      width: 100%;
+      right: 0;
+      cursor: pointer;
+    }
+  }
+
+  &:hover .drop-down-items {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .drop-down-item {
+    color: #8f8f8f;
+    font-family: "Proxima Nova";
+    font-size: 14px;
+    line-height: 30px;
+    transition: 0.4s color;
+    cursor: pointer;
+  }
+
+  .drop-down-item:hover {
+    color: #252e3b;
+  }
+
+  .v-hide {
+    display: none !important;
+  }
+
+  .v-show {
+    height: 8px;
+    display: inline-block;
+    margin-top: 9px;
+    width: 11px;
+    background-repeat: no-repeat;
+    background-image: image-url("promoVideos/selected.png");
+    color: #252e3b;
+    right: 16px;
+    position: absolute;
+  }
+
+  .drop-down-selected-item {
+    cursor: default;
+    pointer-events: none;
+    color: #232f3a;
+  }
+
+  .drop-down-arrow {
+    margin-left: 13px;
+    height: 10px;
+    display: inline-block;
+    margin-top: 7px;
+    width: 10px;
+    background-repeat: no-repeat;
+    color: #252e3b;
+    background-position: center;
+    background-image: image-url("promoVideos/library-search/Triangle.svg");
+    transition: 0.3s transform ease-out;
+  }
+
+  &:hover .drop-down-arrow {
+    transform: rotate(180deg);
+  }
+}
