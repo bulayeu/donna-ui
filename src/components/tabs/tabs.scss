@@ -6,10 +6,12 @@
     flex-direction: row;
     height: auto;
     width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid $BRAND_COLOR_DARK_BLUE_25;
     .Tab__nav {
       transition: all 0.2s;
       border-bottom: 2px solid transparent;
-      margin-right: $BASE * 8;
+      margin-right: $BASE * 10;
       width: auto;
       cursor: pointer;
       &:hover {
@@ -19,6 +21,8 @@
         transition: all 0.2s;
         color: $BRAND_COLOR_DARK_BLUE_50;
         width: auto;
+        margin-top: $BASE * 5;
+        margin-bottom: $BASE * 5;
       }
       &.Tab__nav--active {
         & > .Header {

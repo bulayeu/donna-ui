@@ -5,6 +5,7 @@
   font-size: 14px;
   margin-top: $BASE * 2;
   margin-bottom: $BASE * 2;
+  position: relative;
 
   &.Input--block {
     width: 100%;
@@ -19,9 +20,14 @@
     -moz-appearance: none;
 
     font-family: inherit;
-    font-size: 1em;
+    font-size: 14px;
     padding: 0px;
-    font-weight: 600;
+    font-weight: $FONT_WEIGHT_REGULAR;
+    &::placeholder {
+      color: $BRAND_COLOR_DARK_BLUE_25;
+      pointer-events: none;
+      font-weight: $FONT_WEIGHT_REGULAR;
+    }
   }
 
   .Input__field:focus {
@@ -32,25 +38,25 @@
     display: block;
     box-sizing: border-box;
     width: 100%;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: $BASE;
+    padding-bottom: $BASE;
     line-height: 20px;
   }
 
   .Input__label {
-    color: $BRAND_COLOR_GRAY;
+    color: $BRAND_COLOR_DARK_BLUE;
     pointer-events: none;
     transition: 0.2s all;
-    transform: translateY(22px);
+    font-weight: $FONT_WEIGHT_BOLD;
+    padding-top: $BASE;
+    padding-bottom: $BASE;
   }
-
-  &.Input--focus,
+  
   &.Input--has-value {
-    .Input__label {
-      color: $BRAND_COLOR_DARK_BLUE;
-      transform: translateY(0px);
+    .Input__placeholder {
+      display: none;
     }
   }
 
-  border-bottom: 1px dashed $BRAND_COLOR_DARK_BLUE;
+  border-bottom: 1px solid $BRAND_COLOR_DARK_BLUE_25;
 }

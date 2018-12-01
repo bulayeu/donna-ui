@@ -37,7 +37,7 @@ export default class Input extends Component {
     return (
       <div style={this.props.style} className={clazz}>
         <div className="Input__label">
-          <Label>{this.props.placeholder}</Label>
+          <Label>{this.props.label}</Label>
         </div>
         <input
           type="text" 
@@ -48,6 +48,7 @@ export default class Input extends Component {
           ref={c => (this.input = c)}
           value={this.state.value}
           onChange={this.handleChange}
+          placeholder={this.props.placeholder}
         />
       </div>
     );

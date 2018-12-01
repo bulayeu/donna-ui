@@ -16,6 +16,7 @@
     width: 100%;
     padding: 0px;
     resize: none;
+    font-weight: $FONT_WEIGHT_SEMIBOLD;
     background-color: transparent;
     border-radius: 0;
     border: none;
@@ -23,10 +24,15 @@
     -moz-appearance: none;
     font-family: inherit;
     font-size: 1em;
-    border-bottom: 1px dashed $BRAND_COLOR_DARK_BLUE;
+    border-bottom: 1px solid $BRAND_COLOR_DARK_BLUE_25;
     max-height: $BASE * 20;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding-top: $BASE;
+    padding-bottom: $BASE;
+    &::placeholder {
+      color: $BRAND_COLOR_DARK_BLUE_25;
+      pointer-events: none;
+      font-weight: $FONT_WEIGHT_REGULAR;
+    }
   }
 
   .Textarea__field:focus {
@@ -34,10 +40,11 @@
   }
 
   .Textarea__label {
-    color: $BRAND_COLOR_GRAY;
+    color: $BRAND_COLOR_DARK_BLUE_25;
     pointer-events: none;
     transition: 0.2s all;
-    transform: translateY(22px);
+    font-weight: $FONT_WEIGHT_BOLD;
+    transform: translateY(26px);
   }
 
   &.Textarea--focus,
@@ -56,7 +63,7 @@
     color: $BRAND_COLOR_DARK_BLUE_15;
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;  
+    pointer-events: none;
     transition: all 0.2s;
     user-select: none;
     transform: scale(1);

@@ -33,7 +33,7 @@
     width: auto;
     position: relative;
     & > .IconButton {
-      position: absolute;
+      position: fixed;
       right: $BASE * 4;
       top: $BASE * 4;
     }

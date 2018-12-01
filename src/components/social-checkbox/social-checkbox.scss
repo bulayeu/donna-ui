@@ -1,3 +1,5 @@
+@import "../vars.scss";
+
 .SocialCheckbox {
   display: inline-block;
   overflow: hidden;
@@ -11,11 +13,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    & > .Icon {
+    & > .SocialCheckbox__connected {
       transition: all 0.2s;
-      visibility: hidden;
-      opacity: 0;
-      transform: scale(0.5);
+      color: $BRAND_COLOR_BLUE;
     }
     & > .Label {
       width: 100%;
@@ -28,10 +28,8 @@
     }
   }
   &.SocialCheckbox--selected {
-    .SocialCheckbox__content > .Icon {
-      visibility: visible;
-      opacity: 1;
-      transform: scale(1);
+    .SocialCheckbox__connected {
+      opacity: 0.5;
     }
   }
 }

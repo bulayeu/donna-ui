@@ -54,7 +54,7 @@ export default class Textarea extends Component {
     return (
       <div style={this.props.style} className={clazz}>
         <div className="Textarea__label">
-          <Label>{this.props.placeholder}</Label>
+          <Label>{this.props.label}</Label>
         </div>
         <textarea
           onFocus={this.onFocus}
@@ -65,6 +65,7 @@ export default class Textarea extends Component {
           type="text"
           onChange={this.handleChange}
           rows="1"
+          placeholder={this.props.placeholder}
         />
         <div className="Textarea__indicator">
           {this.state.value.length} / {this.props.max}
