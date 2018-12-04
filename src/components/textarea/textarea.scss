@@ -3,8 +3,8 @@
 .Textarea {
   display: inline-block;
   font-size: 14px;
-  margin-top: $BASE * 2;
-  margin-bottom: $BASE * 2;
+  margin-top: 0;
+  margin-bottom: $BASE * 4;
   position: relative;
 
   &.Textarea--block {
@@ -40,19 +40,10 @@
   }
 
   .Textarea__label {
-    color: $BRAND_COLOR_DARK_BLUE_25;
+    color: $BRAND_COLOR_DARK_BLUE;
     pointer-events: none;
     transition: 0.2s all;
     font-weight: $FONT_WEIGHT_BOLD;
-    transform: translateY(26px);
-  }
-
-  &.Textarea--focus,
-  &.Textarea--has-value {
-    .Textarea__label {
-      color: $BRAND_COLOR_DARK_BLUE;
-      transform: translateY(0px);
-    }
   }
 
   .Textarea__indicator {

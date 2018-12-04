@@ -5,7 +5,7 @@
   overflow: hidden;
   cursor: pointer;
   width: auto;
-  .SocialCheckbox--block {
+  &.SocialCheckbox--block {
     width: 100%;
   }
   .SocialCheckbox__content {
@@ -14,22 +14,29 @@
     align-items: center;
     justify-content: space-between;
     & > .SocialCheckbox__connected {
-      transition: all 0.2s;
       color: $BRAND_COLOR_BLUE;
     }
     & > .Label {
       width: 100%;
       white-space: nowrap;
       text-align: left;
+      font-weight: $FONT_WEIGHT_SEMIBOLD;
     }
     & > * {
       margin-right: 10px;
       user-select: none;
     }
   }
+  .Icon, .SocialCheckbox__connected {
+    transition: all 0.2s;
+    opacity: 0.5;
+  }
   &.SocialCheckbox--selected {
     .SocialCheckbox__connected {
-      opacity: 0.5;
+      opacity: 1;
+    }
+    .Icon {
+      opacity: 1;
     }
   }
 }

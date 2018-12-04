@@ -36,7 +36,7 @@ export default class SocialCheckbox extends Component {
           <Avatar url={this.props.avatar} />
           <Label>{this.props.label}</Label>
           <span className="SocialCheckbox__connected">
-            {this.state.selected ? "Connect" : "Connected"}
+            {this.state.selected ? "Connected" : "Connect"}
           </span>
           <Icon icon="selected" />
         </div>

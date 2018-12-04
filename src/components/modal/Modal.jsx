@@ -33,13 +33,16 @@ export default class Modal extends Component {
       "Modal--transparent": this.props.transparent,
       "Modal--open": this.state.open
     });
+    const { footer, header } = this.props;
     return (
       <div className={clazz}>
+        {this.props.showCloseButton && (
+          <IconButton onClick={this.close} size="md" icon="close" />
+        )}
         <div className="Modal__window" style={this.props.style}>
-          {this.props.showCloseButton && (
-            <IconButton onClick={this.close} size="md" icon="close" />
-          )}
-          <div className="Modal__content">{this.props.children}</div>
+          <div className="Modal__content">
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

@@ -3,8 +3,8 @@
 .Input {
   display: inline-block;
   font-size: 14px;
-  margin-top: $BASE * 2;
-  margin-bottom: $BASE * 2;
+  margin-top: 0;
+  margin-bottom: $BASE * 4;
   position: relative;
 
   &.Input--block {
@@ -51,7 +51,7 @@
     padding-top: $BASE;
     padding-bottom: $BASE;
   }
-  
+
   &.Input--has-value {
     .Input__placeholder {
       display: none;

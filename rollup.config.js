@@ -13,9 +13,12 @@ export default {
     format: "umd",
     name: `${MODULE_NAME}`,
     sourcemap: false,
+    external: ["React", "ReactDOM", "classnames", "prop-types"],
     globals: {
       react: "React",
-      "react-dom": "ReactDOM"
+      "react-dom": "ReactDOM",
+      'classnames': 'classnames',
+      'prop-types': 'prop-types'
     }
   },
 

@@ -8,7 +8,8 @@
 // PRICING ICONS
 
 // SMALL ICONS
-import close from "../../assets/icon/close.svg";
+// import close from "../../assets/icon/close.svg";
+import close from "../../assets/icon/close_white.svg";
 // import pen from "../../assets/icon/pen.svg";
 // import avatar from "../../assets/icon/avatar.svg";
 // import add from "../../assets/icon/add.svg";
